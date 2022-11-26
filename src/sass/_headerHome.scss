@@ -1,0 +1,89 @@
+.header {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  max-width: 480px;
+  height: 230px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 40px 20px 92px 20px;
+  background-size: 480px 230px;
+  background-image: url(../images/headerHome/Mob.jpg);
+  background-size: cover;
+
+  @media (min-device-pixel-ratio: 2),
+    (min-resolution: 192dpi),
+    (min-resolution: 2dppx) {
+    background-image: url(../images/headerHome/Mob@2x.jpg);
+  }
+
+  @media screen and (min-width: 768px) {
+    max-width: 768px;
+    height: 216px;
+    background-size: 768px 216px;
+    padding: 40px 32px 80px 32px;
+    background-image: url(../images/headerHome/Tablet.jpg);
+    @media (min-device-pixel-ratio: 2),
+      (min-resolution: 192dpi),
+      (min-resolution: 2dppx) {
+      background-image: url(../images/headerHome/Tablet@2x.jpg);
+    }
+  }
+
+  @media screen and (min-width: 1200px) {
+    max-width: 1600px;
+    height: 216px;
+    background-size: 1600px 216px;
+    background-image: url(../images/headerHome/Desktop.jpg);
+    background-size: cover;
+    @media (min-device-pixel-ratio: 2),
+      (min-resolution: 192dpi),
+      (min-resolution: 2dppx) {
+      background-image: url(../images/headerHome/Desktop@2x.jpg);
+    }
+  }
+}
+
+.header__container {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.header__nav {
+  display: flex;
+}
+
+.header__search-thumb {
+  display: flex;
+  justify-content: center;
+}
+
+.header__link {
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.17;
+  color: #ffffff;
+}
+
+.header__item:not(:last-child) {
+  margin-right: 40px;
+}
+
+.header__text {
+  font-size: 30px;
+  @media screen and (max-width: 480px) {
+    display: none;
+  }
+}
+
+.list {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.icon-tape {
+  fill: rgba(255, 255, 255, 1);
+}
