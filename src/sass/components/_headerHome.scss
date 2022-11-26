@@ -50,16 +50,17 @@
   align-items: baseline;
 }
 
-.header__nav {
+.nav {
   display: flex;
 }
 
-.header__search-form {
+.search-form {
   display: flex;
   justify-content: center;
 }
 
-.header__link {
+.nav__link,
+.link {
   display: block;
   position: relative;
   text-decoration: none;
@@ -69,7 +70,7 @@
   color: #ffffff;
 }
 
-.header__link--current::after {
+.nav__link--current::after {
   position: absolute;
   left: 0px;
   bottom: -3px;
@@ -80,11 +81,11 @@
   background-color: #ff001b;
 }
 
-.header__item:not(:last-child) {
+.nav__item:not(:last-child) {
   margin-right: 40px;
 }
 
-.header__text {
+.logo__text {
   font-size: 30px;
   @media screen and (max-width: 480px) {
     display: none;
