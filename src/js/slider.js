@@ -1,25 +1,14 @@
 import Swiper, { Navigation, Pagination, Autoplay } from 'swiper';
+import { FetchMoviesApi } from './apiService'
 
-const API_KEY = '62f46feb65c2319fb0db62c2c080ca35';
-const URL = 'https://api.themoviedb.org';
 const refs = {
   slider: document.querySelector('.swiper-wrapper'),
 };
+const fetchMoviesApi = new FetchMoviesApi()
 
-async function fetchTrendingMovies() {
-  try {
-    const response = await fetch(
-      `${URL}/3/trending/all/day?api_key=${API_KEY}`
-    );
-    const data = response.json();
-    return data;
-  } catch (error) {
-    console.log(error);
-  }
-}
 
 export async function appendMovies() {
-  const data = await fetchTrendingMovies();
+  const data = await fetchMoviesApi.fetchTrendingMovies();
   const movies = data.results;
   const markup = movies.map(movie => createMarkUp(movie)).join('');
   console.log(movies);
@@ -28,9 +17,21 @@ export async function appendMovies() {
 
   const swiper = new Swiper('.swiper', {
     modules: [Navigation, Pagination, Autoplay],
+    breakpoints: {
+      340: {
+        slidesPerView:2,
+        spaceBetween:10,
+      },
+      768: {
+        slidesPerView: 4,
+        spaceBetween: 20
+      },
+      1200: {
+        slidesPerView: 6,
+        spaceBetween: 30
+      },
+    },
     loop: true,
-    slidesPerView: 7,
-    spaceBetween: 10,
     pagination: {
       el: '.swiper-pagination',
       clickable: true,
