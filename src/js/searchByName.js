@@ -24,11 +24,6 @@ async function onSubmit(event) {
   } catch (error) {
     console.log(error.message);
   }
-
-  // 'https://api.themoviedb.org/3/search/movie'
-
-  // CREATE MOVIECARD MARK-UP RENDER
-
   function createMovieCard(arrayOfMovies) {
     cardGalleryEl.innerHTML = '';
     console.log(arrayOfMovies);
@@ -59,9 +54,4 @@ async function onSubmit(event) {
     });
     cardGalleryEl.insertAdjacentHTML('beforeend', setOfCards.join(''));
   }
-
-  // fetchMovies(userRequest)
-  //   .then(data => {
-  //   console.log(data);
-  // })
 }

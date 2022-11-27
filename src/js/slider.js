@@ -11,8 +11,6 @@ export async function appendMovies() {
   const data = await fetchMoviesApi.fetchTrendingMovies();
   const movies = data.results;
   const markup = movies.map(movie => createMarkUp(movie)).join('');
-  console.log(movies);
-
   refs.slider.insertAdjacentHTML('beforeend', markup);
 
   const swiper = new Swiper('.swiper', {
