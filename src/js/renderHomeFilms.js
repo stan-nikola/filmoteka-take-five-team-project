@@ -1,12 +1,14 @@
-import { fetchMovies, fetchGernes } from './getHomeFilms';
+import { fetchHomeTrendingMovies, fetchGernes } from './apiService';
 
 export async function renderMovies() {
-  const dataMovies = await fetchMovies();
+  const dataMovies = await fetchHomeTrendingMovies();
   const dataGernes = await fetchGernes();
-  console.log('dataGernes', dataGernes);
-  console.log('dataMovies', dataMovies);
+  const gernessList = dataGernes.genres;
+  const moviesList = dataMovies.results;
 
-  const markup = dataMovies.results.map(movie => {
+  const movieInfo = dataMerge(moviesList, gernessList);
+
+  const markup = movieInfo.map(movie => {
     const {
       poster_path,
       original_title,
@@ -14,16 +16,16 @@ export async function renderMovies() {
       vote_average,
       id,
       genre_ids,
+      genres,
     } = movie;
-    // console.log(`
-    // <div>
-    //   <img src="https://image.tmdb.org/t/p/w500${poster_path}" alt="">
-    //   <p>title ${original_title}</p>
-    //   <p>date ${release_date.slice(0, 4)}</p>
-    //   <p>Vote ${vote_average}</p>
-    //   <p>Id ${id}</p>
-    //   <p>GERNE Ids ${genre_ids}</p>
-    // </div>
-    // `);
   });
 }
+
+const dataMerge = function (allMovies, allGenres) {
+  return allMovies.map(movie => ({
+    ...movie,
+    genres: movie.genre_ids.map(id => {
+      return allGenres.find(element => element.id === id)?.name;
+    }),
+  }));
+};
