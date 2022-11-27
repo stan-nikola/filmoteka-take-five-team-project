@@ -18,7 +18,7 @@ export async function appendMovies() {
   const swiper = new Swiper('.swiper', {
     modules: [Navigation, Pagination, Autoplay],
     breakpoints: {
-      340: {
+      280: {
         slidesPerView:2,
         spaceBetween:10,
       },
