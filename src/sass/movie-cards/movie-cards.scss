@@ -1,0 +1,135 @@
+
+
+
+
+.movie-cards-gallery {   
+  list-style: none;    
+  margin: 0;
+  padding: 20px;
+    // flex-basis: calc((100% - 60px) / 3);
+
+  @media screen and (min-width: 768px) {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 32px;
+    padding: 60px 32px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    column-gap: 16px;
+    row-gap: 32px;
+  }
+}
+
+
+.card-container {
+  width: 280px;
+  height: 443px;
+  margin-bottom: 20px;
+  outline: 2px solid red;
+
+  @media screen and (min-width: 768px) {
+    width: 336px;
+    height: 495px;
+    margin-bottom: 0;
+  }
+
+  @media screen and (min-width: 1280px) {
+    width: 395px;
+    height: 634px;
+  }
+}
+
+
+.image-wrapper {  
+  position: relative;
+  width: 280px;
+  height: 402px;
+  background-color: rgb(192, 188, 188);
+  z-index: -2;
+  border-radius: 5px;
+
+  @media screen and (min-width: 768px) {
+    width: 336px;
+    height: 455px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    width: 395px;
+    height: 574px;
+  }
+}
+
+
+.image-poster {
+  width: 280px;
+  height: 402px;
+  // outline: 2px solid black;
+  border-radius: 5px;
+
+  @media screen and (min-width: 768px) {
+    width: 336px;
+    height: 455px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    width: 395px;
+    height: 574px;
+  }
+}
+
+
+.no-poster {
+  position: absolute;
+  top: 130;
+  
+  width: 280px;
+  height: 402px;
+  text-align: center;
+
+  font-size: 40px;
+  color: gray;
+
+    z-index: -1;
+
+  @media screen and (min-width: 768px) {
+    top: 150;
+    width: 336px;
+    height: 455px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    top: 198;
+    width: 395px;
+    height: 574px;
+  }
+}
+
+
+.movie-data {
+  margin-top: 10px;
+  margin-bottom: 0;
+  
+  font-family: 'Roboto';
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 14px;
+  color: black;
+
+  @media screen and (min-width: 768px) {
+    margin-top: 8px;
+    line-height: 16px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    margin-top: 12px;
+    font-size: 20px;
+    line-height: 24px;
+  }
+}
+
+.genre-year {
+  line-height: 16px;
+          /* or 133% */
+  color: #FF6B08;
+}
