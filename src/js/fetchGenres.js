@@ -6,11 +6,7 @@ const URL_FOR_GENRES = 'https://api.themoviedb.org/3/movie';
 const BASE_URL = `https://api.themoviedb.org/3`;
 
 
-export default function XXX() {
 
-}
-
-// const array = 
 
 export default function fetchGenres(movieId) {
   console.log('movieId=', movieId);
@@ -32,38 +28,3 @@ export default function fetchGenres(movieId) {
   
 }
 
-
-// COPY++++++++++++++++++++++
-
-// export default function fetchGenres(movieId) {
-//   console.log('movieId=', movieId);
-
-//     return fetch(`${URL_FOR_GENRES}/${movieId}?api_key=${API_KEY}&append_to_response=genre_ids`)
-//     .then(response => response.json())
-//     .then(data => {
-//       // console.log(data);
-//       // console.log(data.genres);
-//       arrayOfGenres = data.genres.map(el => {
-//         console.log(el.name);  
-//         return el.name;
-//         });
-//         console.log(arrayOfGenres);
-
-
-//     });
-  
-
-// }
-
-
-
-// ++++++++++++++++++++++
-
-// export default function fetchGenres() {
-  
-//   return fetch(`${BASE_URL}/genre/movie/list?api_key=${API_KEY}`)
-//     .then(response => response.json())
-//     .then(data => {
-//       return data.genres;
-//     });
-// }
