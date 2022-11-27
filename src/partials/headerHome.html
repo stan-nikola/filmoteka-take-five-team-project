@@ -2,7 +2,7 @@
   <div class="header__container">
     <a class="logo link" href="./index.html">
       <svg class="logo__icon" width="24" height="24">
-        <use href="./images/headerHome/symbol-defs.svg#film-tape"></use>
+        <use href="./images/icons/icons.svg#icon-film"></use>
       </svg>
       <span class="logo__text">Filmoteka</span>
     </a>
@@ -17,12 +17,21 @@
       </ul>
     </nav>
   </div>
-  <form class="search-form">
-    <input class="search-form__input" type="text" placeholder="Movie search" />
-    <button class="search-form__btn" type="submit">
-      <svg class="search-form__icon" width="12" height="12">
-        <use href="./images/headerHome/symbol-defs.svg#search"></use>
-      </svg>
-    </button>
-  </form>
+  <div class="header__search-thumb">
+    <form class="search-form">
+      <input
+        class="search-form__input"
+        type="text"
+        placeholder="Movie search"
+      />
+      <button class="search-form__btn" type="submit">
+        <svg class="search-form__icon">
+          <use href="./images/icons/icons.svg#icon-search"></use>
+        </svg>
+      </button>
+    </form>
+    <p class="header__warning is-hidden">
+      Search result not successful. Enter the correct movie name and try again.
+    </p>
+  </div>
 </header>
