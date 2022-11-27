@@ -1,4 +1,5 @@
 <header class="header">
+
   <div class="header__container">
     <a class="logo link" href="./index.html">
       <svg class="logo__icon" width="24" height="24">
@@ -18,13 +19,9 @@
     </nav>
   </div>
   <div class="header__search-thumb">
-    <form class="search-form">
-      <input
-        class="search-form__input"
-        type="text"
-        placeholder="Movie search"
-      />
-      <button class="search-form__btn" type="submit">
+    <form class="search-form js-input-form " name="searchQuery">
+      <input class="search-form__input" type="text" placeholder="Movie search" />
+      <button class="search-form__btn js-submitBtn" type="submit">
         <svg class="search-form__icon">
           <use href="./images/icons/icons.svg#icon-search"></use>
         </svg>
@@ -34,4 +31,5 @@
       Search result not successful. Enter the correct movie name and try again.
     </p>
   </div>
+
 </header>
