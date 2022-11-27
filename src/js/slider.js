@@ -24,18 +24,14 @@ export async function appendMovies() {
       },
       768: {
         slidesPerView: 4,
-        spaceBetween: 20
+        spaceBetween: 15
       },
       1200: {
-        slidesPerView: 6,
-        spaceBetween: 30
+        slidesPerView: 7,
+        spaceBetween: 20
       },
     },
     loop: true,
-    pagination: {
-      el: '.swiper-pagination',
-      clickable: true,
-    },
     navigation: {
       nextEl: '.swiper-button-next',
       prevEl: '.swiper-button-prev',
@@ -47,10 +43,11 @@ export async function appendMovies() {
   });
 }
 
-function createMarkUp(movie) {
+function createMarkUp({poster_path, vote_average, original_title}) {
   return `
-  <div class="swiper-slide">
-    <img class="swiper-image" src="https://image.tmdb.org/t/p/w500${movie.backdrop_path}" alt="">
-  </div>
+  <li class="swiper-slide">
+    <span class="swiper-rating">${vote_average.toFixed(1)}</span>
+    <img class="swiper-image" src="https://image.tmdb.org/t/p/w500${poster_path}" alt="${original_title}">
+  </li>
   `;
 }
