@@ -1,8 +1,6 @@
 import { fetchMovies, fetchGenres } from './apiService';
 import { dataMerge } from './renderHomeFilms';
 
-
-
 let userRequest = '';
 
 const inputNameEl = document.querySelector('.js-submitBtn');
@@ -30,37 +28,32 @@ async function onSubmit(event) {
     const arrayOfMoviesWithGenres = dataMerge(arrayOfMovies, genresList);
     console.log(arrayOfMoviesWithGenres);
 
-
-
-// calling rendering function
+    // calling rendering function
     createMovieCard(arrayOfMoviesWithGenres);
-
   } catch (error) {
     console.log(error.message);
-  }  
+  }
 }
-  // function for rendering a card
-function createMovieCard(arrayOfMovies) {
+// function for rendering a card
+export function createMovieCard(arrayOfMovies) {
   cardGalleryEl.innerHTML = '';
 
+  const setOfCards = arrayOfMovies.map(element => {
+    const movieTitle = element.title.toUpperCase();
+    const moviePoster = 'https://image.tmdb.org/t/p/w500';
+    let movieGenres = element.genres.join(', ');
 
-    const setOfCards = arrayOfMovies.map(element => {
-    
-      const movieTitle = element.title.toUpperCase();
-      const moviePoster = 'https://image.tmdb.org/t/p/w500';
-      let movieGenres = element.genres.join(', ');
+    if (!(element.genres.length === 0) && !(element.release_date === '')) {
+      movieGenres = movieGenres + ' |';
+    }
 
-      if (!(element.genres.length === 0) && !(element.release_date === '')) {
-        movieGenres = movieGenres + ' |';
-      } 
-    
-      return `
+    return `
       <li class="card-container">
         <div class="image-wrapper">
         <p class="no-poster">NO POSTER</p>
         <img class="image-poster" src="${moviePoster}${
-        element.poster_path
-      }" alt="${element.title}"  />
+      element.poster_path
+    }" alt="${element.title}"  />
         </div>
         <p class="movie-data">
         ${movieTitle}  <br>
@@ -70,8 +63,7 @@ function createMovieCard(arrayOfMovies) {
         </span>
         </p>
       </li>`;
-    });
+  });
 
   cardGalleryEl.innerHTML = setOfCards.join('');
-
 }

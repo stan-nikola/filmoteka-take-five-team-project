@@ -1,8 +1,7 @@
 const API_KEY = '62f46feb65c2319fb0db62c2c080ca35';
 const BASE_URL = 'https://api.themoviedb.org';
-const BASE_URL_V3 = 'https://api.themoviedb.org/3/';
-const URL_FOR_FETCH_BY_NAME = 'https://api.themoviedb.org/3/search/movie';
 
+const URL_FOR_FETCH_BY_NAME = 'https://api.themoviedb.org/3/search/movie';
 
 export class FetchMoviesApi {
   constructor() {
@@ -33,7 +32,7 @@ export class FetchMoviesApi {
 export async function fetchHomeTrendingMovies() {
   try {
     const response = await fetch(
-      `${BASE_URL_V3}/trending/movie/day?api_key=${API_KEY}`
+      `${BASE_URL}/3/trending/movie/day?api_key=${API_KEY}`
     );
     const data = response.json();
     return data;
@@ -45,7 +44,7 @@ export async function fetchHomeTrendingMovies() {
 export async function fetchGenres() {
   try {
     const response = await fetch(
-      `${BASE_URL_V3}genre/movie/list?api_key=${API_KEY}`
+      `${BASE_URL}/3/genre/movie/list?api_key=${API_KEY}`
     );
     const dataGenres = response.json();
     return dataGenres;
@@ -54,11 +53,8 @@ export async function fetchGenres() {
   }
 }
 
-
 export function fetchMovies(inputtedName) {
-  return fetch(`${URL_FOR_FETCH_BY_NAME}?api_key=${API_KEY}&query=${inputtedName}`).then(
-    response => response.json()
-  );
+  return fetch(
+    `${URL_FOR_FETCH_BY_NAME}?api_key=${API_KEY}&query=${inputtedName}`
+  ).then(response => response.json());
 }
-
-
