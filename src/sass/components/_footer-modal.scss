@@ -1,0 +1,393 @@
+@media screen and (min-width: 320px) {
+
+.backdrop {
+width: 100%;
+height: 100%;
+
+padding: 20px;
+
+background-color: rgba(0, 0, 0, 0.2);
+
+position: fixed;
+top: 0;
+left: 0;
+
+z-index: 300;
+     
+        &.is-hidden {
+            opacity: 0;
+            pointer-events: none;
+
+        }
+
+        // &.is-hidden .footerModal {
+        //     transform: translateY(-50%);
+
+        // }
+
+}
+
+
+ .footerModal {
+position: absolute;
+top: 0;
+left: 0;
+
+// transform: translateY(50%);
+width: 280px;
+max-width: 100%;
+padding-top: 20px;
+padding-left: 20px;
+padding-right: 20px;
+padding-bottom: 40px;
+margin-left:auto;
+margin-right:auto;
+z-index: 35;
+
+background: white;
+border-radius: 3px;
+
+
+            // transition-property: transform;
+            // transition-duration: 6000ms;
+            // transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+
+
+}
+
+
+.modal-close__btn {
+position: relative;
+top: -10px;
+right: -215px;
+padding: 6px;
+
+border: 0px;
+background-color: white;
+fill: #000000;
+
+transition-property: fill;
+        transition-duration: 250ms;
+        transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+
+}
+
+.modal-close__btn:hover{
+
+fill: #FF6B08;
+}
+
+
+// .team__logo{
+
+// width: 50px;
+// margin: 0;
+// border-radius: 20px;
+
+// overflow: hidden;
+// }
+
+.team__name{
+display: block;
+margin-bottom: 20px;
+
+text-align: center;
+text-transform: uppercase;
+
+font-family: 'Roboto';
+font-style: normal;
+font-weight: 700;
+font-size: 20px;
+line-height: 23px;
+
+color: #FF6B08;
+
+}
+
+// // .team__sign{
+// // display: block;
+// // margin-bottom: 20px;
+
+// // text-align: center;
+
+// // font-family: 'Roboto';
+// // font-style: normal;
+// // font-weight: 500;
+// // font-size: 20px;
+// // line-height: 23px;
+
+// // color: #000000;
+// // }
+
+
+.teammate__card-list {
+border-radius: 5px;
+
+}
+
+.team__list-item {
+padding-bottom: 10px;
+border-radius: 5px;
+
+box-shadow: 0 2px 4px rgba(0, 0, 0, .25);
+
+overflow: hidden;
+margin-bottom: 30px;
+
+    &:last-child {
+
+    margin-bottom: 0;
+    
+    }
+
+}
+
+
+
+.img__thumb {
+max-width: 240px;
+height: auto;
+
+overflow: hidden;
+
+}
+
+
+.teammate__picture {
+width: 100%;
+height: auto;
+}
+
+.teammate__info {
+max-width: 240px;
+min-height: 120px;
+padding: 10px;
+
+}
+
+.info__thumb{
+display: flex;
+
+}
+
+.name{
+display: block;
+margin-bottom: 10px;
+margin-right: 10px;
+
+position: relative;
+
+font-family: 'Roboto';
+font-style: normal;
+font-weight: 500;
+font-size: 10px;
+line-height: 1.33;
+
+color: #FF6B08;
+
+}
+
+.name::after  {
+position: absolute;
+top: 0;
+right: -5px;;
+
+display: block;
+content:"";
+display: block;
+width: 1px;
+height: 16px;
+
+border: 0.5px solid #FF6B08;
+
+}
+
+
+.role{
+display: block;
+margin-bottom: 10px;
+
+text-transform: uppercase;
+
+font-family: 'Roboto';
+font-style: normal;
+font-weight: 700;
+font-size: 10px;
+line-height: 1.33;
+
+color: #FF6B08;
+
+}
+
+
+.responsibilities {
+text-align: justify;
+word-break: keep-all;
+
+font-family: 'Roboto';
+font-style: normal;
+font-weight: 500;
+font-size: 12px;
+line-height: 1.33;
+
+color: #000000;
+
+}
+
+// // ------------------------------Соцсети
+
+.social__nets{
+
+max-width: 240px;
+height: auto;
+
+
+}
+
+
+.team__nets-list{
+
+display: flex;
+justify-content: space-around;
+align-items: center;
+
+// padding-top: 10px;
+// padding-bottom: 10px;
+
+  
+}
+
+
+.team__net-icon-thumb {
+        display: flex;
+        justify-content: center;
+        align-items:center;
+        width: 44px;
+        height: 44px;
+        
+        border-radius: 50%;
+    
+    
+       
+        background-color: #FFFFFF;
+    
+    
+        transition-property: background-color;
+        transition-duration: 250ms;
+        transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    }  
+
+    .team__net-icon {
+        fill: #afb1b8;
+
+        transition-property: fill;
+        transition-duration: 250ms;
+        transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .team__net-icon-link:hover .team__net-icon-thumb,
+        .team__net-icon-link:focus .team__net-icon-thumb {
+            background-color: #FF6B01;
+        }
+
+
+        .team__net-icon-link:hover .team__net-icon
+        .team__net-icon-link:focus .team__net-icon {
+            fill: black;
+        }
+
+
+}
+
+
+
+
+
+
+@media screen and (min-width: 768px){
+
+.backdrop{
+
+padding: 80px;
+
+}
+
+.footerModal{
+top: 5%;
+left: 4%;
+
+width: 668px;
+padding-left: 45px;
+padding-right: 45px;
+}
+
+.modal-close__btn{
+visibility: hidden;
+}
+
+// .team__logo{
+
+// }
+
+.teammate__card-list {
+display: flex;
+flex-wrap: wrap;
+justify-content: space-between;
+align-items: center;
+gap: 30px;
+}
+
+.team__list-item {
+flex-basis: auto;
+margin-bottom: 0;
+}
+
+.team__name{
+
+margin-bottom: 40px;
+
+font-size: 40px;
+line-height: 1.15;
+
+color: #FF6B08;
+
+}
+
+
+}
+
+
+
+
+@media screen and (min-width: 1280px){
+
+.backdrop{
+
+padding: 100px;
+}
+
+.footerModal{
+top:10%;
+left: 10%;
+
+min-width: 1080px;
+padding-top: 90px;
+padding-left: 90px;
+padding-right: 90px;
+}
+
+.teammate__card-list {
+gap: 60px;
+}
+
+
+// .team__name{
+
+// }
+
+// .team__logo{
+
+// }
+
+}
+    

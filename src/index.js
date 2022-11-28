@@ -8,4 +8,7 @@ import { renderMovies } from './js/renderHomeFilms';
 // Slider starter
 appendMovies();
 
+<<<<<<< Updated upstream
 renderMovies();
+=======
+>>>>>>> Stashed changes
