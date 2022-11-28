@@ -7,6 +7,7 @@
 }
 
 .swiper-title{
+    text-transform: uppercase;
     text-align: center;
     margin-bottom: 10px;
 }
@@ -54,8 +55,10 @@
 .swiper-button-next, .swiper-button-prev{
     color: rgb(255, 107, 8);
     border-radius: 10%;
+    transition: background-color 250ms linear;
     &:hover, &:focus{
-        background-color: rgba(161, 163, 157, 0.733);
+        background-color: rgba(226, 230, 220, 0.733);
+       
     }
 }
 

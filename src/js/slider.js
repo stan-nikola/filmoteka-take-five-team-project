@@ -6,7 +6,6 @@ const refs = {
 };
 const fetchMoviesApi = new FetchMoviesApi()
 
-
 export async function appendMovies() {
   const data = await fetchMoviesApi.fetchTrendingMovies();
   const movies = data.results;
@@ -21,12 +20,12 @@ export async function appendMovies() {
         spaceBetween:10,
       },
       768: {
-        slidesPerView: 4,
-        spaceBetween: 15
+        slidesPerView: 5,
+        spaceBetween: 20
       },
       1200: {
-        slidesPerView: 7,
-        spaceBetween: 20
+        slidesPerView: 8,
+        spaceBetween: 10
       },
     },
     loop: true,
