@@ -1,6 +1,8 @@
 const API_KEY = '62f46feb65c2319fb0db62c2c080ca35';
 const BASE_URL = 'https://api.themoviedb.org';
 const BASE_URL_V3 = 'https://api.themoviedb.org/3/';
+const URL_FOR_FETCH_BY_NAME = 'https://api.themoviedb.org/3/search/movie';
+
 
 export class FetchMoviesApi {
   constructor() {
@@ -51,3 +53,12 @@ export async function fetchGenres() {
     console.log(error);
   }
 }
+
+
+export function fetchMovies(inputtedName) {
+  return fetch(`${URL_FOR_FETCH_BY_NAME}?api_key=${API_KEY}&query=${inputtedName}`).then(
+    response => response.json()
+  );
+}
+
+

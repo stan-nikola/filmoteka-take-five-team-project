@@ -21,7 +21,7 @@ export async function renderMovies() {
   });
 }
 
-const dataMerge = function (allMovies, allGenres) {
+export const dataMerge = function (allMovies, allGenres) {
   return allMovies.map(movie => ({
     ...movie,
     genres: movie.genre_ids.map(id => {

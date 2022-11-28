@@ -1,8 +1,9 @@
-import fetchMovies from './fetchMovies';
-import fetchGenres from './fetchGenres';
+import { fetchMovies, fetchGenres } from './apiService';
+import { dataMerge } from './renderHomeFilms';
+
+
 
 let userRequest = '';
-let arrayOfGenres;
 
 const inputNameEl = document.querySelector('.js-submitBtn');
 const inputFormEl = document.querySelector('.js-input-form');
@@ -18,22 +19,41 @@ async function onSubmit(event) {
   try {
     const response = await fetchMovies(userRequest);
     const arrayOfMovies = response.results;
-    console.log(response);
 
-    createMovieCard(arrayOfMovies);
+    if (arrayOfMovies.length === 0) {
+      console.log('Хрен вам, а не кино!');
+    }
+
+    const dataGenres = await fetchGenres();
+    const genresList = dataGenres.genres;
+
+    const arrayOfMoviesWithGenres = dataMerge(arrayOfMovies, genresList);
+    console.log(arrayOfMoviesWithGenres);
+
+
+
+// calling rendering function
+    createMovieCard(arrayOfMoviesWithGenres);
+
   } catch (error) {
     console.log(error.message);
-  }
-  function createMovieCard(arrayOfMovies) {
-    cardGalleryEl.innerHTML = '';
-    console.log(arrayOfMovies);
+  }  
+}
+  // function for rendering a card
+function createMovieCard(arrayOfMovies) {
+  cardGalleryEl.innerHTML = '';
+
+
     const setOfCards = arrayOfMovies.map(element => {
-      console.log(element);
-      console.log(element.poster_path);
+    
       const movieTitle = element.title.toUpperCase();
       const moviePoster = 'https://image.tmdb.org/t/p/w500';
-      const movieId = element.id;
+      let movieGenres = element.genres.join(', ');
 
+      if (!(element.genres.length === 0) && !(element.release_date === '')) {
+        movieGenres = movieGenres + ' |';
+      } 
+    
       return `
       <li class="card-container">
         <div class="image-wrapper">
@@ -42,16 +62,16 @@ async function onSubmit(event) {
         element.poster_path
       }" alt="${element.title}"  />
         </div>
-
         <p class="movie-data">
-        ${movieTitle}  <br>;
+        ${movieTitle}  <br>
         <span class="genre-year">            
-        ${element.genre_ids}
+        ${movieGenres}
         ${element.release_date.slice(0, 4)}         
         </span>
         </p>
       </li>`;
     });
-    cardGalleryEl.insertAdjacentHTML('beforeend', setOfCards.join(''));
-  }
+
+  cardGalleryEl.innerHTML = setOfCards.join('');
+
 }
