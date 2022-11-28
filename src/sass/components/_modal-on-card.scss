@@ -55,12 +55,12 @@
 
 //////// YOU NEED TO COMMENT OUT THIS AREA IF YOU WHANT TO SEE THE MODAL \\\\\\\\\
 
-// .backdrop.is-hidden {
-//     opacity: 0;
-//     pointer-events: none;
-//     visibility: hidden;
+.backdrop.is-hidden {
+    opacity: 0;
+    pointer-events: none;
+    visibility: hidden;
 
-// }
+}
 
 // move to a components scss
 .close-button {
