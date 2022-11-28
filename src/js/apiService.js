@@ -1,6 +1,7 @@
+import { loadStart, loadStop } from './loadingSpinner';
+
 const API_KEY = '62f46feb65c2319fb0db62c2c080ca35';
 const BASE_URL = 'https://api.themoviedb.org';
-
 const URL_FOR_FETCH_BY_NAME = 'https://api.themoviedb.org/3/search/movie';
 
 export class FetchMoviesApi {
@@ -11,10 +12,12 @@ export class FetchMoviesApi {
 
   async fetchTrendingMovies() {
     try {
+      loadStart();
       const response = await fetch(
         `${BASE_URL}/3/trending/all/day?api_key=${API_KEY}`
       );
       const data = response.json();
+      loadStop();
       return data;
     } catch (error) {
       console.log(error);
@@ -31,10 +34,12 @@ export class FetchMoviesApi {
 
 export async function fetchHomeTrendingMovies() {
   try {
+    loadStart();
     const response = await fetch(
       `${BASE_URL}/3/trending/movie/day?api_key=${API_KEY}`
     );
     const data = response.json();
+    loadStop();
     return data;
   } catch (error) {
     console.log(error);

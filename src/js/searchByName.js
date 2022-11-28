@@ -1,6 +1,6 @@
 import { fetchMovies, fetchGenres } from './apiService';
 import { dataMerge } from './renderHomeFilms';
-
+import { loadStart, loadStop } from './loadingSpinner';
 let userRequest = '';
 
 const inputNameEl = document.querySelector('.js-submitBtn');
@@ -15,6 +15,7 @@ async function onSubmit(event) {
   userRequest = event.currentTarget.searchQuery.value.trim();
 
   try {
+    loadStart();
     const response = await fetchMovies(userRequest);
     const arrayOfMovies = response.results;
 
@@ -30,6 +31,7 @@ async function onSubmit(event) {
 
     // calling rendering function
     createMovieCard(arrayOfMoviesWithGenres);
+    loadStop();
   } catch (error) {
     console.log(error.message);
   }
