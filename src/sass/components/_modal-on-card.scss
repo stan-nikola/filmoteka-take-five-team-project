@@ -20,11 +20,16 @@
     }
 
     @media screen and (min-width: 767px) and (max-width: 1199px) {
-        min-width: 704px
+        min-width: 704px;
+        height: 100vh;
+        overflow-y: scroll;
     }
 
     @media screen and (min-width: 1200px) {
-        min-width: 806px
+        min-width: 806px;
+        height: auto;
+        overflow: hidden;
+
     }
     
 }
@@ -50,12 +55,12 @@
 
 //////// YOU NEED TO COMMENT OUT THIS AREA IF YOU WHANT TO SEE THE MODAL \\\\\\\\\
 
-.backdrop.is-hidden {
-    opacity: 0;
-    pointer-events: none;
-    visibility: hidden;
+// .backdrop.is-hidden {
+//     opacity: 0;
+//     pointer-events: none;
+//     visibility: hidden;
 
-}
+// }
 
 // move to a components scss
 .close-button {
@@ -66,7 +71,7 @@
 
     width: 30px;
     height: 30px;
-    padding: 8px;
+    // padding: 0;
 
     background-color: transparent;
     border: none;
@@ -99,27 +104,33 @@
     object-fit: cover;
     width: 100%;
     margin-bottom: 20px;
+
+    @media screen and (min-width: 767px) and (max-width: 1199px) {
+
+        margin-right: 68px;
+        width: 264px;
+    }
+
+    @media screen and (min-width: 1200px) {
+        width: 375px;
+        margin-right: 16px;
+    }
     
 }
 
 
-// .film-img {
-   
-// }
-@media screen and (min-width: 767px) and (max-width: 1199px) {
-.container-img {
-    margin-right: 68px;
-}
-}
 .name-film {
     margin-bottom: 20px;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 1.15;
 
-font-weight: 500;
-font-size: 20px;
-line-height: 1.15;
 
-@media screen and (min-width: 767px) and (max-width: 1199px) {
-    margin: 0;
+@media screen and (min-width: 1200px) {
+    font-size: 30px;
+    line-height: 1.17;
+
+
 }
 }
 
@@ -139,6 +150,11 @@ line-height: 1.15;
     padding: 0;
     line-height: 1.33;
     color: #8C8C8C;
+
+    @media screen and (min-width: 1200px) {
+        font-size: 12px;
+
+    }
 }
 .vote-rating-list {
     margin-left: 41px;
@@ -147,26 +163,47 @@ line-height: 1.15;
     color: #fff;
     padding: 1px 9px 1px 10px;
     border-radius: 5px;
+
+    @media screen and (min-width: 1200px) {
+        margin-left: 85px;
+    }
 }
 .votes-vews-list {
     margin-left: 3px;
     line-height: 1.17;
+    background-color: #F7F7F7;
     color: #000000;
+    border-radius: 5px;
+    padding: 1px 4px;
 }
 .popularity-value-list{
     margin-left: 53px;
     line-height: 1.17;
     color: #000000;
+
+    @media screen and (min-width: 1200px) {
+        margin-left: 97px;
+    }
+
 }
 .title-value-list{
     margin-left: 39px;
     line-height: 1.33;
     color: #000000;
+
+    @media screen and (min-width: 1200px) {
+        margin-left: 83px;
+    }
+
 }
 .genre-value-list{
     margin-left: 76px;
     line-height: 1.33;
     color: #000000;
+
+    @media screen and (min-width: 1200px) {
+        margin-left: 120px;
+    }
 }
 .header-about {
     margin-bottom: 8px;
@@ -177,8 +214,12 @@ line-height: 1.15;
 }
 
 .description-about {
-line-height: 1.67;
-margin-bottom: 20px;
+    line-height: 1.67;
+    margin-bottom: 8px;
+    
+    @media screen and (min-width: 1200px) {
+         font-size: 12px;
+    }
 }
 
 .container-description {
@@ -188,17 +229,27 @@ margin-bottom: 20px;
        width: 264px;
     }
 
+    @media screen and (min-width: 1200px) {
+        width: 391px;
+
+    }
+
 }
 
 .container-content {
     padding: 48px 20px 40px 20px;
 
-    @media screen and (min-width: 767px) and (max-width: 1199px) {
+    @media screen and (min-width: 767px) {
     display: flex;
     flex-wrap: wrap;
     padding: 40px 72px 40px 36px;
-
     }
+
+    @media screen and (min-width: 1200px) {
+        padding: 40px 12px;
+    }
+
+    
 }
 .container-modal-btn {
     display: flex;
@@ -209,30 +260,35 @@ margin-bottom: 20px;
         margin-top: 20px;
         
     }
+    @media screen and (min-width: 1200px) {
+        margin-left: 8px;
+        margin-right: 96px;
+    }
 
 }
 .btn {
     
     border-radius: 5px;
     padding: 6px 27px 6px 27px;
-    box-shadow: none;
+ 
     cursor: pointer;
     border: 1px solid #000000;
     background-color: transparent;
 
     width: 110px;
-
-    font-family: 'Roboto';
-font-style: normal;
-font-weight: 500;
-font-size: 12px;
-line-height: 1.33;
-/* or 133% */
-text-transform: uppercase;
+    font-weight: 500;
+    line-height: 1.33;
+    text-transform: uppercase;
 
 @media screen and (min-width: 767px) and (max-width: 1199px) {
    width: 125px;
-   padding: 14px 7px 12px 7px;
+   padding: 12px 7px 12px 7px;
+}
+@media screen and (min-width: 1200px) {
+    width: 136px;
+    padding: 12px 10px 12px 10px;
+    font-size: 12px;
+
 }
 
 
