@@ -1,39 +1,42 @@
-// const Ref = {
-//     watchedBtn: document.querySelector(""),
-//     queueBtn: document.querySelector(""),
-//     library: document.querySelector(".library__gallery")
-// }
+const Ref = {
+    watchedBtn: document.querySelector(".header__watched__btn__js"),
+    queueBtn: document.querySelector(".header__queue__btn__js"),
+    library: document.querySelector(".library__gallery__js"),
+    pagination: document.querySelector("div.container")
+}
+export default function getLocalStorage() {
+    Ref.watchedBtn.setAttribute("disabled", "")
+    if (localStorage.getItem("filmsWatched") !== null) {
+        Ref.library.insertAdjacentHTML("beforeend", localStorage.getItem("filmsWatched"));
+        Ref.pagination.classList.remove("is-hidden");
+    } else {
+        Ref.library.textContent = "Watched Gallery is empty";
+        Ref.pagination.classList.add("is-hidden");
+    }
+    Ref.watchedBtn.addEventListener("click", () => {
+        Ref.watchedBtn.setAttribute("disabled", "");
+        Ref.queueBtn.removeAttribute("disabled");
+        if (localStorage.getItem("filmsWatched") !== null) {
+            Ref.library.textContent = "";
+            Ref.library.insertAdjacentHTML("beforeend", localStorage.getItem("filmsWatched"));
+            Ref.pagination.classList.remove("is-hidden");
+        } else {
+            Ref.library.textContent = "Watched Gallery is empty";
+            Ref.watchedBtn.removeAttribute("disabled");
+            Ref.pagination.classList.add("is-hidden");
+        }
+    });
 
-// watchedBtnRef.addEventListener("click", () => {
-//     let filmsLibrary = JSON.parse(localStorage.getItem("filmsWatched"));
-//     let markup = filmsLibrary.map((film) => {
-//         return `<li class=""card-container>
-//         <img class="image-poster" src="${film.src}" alt="">
-//         <p class="movie-data">
-//         ${film.title} <br>
-//         <span class="genre-year">
-//         ${film.genre}
-//         </span>
-//         </p>
-//         </li>`
-//     })
-
-//     libraryRef.insertAdjacentHTML("beforeend", markup.join(""));
-// });
-
-// queueBtnRef.addEventListener("click", () => {
-// let filmsLibrary = JSON.parse(localStorage.getItem("filmsQueue"));
-// let markup = filmsLibrary.map((film) => {
-//     return `<li class=""card-container>
-//   <img class="image-poster" src="${film.src}" alt="">
-//         <p class="movie-data">
-//         ${film.title} <br>
-//         <span class="genre-year">
-//         ${film.genre}
-//         </span>
-//         </p>
-//         </li>`
-// })
-
-// Ref.library.insertAdjacentHTML("beforeend", markup.join(""));
-// });
+    Ref.queueBtn.addEventListener("click", () => {
+        Ref.queueBtn.setAttribute("disabled", "");
+        Ref.watchedBtn.removeAttribute("disabled");
+        if (localStorage.getItem("filmsQueue") !== null) {
+            Ref.library.textContent = "";
+            Ref.library.insertAdjacentHTML("beforeend", localStorage.getItem("filmsQueue"));
+            Ref.pagination.classList.remove("is-hidden");
+        } else {
+            Ref.library.textContent = "Queue Gallery is empty";
+            Ref.pagination.classList.add("is-hidden");
+        }
+    })
+}

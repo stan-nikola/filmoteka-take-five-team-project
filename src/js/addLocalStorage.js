@@ -1,42 +1,40 @@
-const objectFilmRef = {
-    picture: document.querySelector("picture"),
-    title: document.querySelector(".name-film"),
-    genre: document.querySelector(".genre-value-list"),
-    popularity: document.querySelector(".popularity-value-list")
-}
-
 const buttonRef = {
-    addWatched: document.querySelector(".btn-watched"),
-    addQueue: document.querySelector(".btn-queue")
+    addWatched: document.querySelector(".btn-watched-js"),
+    addQueue: document.querySelector(".btn-queue-js")
 }
 
-function addWatchedlocalStorage(film) {
-    if (localStorage.getItem("filmsWatched") === null) {
-        let films = { film };
-        localStorage.setItem("filmsWatched", JSON.stringify(films));
-    } else {
-        let films = Array.from(JSON.parse(localStorage.getItem("filmsWatched")));
-        films.push(film);
-        localStorage.setItem("filmsWatched", JSON.stringify(films));
-    }
-};
+export default function addLocalStorage() {
+    function addWatchedlocalStorage(film) {
 
-function addQueuelocalStorage(film) {
-    if (localStorage.getItem("filmsQueue") === null) {
-        let films = { film };
-        localStorage.setItem("filmsQueue", JSON.stringify(films));
-    } else {
-        let films = Array.from(JSON.parse(localStorage.getItem("filmsQueue")));
-        console.log(films);
-        films.push(film);
-        localStorage.setItem("filmsQueue", JSON.stringify(films));
-    }
-};
-//----------lISTENERS------------------------------------
+        if (localStorage.getItem("filmsWatched") === null) {
+            localStorage.setItem("filmsWatched", film.outerHTML);
+        } else {
+            let films = localStorage.getItem("filmsWatched");
+            localStorage.setItem("filmsWatched", films + film.outerHTML);
+        }
+    };
 
-buttonRef.addWatched.addEventListener("click", () => {
-    addWatchedlocalStorage(objectFilmRef);
-})
-buttonRef.addQueue.addEventListener("click", () => {
-    addQueuelocalStorage(objectFilmRef);
-})
+    function addQueuelocalStorage(film) {
+        if (localStorage.getItem("filmsQueue") === null) {
+            let films = [film];
+            localStorage.setItem("filmsQueue", JSON.stringify(films));
+        } else {
+            let films = Array.from(JSON.parse(localStorage.getItem("filmsQueue")));
+            console.log(films);
+            films.push(film);
+            localStorage.setItem("filmsQueue", JSON.stringify(films));
+        }
+    };
+    //----------lISTENERS------------------------------------
+    buttonRef.addWatched.addEventListener("click", () => {
+        let currentCard = document.querySelector(".currentCard")
+        addWatchedlocalStorage(currentCard);
+    })
+    buttonRef.addQueue.addEventListener("click", () => {
+        let currentCard = document.querySelector(".currentCard")
+        addQueuelocalStorage(currentCard);
+    })
+}
+
+    // const filtrFilm = (films) => {
+    //     return films.filter((film, index, films) => films.indexOf(film) === index);
