@@ -1,40 +1,36 @@
+import { renderModalFilmCard } from './renderModalFilmCard';
+
 const buttonRef = {
-    addWatched: document.querySelector(".btn-watched-js"),
-    addQueue: document.querySelector(".btn-queue-js")
+  addWatched: document.querySelector('.btn-watched-js'),
+  addQueue: document.querySelector('.btn-queue-js'),
+};
+
+function addWatched(film) {
+  if (localStorage.getItem('filmsWatched') === null) {
+    let filmsWatched = [];
+    filmsWatched.push(film);
+    localStorage.setItem('filmsWatched', JSON.stringify(filmsWatched));
+  } else {
+    filmsWatched = JSON.parse(localStorage.getItem('filmsWatched'));
+    filmsWatched.push(film);
+    localStorage.setItem('filmsWatched', JSON.stringify(filmsWatched));
+  }
 }
 
-export default function addLocalStorage() {
-    function addWatchedlocalStorage(film) {
-
-        if (localStorage.getItem("filmsWatched") === null) {
-            localStorage.setItem("filmsWatched", film.outerHTML);
-        } else {
-            let films = localStorage.getItem("filmsWatched");
-            localStorage.setItem("filmsWatched", films + film.outerHTML);
-        }
-    };
-
-    function addQueuelocalStorage(film) {
-        if (localStorage.getItem("filmsQueue") === null) {
-            let films = [film];
-            localStorage.setItem("filmsQueue", JSON.stringify(films));
-        } else {
-            let films = Array.from(JSON.parse(localStorage.getItem("filmsQueue")));
-            console.log(films);
-            films.push(film);
-            localStorage.setItem("filmsQueue", JSON.stringify(films));
-        }
-    };
-    //----------lISTENERS------------------------------------
-    buttonRef.addWatched.addEventListener("click", () => {
-        let currentCard = document.querySelector(".currentCard")
-        addWatchedlocalStorage(currentCard);
-    })
-    buttonRef.addQueue.addEventListener("click", () => {
-        let currentCard = document.querySelector(".currentCard")
-        addQueuelocalStorage(currentCard);
-    })
+function addQueue(film) {
+  if (localStorage.getItem('filmsQueue') === null) {
+    let filmsQueue = [];
+    filmsQueue.push(film);
+    localStorage.setItem('filmsQueue', JSON.stringify(filmsQueue));
+  } else {
+    filmsQueue = JSON.parse(localStorage.getItem('filmsQueue'));
+    console.log(filmsQueue);
+    filmsQueue.push(film);
+    localStorage.setItem('filmsQueue', JSON.stringify(filmsQueue));
+  }
 }
 
-    // const filtrFilm = (films) => {
-    //     return films.filter((film, index, films) => films.indexOf(film) === index);
+export { buttonRef, addWatched, addQueue };
+
+// const filtrFilm = (films) => {
+//     return films.filter((film, index, films) => films.indexOf(film) === index);
