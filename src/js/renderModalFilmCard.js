@@ -6,7 +6,7 @@ const moviePoster = 'https://image.tmdb.org/t/p/w500';
 
 const refs = {
   cardLi: document.querySelector('.card-container'),
-  modalCard: document.querySelector('.container-content'),
+  modalCard: document.querySelector('.modal-card__container-content'),
   movieContainer: document.querySelector('.movie-cards-gallery'),
   backdrop: document.querySelector('.backdrop'),
   btnClose: document.querySelector('.close-btn-js'),
@@ -20,50 +20,61 @@ async function renderModalFilmCard(evt) {
     );
     const result = await response.json();
     console.log(result);
-    const cardMarkup = `<div class="container-img">
+    const cardMarkup = `<div class="modal-card__container-img">
             <img
-              class="current-img current-img-js"
+              class="modal-card__current-img current-img-js"
               src="${moviePoster}${result.poster_path}"
               alt="Poster of film "${result.title}"
             />
         </div>
-        <div class="container-description">
-          <h2 class="name-film name-film-js">${result.title}</h2>
-          <ul class="list">
-            <li class="item">
+        <div class="modal-card__container-description">
+          <h2 class="modal-card__name-film">${result.title}</h2>
+          <ul class="modal-card__list list">
+            <li class="modal-card__item item">
               <span>Vote / Votes</span>
-              <p class="vote-value-list vote-value-list-js">
-                <span class="vote-rating-list vote-rating-list-js">${
+              <p class="item__vote-value">
+                <span class="item__vote-rating">${
                   result.vote_average
                 }</span>
-                / <span class="votes-vews-list votes-vews-list-js">${
+                / <span class="item__votes-vews">${
                   result.vote_count
                 }</span>
               </p>
             </li>
-            <li class="item">
+            <li class="modal-card__item item">
               <span>Popularity</span>
-              <p class="popularity-value-list popularity-value-list-js">${
+              <p class="item__popularity-value">${
                 result.popularity
               }</p>
             </li>
-            <li class="item">
+            <li class="modal-card__item">
               <span>Original Title</span>
-              <p class="title-value-list title-value-list-js">
+              <p class="item__title-value">
                 ${result.original_title}
               </p>
             </li>
-            <li class="item">
+            <li class="modal-card__item item">
               <span>Genre</span>
-              <p class="genre-value-list genre-value-list-js">${result.genres.map(
+              <p class="item__genre-value">${result.genres.map(
                 genre => genre.name
               )}</p>
             </li>
           </ul>
-          <h3 class="header-about">About</h3>
-          <p class="description-about description-about-js">
+          <h3 class="about about__header">About</h3>
+          <p class="about__description">
             ${result.overview}
-          </p> `;
+          </p> 
+          <div class="modal-card__container-btn">
+          <button
+            class="btn current-btn btn__watched btn__watched-js"
+            type="button"
+          >
+            add to Watched
+          </button>
+          <button class="btn btn__queue btn__queue-js" type="button">
+            add to queue
+          </button>
+        </div>`;
     refs.modalCard.insertAdjacentHTML('afterbegin', cardMarkup);
     refs.backdrop.classList.remove('is-hidden');
   } catch {}
@@ -81,3 +92,4 @@ export {
   renderModalFilmCard,
   closeModal,
 };
+
