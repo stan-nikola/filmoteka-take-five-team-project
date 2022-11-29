@@ -5,7 +5,7 @@ const buttonRef = {
   addQueue: document.querySelector('.btn-queue-js'),
 };
 
-function addWatched(film) {
+export function addWatched(film) {
   if (localStorage.getItem('filmsWatched') === null) {
     let filmsWatched = [];
     filmsWatched.push(film);
@@ -17,7 +17,7 @@ function addWatched(film) {
   }
 }
 
-function addQueue(film) {
+export function addQueue(film) {
   if (localStorage.getItem('filmsQueue') === null) {
     let filmsQueue = [];
     filmsQueue.push(film);
@@ -30,7 +30,7 @@ function addQueue(film) {
   }
 }
 
-export { buttonRef, addWatched, addQueue };
+export { buttonRef };
 
 // const filtrFilm = (films) => {
 //     return films.filter((film, index, films) => films.indexOf(film) === index);

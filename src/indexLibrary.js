@@ -1,4 +1,7 @@
-import getLocalStorage from "./js/getLocalStorage";
-import addLocalStorage from './js/addLocalStorage';
-getLocalStorage()
-addLocalStorage()
+import getLocalStorage from './js/getLocalStorage';
+
+import { addWatched, addQueue } from './js/addLocalStorage';
+
+addWatched();
+addQueue();
+getLocalStorage();
