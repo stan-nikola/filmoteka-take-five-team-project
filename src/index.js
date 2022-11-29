@@ -1,5 +1,5 @@
 import { appendMovies } from './js/slider';
-
+import * as footer from './js/footerModal';
 import searchByName from './js/searchByName';
 import onSubmit from './js/searchByName';
 
