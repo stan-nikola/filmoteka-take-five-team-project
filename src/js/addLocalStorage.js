@@ -1,5 +1,3 @@
-import { renderModalFilmCard } from './renderModalFilmCard';
-
 const buttonRef = {
   addWatched: document.querySelector('.btn-watched-js'),
   addQueue: document.querySelector('.btn-queue-js'),
