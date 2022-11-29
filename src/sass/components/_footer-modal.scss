@@ -25,11 +25,11 @@
 
 
 
-        // &.is-hidden {
-        //     opacity: 0;
-        //     pointer-events: none;
+        &.is-hidden {
+            opacity: 0;
+            pointer-events: none;
 
-        // }
+        }
 
         // &.is-hidden .modal {
         //     transform: translateX(-50%) scale(0);
@@ -52,12 +52,8 @@
         border-radius: 3px;
 
 
-        <<<<<<< HEAD // transition-property: transform;
-        // transition-duration: 6000ms;
-        // transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-
-
-        =======>>>>>>>origin/feature/footerModal/mobile
+  
+ 
     }
 
 
