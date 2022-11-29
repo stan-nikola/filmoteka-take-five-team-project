@@ -29,7 +29,7 @@ export async function appendMovies() {
   refs.slider.insertAdjacentHTML('beforeend', markup);
 
   const swiper = new Swiper('.swiper', {
-    modules: [Navigation, Pagination, Autoplay],
+    modules: [Navigation, Autoplay],
     breakpoints: {
       280: {
         slidesPerView:2,
@@ -54,10 +54,7 @@ export async function appendMovies() {
       disableOnInteraction: false,
     },
   });
-
 }
-
-
 
 function createMarkUp({poster_path, vote_average, original_title, id}) {
   return `
