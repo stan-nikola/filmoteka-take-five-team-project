@@ -1,72 +1,92 @@
-const API_KEY = '62f46feb65c2319fb0db62c2c080ca35';
-const BASE_URL = 'https://api.themoviedb.org';
+// 1й аргумент - Функиця обрабатывает масив данных по принципу dataMerge;
+// 2й аргумент - кв-во  елементов на страницу;
+// Для использования нужно заменить в паршалах функцию  createMovieCard на buildPagination
+// и вторым аргументом передать к-во карточек которые необходимо отрисовывать на каждой странице.
 
-export async function fetchTrendingMovies() {
-  try {
-    const response = await fetch(
-      `${BASE_URL}/3/trending/all/day?api_key=${API_KEY}`
-    );
-    const data = response.json();
-    return data;
-  } catch (error) {
-    console.log(error);
-  }
-}
-// Функиця обрабатывает результат запроса (нужен запрос)
-export async function buildPagination(fetch) {
-  const data = await fetch;
-  const moviesArr = data.results;
-  let getEl = selector => document.querySelector(`${selector}`);
-  console.log(moviesArr);
+let getEl = selector => document.querySelector(`${selector}`);
+
+const paginationElementList = getEl('#pagination_list_js'); //СЮДА ОТРИСОВЫВАЕМ СЧЁТЧИК СТРАНИЦ
+const cardGalleryEl = getEl('.movie-cards-gallery'); //СЮДА ОТРИСОВЫВАЕМ КАРТОЧКИ ИЗ ПАГИНИРОВАНОГО СПИСКА
+const paginationCintainer = getEl('#pagination_js');
+
+//ГЛАВНАЯ ФУНКЦИЯ КОНСТРУТОР
+export async function buildPagination(dataArr, rowPerPage) {
   let currentPage = 1;
-  let rows = 5;
-  //Пушит в целевой контейнер (нужен контейнер)
-  const dataContainer = getEl('#test');
-
+  //ФУНКЦИЯ ОТРИСОВКИ ЭЛЕМЕНТОВ В ЦЕЛЕВОЙ КОНТЕЙНЕР
   function displayPaginationResult(data, rowPerPage, page) {
     page -= 1;
-    dataContainer.innerHTML = '';
     const start = rowPerPage * page;
     const end = start + rowPerPage;
     const paginatedData = data.slice(start, end);
     // Вставляет шаблон карточки (нужен шаблон)
-    paginatedData.forEach(el =>
-      dataContainer.insertAdjacentHTML(
-        'beforeend',
-        `<div class = "test-card">${el.id}<div>`
-      )
-    );
+    createMovieCard(paginatedData);
   }
+  //ФУНКЦИЯ СОЗДАНИЯ СПИСКА СТРАНИЦ (ДЛИНА ЗАВИСИТ ОТ ДЛИНЫ МАССИВА ДАННЫХ И К-ВА ЕЛЕМЕНТОВ НА СТРАНИЦЕ)
   function displayPagination(data, rowPerPage) {
-    const paginationElementList = getEl('#pagination_list_js');
     paginationElementList.innerHTML = '';
     const pageCount = Math.ceil(data.length / rowPerPage);
-
+    if (pageCount === 1) {
+      paginationCintainer.classList.add('hidden');
+      return;
+    }
     for (let i = 0; i < pageCount; i += 1) {
       paginationElementList.appendChild(createPaginationEl(i + 1));
     }
   }
+  //ФУНКЦИЯ СОЗДАНИЯ СТРАНИЦЫ
   function createPaginationEl(page) {
     const paginationEl = document.createElement('li');
+
     paginationEl.classList.add('pagination__el');
     paginationEl.innerText = page;
+
     if (currentPage === page) {
       paginationEl.classList.add('pagination__el--current');
     }
 
     paginationEl.addEventListener('click', () => {
       const focusElement = getEl('.pagination__el--current');
-      console.log(
-        '🚀 ~ file: pagination.js ~ line 64 ~ paginationEl.addEventListener ~ focusElement',
-        focusElement
-      );
       focusElement.classList.remove('pagination__el--current');
       paginationEl.classList.add('pagination__el--current');
       currentPage = page;
-      displayPaginationResult(moviesArr, rows, currentPage);
+      displayPaginationResult(dataArr, rowPerPage, currentPage);
     });
     return paginationEl;
   }
-  displayPaginationResult(moviesArr, rows, currentPage);
-  displayPagination(moviesArr, rows);
+  //ФУНКЦИЯ СОЗДАНИЯ РАЗМЕТКИ 1ГО ЭЛЕМЕНТА
+  function createMovieCard(arrayOfMovies) {
+    cardGalleryEl.innerHTML = '';
+
+    const setOfCards = arrayOfMovies.map(element => {
+      const movieTitle = element.title.toUpperCase();
+      const moviePoster = 'https://image.tmdb.org/t/p/w500';
+      let movieGenres = element.genres.join(', ');
+
+      if (!(element.genres.length === 0) && !(element.release_date === '')) {
+        movieGenres = movieGenres + ' |';
+      }
+
+      return `
+      <li class="card-container">
+        <div class="image-wrapper">
+        <p class="no-poster">NO POSTER</p>
+        <img class="image-poster" src="${moviePoster}${
+        element.poster_path
+      }" alt="${element.title}"  />
+        </div>
+        <p class="movie-data">
+        ${movieTitle}  <br>
+        <span class="genre-year">            
+        ${movieGenres}
+        ${element.release_date.slice(0, 4)}         
+        </span>
+        </p>
+      </li>`;
+    });
+
+    cardGalleryEl.innerHTML = setOfCards.join('');
+  }
+
+  displayPaginationResult(dataArr, rowPerPage, currentPage);
+  displayPagination(dataArr, rowPerPage);
 }
