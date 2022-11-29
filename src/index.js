@@ -1,10 +1,9 @@
 import { appendMovies } from './js/slider';
-import * as footer from './js/footerModal';
+// import * as footer from './js/footerModal';
 import searchByName from './js/searchByName';
 import onSubmit from './js/searchByName';
-
 import { renderMovies } from './js/renderHomeFilms';
-import { buttonRef, addWatched, addQueue } from './js/addLocalStorage';
+import { currentFilm } from './js/addLocalStorage';
 import {
   API_KEY,
   BASE_URL,
@@ -22,5 +21,4 @@ refs.movieContainer.addEventListener('click', renderModalFilmCard);
 refs.btnClose.addEventListener('click', closeModal);
 
 //----------lISTENERS------------------------------------
-buttonRef.addWatched.addEventListener('click', addWatched);
-buttonRef.addQueue.addEventListener('click', addQueue);
+currentFilm()

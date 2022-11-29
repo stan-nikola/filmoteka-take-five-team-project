@@ -1,7 +1,8 @@
 import getLocalStorage from './js/getLocalStorage';
+import { currentFilm } from './js/addLocalStorage';
 
-import { addWatched, addQueue } from './js/addLocalStorage';
 
-addWatched();
-addQueue();
+// addWatched();
+// addQueue();
 getLocalStorage();
+currentFilm();

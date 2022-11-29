@@ -49,8 +49,8 @@ async function renderModalFilmCard(evt) {
             <li class="modal-card__item item">
               <span>Genre</span>
               <p class="item__genre-value">${result.genres.map(
-                genre => genre.name
-              )}</p>
+      genre => genre.name
+    )}</p>
             </li>
           </ul>
           <h3 class="about about__header">About</h3>
@@ -70,7 +70,7 @@ async function renderModalFilmCard(evt) {
         </div>`;
     refs.modalCard.insertAdjacentHTML('afterbegin', cardMarkup);
     refs.backdrop.classList.remove('is-hidden');
-  } catch {}
+  } catch { }
 }
 
 function closeModal() {
@@ -85,3 +85,9 @@ export {
   renderModalFilmCard,
   closeModal,
 };
+export const buttonRef = {
+  addWatched: document.querySelector('.btn-watched-js'),
+  addQueue: document.querySelector('.btn-queue-js'),
+};
+
+

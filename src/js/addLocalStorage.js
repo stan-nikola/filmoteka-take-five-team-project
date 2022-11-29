@@ -1,34 +1,41 @@
-const buttonRef = {
-  addWatched: document.querySelector('.btn-watched-js'),
-  addQueue: document.querySelector('.btn-queue-js'),
-};
+import { buttonRef } from "./renderModalFilmCard"
 
-export function addWatched(film) {
-  if (localStorage.getItem('filmsWatched') === null) {
-    let filmsWatched = [];
-    filmsWatched.push(film);
-    localStorage.setItem('filmsWatched', JSON.stringify(filmsWatched));
+buttonRef.addWatched.addEventListener('click', addWatched);
+buttonRef.addQueue.addEventListener('click', addQueue);
+let currentFilmUnit
+export function currentFilm() {
+  let galleryCargRef = document.querySelector(".movie-cards-gallery");
+  galleryCargRef.addEventListener("click", (event) => {
+    console.log(event.target.parentElement.outerHTML)
+    currentFilmUnit = event.target.parentElement.outerHTML
+    galleryCargRef.removeEventListener("click", galleryCargRef);
+  })
+
+}
+
+
+function addWatched() {
+  if (localStorage.getItem("filmsWatched") === null) {
+    localStorage.setItem("filmsWatched", currentFilmUnit);
   } else {
-    filmsWatched = JSON.parse(localStorage.getItem('filmsWatched'));
-    filmsWatched.push(film);
-    localStorage.setItem('filmsWatched', JSON.stringify(filmsWatched));
+    let films = localStorage.getItem("filmsWatched");
+    if (films.includes(currentFilmUnit) !== true) {
+      localStorage.setItem("filmsWatched", films + currentFilmUnit);
+    }
   }
 }
 
-export function addQueue(film) {
-  if (localStorage.getItem('filmsQueue') === null) {
-    let filmsQueue = [];
-    filmsQueue.push(film);
-    localStorage.setItem('filmsQueue', JSON.stringify(filmsQueue));
+function addQueue() {
+  if (localStorage.getItem("filmsQueue") === null) {
+    localStorage.setItem("filmsQueue", currentFilmUnit);
   } else {
-    filmsQueue = JSON.parse(localStorage.getItem('filmsQueue'));
-    console.log(filmsQueue);
-    filmsQueue.push(film);
-    localStorage.setItem('filmsQueue', JSON.stringify(filmsQueue));
+    let films = localStorage.getItem("filmsQueue");
+    if (films.includes(currentFilmUnit) !== true) {
+      localStorage.setItem("filmsQueue", films + currentFilmUnit);
+    }
   }
 }
 
-export { buttonRef };
 
 // const filtrFilm = (films) => {
 //     return films.filter((film, index, films) => films.indexOf(film) === index);
