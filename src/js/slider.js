@@ -1,6 +1,6 @@
 import Swiper, { Navigation, Pagination, Autoplay } from 'swiper';
 import { FetchMoviesApi } from './apiService'
-import { renderModalFilmCard, closeModal } from './renderModalFilmCard'
+import { renderModalFilmCard } from './renderModalFilmCard'
 
 const refs = {
   swiper: document.querySelector('.swiper'),
