@@ -30,7 +30,8 @@ async function onSubmit(event) {
     const arrayOfMoviesWithGenres = dataMerge(arrayOfMovies, genresList);
     console.log(arrayOfMoviesWithGenres);
 
-
+    const x = arrayOfMoviesWithGenres.map(obj => obj.release_date);
+ 
 
 // calling rendering function
     createMovieCard(arrayOfMoviesWithGenres);
@@ -50,7 +51,12 @@ function createMovieCard(arrayOfMovies) {
       const moviePoster = 'https://image.tmdb.org/t/p/w500';
       let movieGenres = element.genres.join(', ');
 
-      if (!(element.genres.length === 0) && !(element.release_date === '')) {
+      let movieYear = '';
+      if (element.release_date) {
+        movieYear = element.release_date.slice(0, 4);
+      }
+    
+      if (!(element.genres.length === 0) && !(movieYear === '')) {
         movieGenres = movieGenres + ' |';
       } 
     
@@ -66,7 +72,7 @@ function createMovieCard(arrayOfMovies) {
         ${movieTitle}  <br>
         <span class="genre-year">            
         ${movieGenres}
-        ${element.release_date.slice(0, 4)}         
+        ${movieYear}         
         </span>
         </p>
       </li>`;

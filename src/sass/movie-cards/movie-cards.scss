@@ -1,17 +1,29 @@
-.movie-cards-gallery {   
+.wrapper {
+  display: flex;
+    flex-wrap: wrap;
+}
+
+
+.movie-cards-gallery {
+    
   list-style: none;    
+  
   margin: 0;
+  margin-right: auto;
+    margin-left: auto;
   padding: 20px;
     // flex-basis: calc((100% - 60px) / 3);
 
   @media screen and (min-width: 768px) {
     display: flex;
     flex-wrap: wrap;
+    max-width: 768;
     gap: 32px;
     padding: 60px 32px;
   }
 
   @media screen and (min-width: 1280px) {
+        max-width: 1281;
     column-gap: 16px;
     row-gap: 32px;
   }
@@ -19,20 +31,24 @@
 
 
 .card-container {
+  display: flex;
+  flex-wrap: wrap;
+  
+  
   width: 280px;
-  height: 443px;
+  min-height: 443px;
   margin-bottom: 20px;
-  // outline: 2px solid red;
+  outline: 2px solid red;
 
   @media screen and (min-width: 768px) {
     width: 336px;
-    height: 495px;
+    min-height: 495px;
     margin-bottom: 0;
   }
 
   @media screen and (min-width: 1280px) {
     width: 394px;
-    height: 634px;
+    min-height: 634px;
   }
 }
 
@@ -100,7 +116,6 @@
     height: 574px;
   }
 }
-
 
 .movie-data {
   margin-top: 10px;
