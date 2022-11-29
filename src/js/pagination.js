@@ -10,7 +10,7 @@ const cardGalleryEl = getEl('.movie-cards-gallery'); //СЮДА ОТРИСОВЫ
 const paginationCintainer = getEl('#pagination_js');
 
 //ГЛАВНАЯ ФУНКЦИЯ КОНСТРУТОР
-export async function buildPagination(dataArr, rowPerPage) {
+export default async function buildPagination(dataArr, rowPerPage) {
   let currentPage = 1;
   //ФУНКЦИЯ ОТРИСОВКИ ЭЛЕМЕНТОВ В ЦЕЛЕВОЙ КОНТЕЙНЕР
   function displayPaginationResult(data, rowPerPage, page) {
@@ -25,14 +25,55 @@ export async function buildPagination(dataArr, rowPerPage) {
   function displayPagination(data, rowPerPage) {
     paginationElementList.innerHTML = '';
     const pageCount = Math.ceil(data.length / rowPerPage);
+    
     if (pageCount === 1) {
       paginationCintainer.classList.add('hidden');
       return;
     }
+
+    //отрисовка элементов
+    paginationCintainer.insertAdjacentHTML(
+      'afterbegin',
+      `<button type = "button" class = "pagination___btn--prev"> < </button>`
+    );
+    paginationCintainer.insertAdjacentHTML(
+      'beforeend',
+      `<button type = "button" class = "pagination___btn--next"> > </button>`
+    );
     for (let i = 0; i < pageCount; i += 1) {
       paginationElementList.appendChild(createPaginationEl(i + 1));
     }
+    // конец отрисовки элементов
+
+    //логика работы с кнопками
+    const prevBtn = getEl('.pagination___btn--prev');
+    const nextBtn = getEl('.pagination___btn--next');
+
+    prevBtn.addEventListener('click', () => {
+    
+      const focusElement = getEl('.pagination__el--current');
+      
+      if (focusElement.previousSibling) {
+        focusElement.classList.remove('pagination__el--current');
+        focusElement.previousSibling.classList.add('pagination__el--current');
+        currentPage = currentPage - 1;
+        displayPaginationResult(dataArr, rowPerPage, currentPage);
+      }
+    });
+
+    nextBtn.addEventListener('click', () => {
+ 
+      const focusElement = getEl('.pagination__el--current');
+
+      if (focusElement.nextSibling) {
+        focusElement.classList.remove('pagination__el--current');
+        focusElement.nextSibling.classList.add('pagination__el--current');
+        currentPage = currentPage + 1;
+        displayPaginationResult(dataArr, rowPerPage, currentPage);
+      }
+    });
   }
+
   //ФУНКЦИЯ СОЗДАНИЯ СТРАНИЦЫ
   function createPaginationEl(page) {
     const paginationEl = document.createElement('li');
@@ -51,6 +92,7 @@ export async function buildPagination(dataArr, rowPerPage) {
       currentPage = page;
       displayPaginationResult(dataArr, rowPerPage, currentPage);
     });
+
     return paginationEl;
   }
   //ФУНКЦИЯ СОЗДАНИЯ РАЗМЕТКИ 1ГО ЭЛЕМЕНТА
