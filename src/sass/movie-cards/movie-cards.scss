@@ -1,18 +1,16 @@
 .wrapper {
   display: flex;
-    flex-wrap: wrap;
+  flex-wrap: wrap;
 }
 
-
 .movie-cards-gallery {
-    
-  list-style: none;    
-  
+  list-style: none;
+
   margin: 0;
   margin-right: auto;
-    margin-left: auto;
+  margin-left: auto;
   padding: 20px;
-    // flex-basis: calc((100% - 60px) / 3);
+  // flex-basis: calc((100% - 60px) / 3);
 
   @media screen and (min-width: 768px) {
     display: flex;
@@ -23,23 +21,21 @@
   }
 
   @media screen and (min-width: 1280px) {
-        max-width: 1281;
+    max-width: 1281;
     column-gap: 16px;
     row-gap: 32px;
   }
 }
 
-
 .card-container {
   // display: flex;
-  // flex-wrap: wrap; 
-  
+  // flex-wrap: wrap;
+
   width: 280px;
   min-height: 443px;
   margin-bottom: 20px;
   cursor: pointer;
   // outline: 2px solid red;
-
 
   @media screen and (min-width: 768px) {
     width: 336px;
@@ -53,8 +49,7 @@
   }
 }
 
-
-// .image-wrapper {  
+// .image-wrapper {
 //   position: relative;
 //   width: 280px;
 //   height: 402px;
@@ -73,7 +68,6 @@
 //   }
 // }
 
-
 .image-poster {
   width: 280px;
   height: 402px;
@@ -91,11 +85,10 @@
   }
 }
 
-
 // .no-poster {
 //   position: absolute;
 //   top: 160;
-  
+
 //   width: 280px;
 //   height: 402px;
 //   text-align: center;
@@ -118,17 +111,15 @@
 //   }
 // }
 
-
 // .data-wrapper {
 //   display: flex;
 //   align-items: flex-start;
 // }
 
-
 .movie-data {
   margin-top: 10px;
   margin-bottom: 0;
-  
+
   font-family: 'Roboto';
   font-weight: 500;
   font-size: 12px;
@@ -149,9 +140,9 @@
 
 .genre-year {
   line-height: 16px;
-  color: #FF6B08;
+  color: #ff6b08;
 
   @media screen and (min-width: 1280px) {
-     line-height: 24px;
+    line-height: 24px;
   }
 }
