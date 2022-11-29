@@ -1,6 +1,6 @@
 const upBtn = document.getElementById('btn-up-js');
 const target = document.querySelector('.js-scrollOnSubmit');
-const footerTarget = document.querySelector('.footer-content');
+const footerTarget = document.getElementById('js-footer');
 
 upBtn.addEventListener('click', onUpBtnClick);
 
