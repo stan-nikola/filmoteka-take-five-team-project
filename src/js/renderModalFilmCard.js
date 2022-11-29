@@ -5,7 +5,7 @@ const BASE_URL = 'https://api.themoviedb.org';
 const moviePoster = 'https://image.tmdb.org/t/p/w500';
 
 const refs = {
-  cardLi: document.querySelector('.card-container'),
+  cardCont: document.querySelector('.card-container'),
   modalCard: document.querySelector('.container-content'),
   movieContainer: document.querySelector('.movie-cards-gallery'),
   backdrop: document.querySelector('.backdrop'),
@@ -14,9 +14,10 @@ const refs = {
 
 async function renderModalFilmCard(evt) {
   refs.modalCard.innerHTML = '';
+  let filmId = evt.target.parentNode.id;
   try {
     const response = await fetch(
-      `${BASE_URL}/3/movie/${evt.target.id}?api_key=${API_KEY}`
+      `${BASE_URL}/3/movie/${filmId}?api_key=${API_KEY}`
     );
     const result = await response.json();
     console.log(result);
