@@ -1,6 +1,7 @@
 import { fetchMovies, fetchGenres } from './apiService';
 import { dataMerge } from './renderHomeFilms';
 import { loadStart, loadStop } from './loadingSpinner';
+import noPosterCUT from '../images/no-poster/no-poster_CUT.jpg';
 
 let userRequest = '';
 
@@ -28,9 +29,7 @@ async function onSubmit(event) {
     const genresList = dataGenres.genres;
 
     const arrayOfMoviesWithGenres = dataMerge(arrayOfMovies, genresList);
-    // console.log(arrayOfMoviesWithGenres);
-
-    // calling rendering function
+    console.log(arrayOfMoviesWithGenres);
 
     // calling rendering function
     createMovieCard(arrayOfMoviesWithGenres);
@@ -46,27 +45,27 @@ export function createMovieCard(arrayOfMovies) {
 
   const setOfCards = arrayOfMovies.map(element => {
     const movieTitle = element.title.toUpperCase();
-    const moviePoster = 'https://image.tmdb.org/t/p/w500';
-    let movieGenres = element.genres.join(', ');
-
-    if (!(element.genres.length === 0) && !(element.release_date === '')) {
-      movieGenres = movieGenres + ' |';
-    }
+    const moviePosterStartPath = 'https://image.tmdb.org/t/p/w500';
+    
 
     let movieYear = '';
     if (element.release_date) {
       movieYear = element.release_date.slice(0, 4);
     }
 
+    let movieGenres = element.genres.join(', ');
     if (!(element.genres.length === 0) && !(movieYear === '')) {
       movieGenres = movieGenres + ' |';
     }
+
+    let moviePoster = noPosterCUT;
+    if (element.poster_path) {
+      moviePoster = moviePosterStartPath + element.poster_path;
+    }
+
     return `
        <li class="card-container" id="${element.id}">
-        <div class="image-wrapper">
-        <p class="no-poster">NO POSTER</p>
-        <img class="image-poster" src="${moviePoster}${element.poster_path}" alt="${element.title}"  />
-        </div>
+        <img class="image-poster" src="${moviePoster}" alt="${element.title}"  />
         <p class="movie-data">
         ${movieTitle}  <br>
         <span class="genre-year">            
