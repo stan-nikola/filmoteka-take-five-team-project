@@ -25,7 +25,7 @@ export default async function buildPagination(dataArr, rowPerPage) {
   function displayPagination(data, rowPerPage) {
     paginationElementList.innerHTML = '';
     const pageCount = Math.ceil(data.length / rowPerPage);
-    
+
     if (pageCount === 1) {
       paginationCintainer.classList.add('hidden');
       return;
@@ -50,9 +50,8 @@ export default async function buildPagination(dataArr, rowPerPage) {
     const nextBtn = getEl('.pagination___btn--next');
 
     prevBtn.addEventListener('click', () => {
-    
       const focusElement = getEl('.pagination__el--current');
-      
+
       if (focusElement.previousSibling) {
         focusElement.classList.remove('pagination__el--current');
         focusElement.previousSibling.classList.add('pagination__el--current');
@@ -62,7 +61,6 @@ export default async function buildPagination(dataArr, rowPerPage) {
     });
 
     nextBtn.addEventListener('click', () => {
- 
       const focusElement = getEl('.pagination__el--current');
 
       if (focusElement.nextSibling) {
@@ -111,7 +109,6 @@ export default async function buildPagination(dataArr, rowPerPage) {
       return `
       <li class="card-container">
         <div class="image-wrapper">
-        <p class="no-poster">NO POSTER</p>
         <img class="image-poster" src="${moviePoster}${
         element.poster_path
       }" alt="${element.title}"  />

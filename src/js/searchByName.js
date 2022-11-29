@@ -46,7 +46,6 @@ export function createMovieCard(arrayOfMovies) {
   const setOfCards = arrayOfMovies.map(element => {
     const movieTitle = element.title.toUpperCase();
     const moviePosterStartPath = 'https://image.tmdb.org/t/p/w500';
-    
 
     let movieYear = '';
     if (element.release_date) {
