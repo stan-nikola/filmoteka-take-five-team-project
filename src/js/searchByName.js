@@ -3,6 +3,8 @@ import { dataMerge } from './renderHomeFilms';
 import { loadStart, loadStop } from './loadingSpinner';
 import noPosterCUT from '../images/no-poster/no-poster_CUT.jpg';
 
+import { scrollOnSubmit } from './scrollPage';
+
 let userRequest = '';
 
 const inputNameEl = document.querySelector('.js-submitBtn');
@@ -14,6 +16,9 @@ inputFormEl.addEventListener('submit', onSubmit);
 
 async function onSubmit(event) {
   event.preventDefault();
+
+  scrollOnSubmit();
+
   userRequest = event.currentTarget.searchQuery.value.trim();
 
   try {
