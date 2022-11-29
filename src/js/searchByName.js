@@ -1,6 +1,7 @@
 import { fetchMovies, fetchGenres } from './apiService';
 import { dataMerge } from './renderHomeFilms';
 import { loadStart, loadStop } from './loadingSpinner';
+
 let userRequest = '';
 
 const inputNameEl = document.querySelector('.js-submitBtn');
@@ -27,7 +28,9 @@ async function onSubmit(event) {
     const genresList = dataGenres.genres;
 
     const arrayOfMoviesWithGenres = dataMerge(arrayOfMovies, genresList);
-    console.log(arrayOfMoviesWithGenres);
+    // console.log(arrayOfMoviesWithGenres);
+
+    // calling rendering function
 
     // calling rendering function
     createMovieCard(arrayOfMoviesWithGenres);
@@ -36,6 +39,7 @@ async function onSubmit(event) {
     console.log(error.message);
   }
 }
+
 // function for rendering a card
 export function createMovieCard(arrayOfMovies) {
   cardGalleryEl.innerHTML = '';
@@ -49,19 +53,25 @@ export function createMovieCard(arrayOfMovies) {
       movieGenres = movieGenres + ' |';
     }
 
+    let movieYear = '';
+    if (element.release_date) {
+      movieYear = element.release_date.slice(0, 4);
+    }
+
+    if (!(element.genres.length === 0) && !(movieYear === '')) {
+      movieGenres = movieGenres + ' |';
+    }
     return `
-      <li class="card-container" id="${element.id}">
+       <li class="card-container" id="${element.id}">
         <div class="image-wrapper">
         <p class="no-poster">NO POSTER</p>
-        <img class="image-poster" src="${moviePoster}${
-      element.poster_path
-    }" alt="${element.title}"  />
+        <img class="image-poster" src="${moviePoster}${element.poster_path}" alt="${element.title}"  />
         </div>
         <p class="movie-data">
         ${movieTitle}  <br>
         <span class="genre-year">            
         ${movieGenres}
-        ${element.release_date.slice(0, 4)}         
+        ${movieYear}         
         </span>
         </p>
       </li>`;
