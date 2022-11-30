@@ -10,9 +10,7 @@ export async function renderMovies() {
 
   const movieInfo = dataMerge(moviesList, genresList);
 
-  // createMovieCard(movieInfo);
-
-  pagination(movieInfo, 6);
+  createMovieCard(movieInfo);
 }
 
 export const dataMerge = function (allMovies, allGenres) {
