@@ -108,6 +108,7 @@
     }
 
   .team__list-item {
+        width: 100%;
         margin-bottom: 20px;  
   }
 
@@ -131,7 +132,7 @@
        
 
     .img__thumb {
-        max-width: 240px;
+        width: 100%;
         height: auto;
 
         overflow: hidden;
@@ -145,7 +146,7 @@
     }
 
     .teammate__info {
-        max-width: 240px;
+        width: 100%;
         height: auto;
         padding: 10px;
 
@@ -293,7 +294,7 @@
 
 
 .footer__modal {
-        padding: 80px;       
+        padding: 60px;       
         width: 720px;
         height: auto;
         
@@ -320,17 +321,33 @@
  display: flex;
  flex-wrap: wrap;
  justify-content: space-between;
- gap: 40px;
+ gap: 30px;
+
+}
+
+.team__list-item {
+
+flex-basis: calc((100% - 30px) / 2);
 
 }
 
 
-    .img__thumb {
-        width: 300px;
-       
 
-    }
 
+.name,
+.role,
+.responsibilities
+{
+
+font-size: 12px;
+
+}
+
+.name::after{
+
+height: 20px;
+
+}
 
 }
 
@@ -343,14 +360,45 @@
 
 
 .footer__modal {
-        width: 1080px;
-        padding: 80px;       
-        
+        width: 1120px;
         height: auto;
         
 }
 
+  .team__logo {
+    
+    width: 100px;
+    transform: translate(620%, 20%);
+   
 
+
+}
+
+.name,
+.role,
+.responsibilities
+{
+
+font-size: 13px;
+
+}
+
+
+.name::after{
+
+height: 20px;
+
+}
+
+.team__list {
+gap: 30px;
+}
+
+.team__list-item {
+
+flex-basis: calc((100% - 60px) / 3);
+
+}
 
 
 }
