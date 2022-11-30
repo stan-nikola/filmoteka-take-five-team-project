@@ -1,35 +1,19 @@
 import Swiper, { Navigation, Pagination, Autoplay } from 'swiper';
 import { FetchMoviesApi } from './apiService'
-import { renderModalFilmCard } from './renderModalFilmCard'
 
 const refs = {
-  swiper: document.querySelector('.swiper'),
   slider: document.querySelector('.swiper-wrapper'),
-  backdrop: document.querySelector('.backdrop'),
 };
-
-refs.swiper.addEventListener('click', clickOnSliderCards)
-
-async function clickOnSliderCards(evt){
-  if (evt.target.nodeName !== "IMG") {
-    return
-  }
-  await renderModalFilmCard(evt)
-  refs.backdrop.classList.remove('is-hidden');
-}
-
-
 const fetchMoviesApi = new FetchMoviesApi()
 
 export async function appendMovies() {
   const data = await fetchMoviesApi.fetchTrendingMovies();
   const movies = data.results;
-  console.log(movies);
   const markup = movies.map(movie => createMarkUp(movie)).join('');
   refs.slider.insertAdjacentHTML('beforeend', markup);
 
   const swiper = new Swiper('.swiper', {
-    modules: [Navigation, Autoplay],
+    modules: [Navigation, Pagination, Autoplay],
     breakpoints: {
       280: {
         slidesPerView:2,
@@ -56,14 +40,11 @@ export async function appendMovies() {
   });
 }
 
-function createMarkUp({poster_path, vote_average, original_title, id}) {
+function createMarkUp({poster_path, vote_average, original_title}) {
   return `
   <li class="swiper-slide">
     <span class="swiper-rating">${vote_average.toFixed(1)}</span>
-    <img class="swiper-image" id="${id}" src="https://image.tmdb.org/t/p/w500${poster_path}" alt="${original_title}">
+    <img class="swiper-image" src="https://image.tmdb.org/t/p/w500${poster_path}" alt="${original_title}">
   </li>
   `;
 }
-
-
-
