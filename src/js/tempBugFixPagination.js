@@ -50,7 +50,9 @@ export async function renderMovies2() {
 
   console.log(dataMovies.total_pages);
 
-  pagination(dataMovies.total_pages, movieInfo);
+  const tempLenght = 6; /// временная величина - нужно заменить на dataMovies.total_pages
+  createMovieCard(movieInfo);
+  pagination(tempLenght, movieInfo);
 }
 
 export const dataMerge = function (allMovies, allGenres) {
@@ -108,6 +110,12 @@ function pagination(total_pages, dataRowArr) {
 
       const movieInfo2 = dataMerge(moviesList2, genresList2);
       createMovieCard(movieInfo2);
+
+      window.scrollTo({
+        top: 0,
+        left: 0,
+        behavior: 'smooth',
+      });
     });
     return paginationEl;
   }
