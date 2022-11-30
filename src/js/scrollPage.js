@@ -39,6 +39,6 @@ const onEntry = entries => {
 };
 
 const observer = new IntersectionObserver(onEntry, {
-  rootMargin: '400px',
+  rootMargin: '200px',
 });
 observer.observe(footerTarget);
