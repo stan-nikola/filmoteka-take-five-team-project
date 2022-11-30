@@ -5,7 +5,7 @@
  "img@1x": "", 
  "img@2x": "", 
  "img@3x": "",
- "img": "./images/team/stanislav-karmanov.jpeg"},
+ "img": "https://lh3.googleusercontent.com/pw/AL9nZEWNy87SGdPglTapR4o05isG-PkXvwyFj3MzWmVfPZ-grD_Hai2knwFsNFNLvpAigK-aicPIMuEaRntkGHGB6djfOfmlOc-hggxFglG8QCf8ehFcV4sMARVdSMrgq9suKmOaXhP4tZM57hJ7XNuqZjGR0qblev48iC8e74tLH_lBxmsOIXo-yuPUDVlpY--3Yvrfazgs_xzFoQgnmxlKJis2Cx0IKLnkjbJrFrDoJ0pzC5bK0brnYBrl6KofpDdMyUsOq-Y2P2II2ld4BYIq0KjCUerFBj5OUyci1eDAF3GsIy9cS-noTPP3hTSZGklwUmh2wgjJWSNorVMRbosHcqhUVYv8Co4JYKe_vLR_96L91ohIJ8I894SaIsNFd0TO_BAjZUD1SUN2ovcDkqSe6HVo9_CucFm-aToFalUnQh2Qt9DBrkGwu7wZLZWZQffPWKsXnbwc86iLOatB1cr58M_3QrtEoazxEvRmFiW3I66FQLYOqXjS6lgAoyeqJGbdv7sH-3JQ7ZmKQ0x8M_m110G9M3r118tezLKvcmR9LeuY8zeRq1BgHx3-si9SOYdmti6RmXfyMKbqx12Of3bpeZV5Sk1bTmZmHt_7wWy1kVGk1QL4YowRvMUyngkfxfrb8yJ4tAS_VnXd1uZwDUCkgi3wuA5DAZ_g3TF4cpC1iqlgUrt0ymnDDK3uKN0nd6RgcXH6lLQc3TXI8_WFZAQYYHeOa4JbAY1ecAbCuMGKp9x4cr5x2ezTXv2Vm9NrJjCnwOzxdRClbhkKGs44jHIAWjeiPN4apF6-Q2k7sy7C7wHI2C0C4f_nEQPYXn4peEHoFJA45fWuGb-U3Wj8ISeV5uXPyBpuQVR32aJTj03vAz_H66J-3qLCm2WbCF_UOQPJFoc8_T52OfTPvFBrcZ3GIvBpbo1wa3jCqHpFOVipMEt3uc5voI6U4i-S3Q=w670-h893-no?authuser=0"},
 
 {"name":"Дарья Плуто", 
 "role": "Scrum master", 
@@ -21,7 +21,7 @@
 "img@1x": "", 
 "img@2x": "", 
 "img@3x": "", 
-"img": "./images/team/default-img-team.jpeg"},
+"img": "https://drive.google.com/file/d/1PhEXRpN84rf9Zw1b-15ot5F8Vrhfs9vy/view?usp=sharing"},
 
 {"name":"Сергей J", 
 "role": "Front-end developer", 
