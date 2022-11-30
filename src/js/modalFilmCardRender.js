@@ -63,12 +63,20 @@ async function renderModalFilmCard(evt) {
     refs.modalCard.insertAdjacentHTML('afterbegin', cardMarkup);
     refs.backdrop.classList.remove('is-hidden');
     window.addEventListener('keydown', onKeyCloseModal);
+    refs.backdrop.addEventListener('click', onBackdropClick);
   } catch {}
 }
 
+function onBackdropClick (ev) {
+  if(ev.currentTarget === ev.target) {
+    closeModal();
+  }
+}
+
 function onKeyCloseModal(evt) {
+  const ESC_KEY_CODE = 'Escape'
   evt.preventDefault();
-  if (evt.code === 'Escape') {
+  if (evt.code === ESC_KEY_CODE) {
     closeModal();
   }
 }
@@ -76,6 +84,7 @@ function onKeyCloseModal(evt) {
 function closeModal() {
   refs.backdrop.classList.add('is-hidden');
   window.removeEventListener('keydown', onKeyCloseModal);
+  refs.backdrop.removeEventListener('click', onBackdropClick);
 }
 
-export { renderModalFilmCard, closeModal };
+export { renderModalFilmCard, closeModal, onKeyCloseModal, onBackdropClick };
