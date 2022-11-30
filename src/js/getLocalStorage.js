@@ -11,6 +11,7 @@ export default function getLocalStorage() {
         Ref.pagination.classList.remove("is-hidden");
     } else {
         Ref.library.textContent = "Watched Gallery is empty";
+        Ref.library.setAttribute("style", "text-align: center;display: block;min-height: auto;")
         Ref.pagination.classList.add("is-hidden");
     }
     Ref.watchedBtn.addEventListener("click", () => {
@@ -22,6 +23,7 @@ export default function getLocalStorage() {
             Ref.pagination.classList.remove("is-hidden");
         } else {
             Ref.library.textContent = "Watched Gallery is empty";
+            Ref.library.setAttribute("style", "text-align: center;display: block;min-height: auto;")
             Ref.watchedBtn.removeAttribute("disabled");
             Ref.pagination.classList.add("is-hidden");
         }
@@ -36,6 +38,7 @@ export default function getLocalStorage() {
             Ref.pagination.classList.remove("is-hidden");
         } else {
             Ref.library.textContent = "Queue Gallery is empty";
+            Ref.library.setAttribute("style", "text-align: center;display: block;min-height: auto;")
             Ref.pagination.classList.add("is-hidden");
         }
     })

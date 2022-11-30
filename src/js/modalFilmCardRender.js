@@ -1,6 +1,6 @@
 import refs from './modalFilmCardRefs';
 import { API_KEY, BASE_URL, MOVIE_POSTER } from './apiService';
-
+import { handleLocalStorage } from './addLocalStorage';
 async function renderModalFilmCard(evt) {
   refs.modalCard.innerHTML = '';
   let filmId = evt.target.parentNode.dataset.id;
@@ -41,8 +41,8 @@ async function renderModalFilmCard(evt) {
             <li class="modal-card__item item">
               <span>Genre</span>
               <p class="item__genre-value">${result.genres.map(
-                genre => genre.name
-              )}</p>
+      genre => genre.name
+    )}</p>
             </li>
           </ul>
           <h3 class="about about__header">About</h3>
@@ -62,13 +62,14 @@ async function renderModalFilmCard(evt) {
         </div>`;
     refs.modalCard.insertAdjacentHTML('afterbegin', cardMarkup);
     refs.backdrop.classList.remove('is-hidden');
+    handleLocalStorage();
     window.addEventListener('keydown', onKeyCloseModal);
     refs.backdrop.addEventListener('click', onBackdropClick);
-  } catch {}
+  } catch { }
 }
 
-function onBackdropClick (ev) {
-  if(ev.currentTarget === ev.target) {
+function onBackdropClick(ev) {
+  if (ev.currentTarget === ev.target) {
     closeModal();
   }
 }
