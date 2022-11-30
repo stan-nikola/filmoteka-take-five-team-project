@@ -12,7 +12,7 @@ export function scrollOnSubmit() {
     upBtn.classList.remove('is-hidden');
 
     window.scrollBy({
-      top: cardHeight,
+      top: cardHeight * 0.8,
       behavior: 'smooth',
     });
   }, 500);
@@ -39,6 +39,6 @@ const onEntry = entries => {
 };
 
 const observer = new IntersectionObserver(onEntry, {
-  rootMargin: '0px',
+  rootMargin: '400px',
 });
 observer.observe(footerTarget);

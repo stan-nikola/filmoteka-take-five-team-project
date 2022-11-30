@@ -4,6 +4,8 @@ import { loadStart, loadStop } from './loadingSpinner';
 // import noPosterCUT from '../images/no-poster/no-poster_CUT.jpg';
 import { createMovieCard } from './movieCardRender';
 
+import { scrollOnSubmit } from './scrollPage';
+
 let userRequest = '';
 
 const inputNameEl = document.querySelector('.js-submitBtn');
@@ -15,6 +17,7 @@ inputFormEl.addEventListener('submit', onSubmit);
 
 async function onSubmit(event) {
   event.preventDefault();
+  scrollOnSubmit();
   userRequest = event.currentTarget.searchQuery.value.trim();
 
   try {
@@ -47,7 +50,6 @@ async function onSubmit(event) {
 //   const setOfCards = arrayOfMovies.map(element => {
 //     const movieTitle = element.title.toUpperCase();
 //     const moviePosterStartPath = 'https://image.tmdb.org/t/p/w500';
-    
 
 //     let movieYear = '';
 //     if (element.release_date) {
@@ -69,9 +71,9 @@ async function onSubmit(event) {
 //         <img class="image-poster" src="${moviePoster}" alt="${element.title}"  />
 //         <p class="movie-data">
 //         ${movieTitle}  <br>
-//         <span class="genre-year">            
+//         <span class="genre-year">
 //         ${movieGenres}
-//         ${movieYear}         
+//         ${movieYear}
 //         </span>
 //         </p>
 //       </li>`;
