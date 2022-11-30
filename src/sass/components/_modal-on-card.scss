@@ -49,16 +49,19 @@
 
   &__container-img {
     object-fit: cover;
-    width: 100%;
+    width: 240px;
+    height: 357px;
     margin-bottom: 20px;
   
       @media screen and (min-width: 767px) and (max-width: 1199px) {
         margin-right: 68px;
         width: 264px;
+        height: 374px;
       }
     
       @media screen and (min-width: 1280px) {
         width: 375px;
+        height: 478px;
         margin-right: 16px;
       }
   }
@@ -91,8 +94,19 @@
     margin-left: auto;
     margin-right: auto;
     object-fit: cover;
+    width: 240px;
+    height: 357px;
+  
+    @media screen and (min-width: 767px) and (max-width: 1199px) {
+      width: 264px;
+      height: 374px;
+    }
+    @media screen and (min-width: 1280px) {
+      width: 375px;
+      height: 478px;
+    }
   }
-
+  
   &__name-film {
     margin-bottom: 20px;
     font-weight: 500;
