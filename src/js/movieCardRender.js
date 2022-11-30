@@ -8,7 +8,6 @@ export function createMovieCard(arrayOfMovies) {
   const setOfCards = arrayOfMovies.map(element => {
     const movieTitle = element.title.toUpperCase();
     const moviePosterStartPath = 'https://image.tmdb.org/t/p/w500';
-    
 
     let movieYear = '';
     if (element.release_date) {
@@ -26,7 +25,7 @@ export function createMovieCard(arrayOfMovies) {
     }
 
     return `
-       <li class="card-container" id="${element.id}">
+       <li class="card-container" data-id="${element.id}">
         <img class="image-poster" src="${moviePoster}" alt="${element.title}"  />
         <p class="movie-data">
         ${movieTitle}  <br>
