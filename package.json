@@ -17,10 +17,6 @@
   "bugs": {
     "url": "https://github.com/goitacademy/parcel-project-template/issues"
   },
-  "staticFiles": {
-        "staticPath": "public",
-        "excludeGlob": "**/!(locales)/*.+(!(txt)|!(json))"
-    },
   "dependencies": {
     "modern-normalize": "^1.1.0",
     "spin.js": "^4.1.1",
