@@ -1,40 +1,35 @@
 @media screen and (min-width: 320px) {
 
-    // .backdrop {
-    //     position: fixed;
-    //     top: 0;
-    //     left: 0;
-    //     width: 320px;
-    //     height: auto;
+    .footer__backdrop {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
 
-    //     padding-top: 20px;
-    //     padding-bottom: 20px;
+        padding: 20px;
+        
+        background-color: rgba(0, 0, 0, 0.2);
+        z-index: 1;
+        overflow: auto;
 
-    //     background-color: rgba(0, 0, 0, 0.2);
-    //     z-index: 1;
+                &.hidden {
+            opacity: 0;
+            pointer-events: none;
 
-    //     // padding-top: 20px;
-    //     // padding-left: 20px;
-    //     // padding-right: 20px;
-    //     // padding-bottom: 38px;
+        }
 
+        // &.hidden .footer__modal {
+        //     transform: translateX(-50%) scale(0);
+        // }
 
-    //     &.is-hidden {
-    //         opacity: 0;
-    //         pointer-events: none;
+    }
 
-    //     }
-
-    //     // &.is-hidden .modal {
-    //     //     transform: translateX(-50%) scale(0);
-    //     // }
-
-    // }
-
-    .footerModal {
+    .footer__modal {
         position: relative;
-
+        
         width: 280px;
+        height: auto;
         padding-top: 48px;
         padding-left: 20px;
         padding-right: 20px;
@@ -45,9 +40,12 @@
         background: white;
         border-radius: 3px;
 
+        // transform: translate(-50%, -50%) scale(1) rotate(1turn);
 
-  
- 
+        // transition-property: transform;
+        // transition-duration: 500ms;
+        // transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+              
     }
 
 
@@ -73,47 +71,64 @@
 
     }
 
+    .team__logo {
+    
+    width: 60px;
+    margin: 0;
+    transform: translate(300%, 20%);
+    border-radius: 50%;
+    overflow: hidden;
+    
+    }
+
+    .team__logo-img{
+    display: block;
+    width: 100%;
+    margin: 0;
+    
+    }
+
+
+
     .team__name {
         display: block;
-        margin-bottom: 10px;
+        margin-bottom: 30px;
 
         text-align: center;
         text-transform: uppercase;
 
         font-family: 'Roboto';
         font-style: normal;
-        font-weight: 500;
+        font-weight: 700;
         font-size: 20px;
-        line-height: 23px;
+        line-height: 1.15;
 
-        color: #000000;
+        color: #FF6B01;
 
     }
 
-    .team__sign {
-        display: block;
-        margin-bottom: 20px;
+  .team__list-item {
+        margin-bottom: 20px;  
+  }
 
-        text-align: center;
+   .team__list-item:last-child {
+        margin-bottom: 0px;
+        
+        }
 
-        font-family: 'Roboto';
-        font-style: normal;
-        font-weight: 500;
-        font-size: 20px;
-        line-height: 23px;
 
-        color: #000000;
-    }
+    
+
 
     .teammate__card {
-        margin-bottom: 20px;
         border-radius: 5px;
-
         box-shadow: 0 2px 4px rgba(0, 0, 0, .25);
 
         overflow: hidden;
-    }
 
+      
+}
+       
 
     .img__thumb {
         max-width: 240px;
@@ -132,7 +147,7 @@
     .teammate__info {
         max-width: 240px;
         height: auto;
-        padding: 20px;
+        padding: 10px;
 
     }
 
@@ -151,7 +166,7 @@
         font-family: 'Roboto';
         font-style: normal;
         font-weight: 500;
-        font-size: 12px;
+        font-size: 10px;
         line-height: 1.33;
 
         color: #FF6B08;
@@ -184,7 +199,7 @@
         font-family: 'Roboto';
         font-style: normal;
         font-weight: 700;
-        font-size: 12px;
+        font-size: 10px;
         line-height: 1.33;
 
         color: #FF6B08;
@@ -193,6 +208,7 @@
 
 
     .responsibilities {
+        min-height: 100px;
         text-align: justify;
         word-break: keep-all;
 
@@ -267,6 +283,72 @@
         fill: black;
     }
 
+
+
+}
+
+
+
+@media screen and (min-width: 768px) {
+
+
+.footer__modal {
+        padding: 80px;       
+        width: 720px;
+        height: auto;
+        
+}
+
+ .modal-close__btn{
+ visibility: hidden;
+ }
+
+.team__name {
+        font-size: 40px;
+       
+    }
+
+      
+  .team__logo {
+    
+    width: 80px;
+    transform: translate(500%, 20%);
+   
+    }    
+
+.team__list {
+ display: flex;
+ flex-wrap: wrap;
+ justify-content: space-between;
+ gap: 40px;
+
+}
+
+
+    .img__thumb {
+        width: 300px;
+       
+
+    }
+
+
+}
+
+
+@media screen and (min-width: 1280px) {
+
+ .footer__backdrop{
+  padding: 80px;
+ }
+
+
+.footer__modal {
+        width: 1080px;
+        padding: 80px;       
+        
+        height: auto;
+        
+}
 
 
 
