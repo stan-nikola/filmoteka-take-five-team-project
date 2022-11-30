@@ -1,6 +1,5 @@
 import { fetchHomeTrendingMovies, fetchGenres } from './apiService';
-import { createMovieCard } from './searchByName';
-import buildPagination from './pagination';
+import { createMovieCard } from './movieCardRender';
 
 export async function renderMovies() {
   const dataMovies = await fetchHomeTrendingMovies();
@@ -9,10 +8,7 @@ export async function renderMovies() {
   const moviesList = dataMovies.results;
 
   const movieInfo = dataMerge(moviesList, genresList);
-
-  // createMovieCard(movieInfo);
-
-  buildPagination(movieInfo, 6);
+  createMovieCard(movieInfo);
 }
 
 export const dataMerge = function (allMovies, allGenres) {
