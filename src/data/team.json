@@ -5,7 +5,7 @@
  "img@1x": "", 
  "img@2x": "", 
  "img@3x": "",
- "img": "../images/team/stanislav-karmanov.jpeg"},
+ "img": "./images/team/stanislav-karmanov.jpeg"},
 
 {"name":"Дарья Плуто", 
 "role": "Scrum master", 
