@@ -1,5 +1,5 @@
 import { fetchHomeTrendingMovies, fetchGenres } from './apiService';
-import { createMovieCard } from './searchByName';
+import { createMovieCard } from './movieCardRender';
 import buildPagination from './pagination';
 
 export async function renderMovies() {

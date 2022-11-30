@@ -1,24 +1,20 @@
 import { fetchMovies, fetchGenres } from './apiService';
 import { dataMerge } from './renderHomeFilms';
 import { loadStart, loadStop } from './loadingSpinner';
-import noPosterCUT from '../images/no-poster/no-poster_CUT.jpg';
-
-import { scrollOnSubmit } from './scrollPage';
+// import noPosterCUT from '../images/no-poster/no-poster_CUT.jpg';
+import { createMovieCard } from './movieCardRender';
 
 let userRequest = '';
 
 const inputNameEl = document.querySelector('.js-submitBtn');
 const inputFormEl = document.querySelector('.js-input-form');
 
-const cardGalleryEl = document.querySelector('.movie-cards-gallery');
+// const cardGalleryEl = document.querySelector('.movie-cards-gallery');
 
 inputFormEl.addEventListener('submit', onSubmit);
 
 async function onSubmit(event) {
   event.preventDefault();
-
-  scrollOnSubmit();
-
   userRequest = event.currentTarget.searchQuery.value.trim();
 
   try {
@@ -44,41 +40,42 @@ async function onSubmit(event) {
   }
 }
 
-// function for rendering a card
-export function createMovieCard(arrayOfMovies) {
-  cardGalleryEl.innerHTML = '';
+// FUNCTION FOR RENDERING A CARD
+// export function createMovieCard(arrayOfMovies) {
+//   cardGalleryEl.innerHTML = '';
 
-  const setOfCards = arrayOfMovies.map(element => {
-    const movieTitle = element.title.toUpperCase();
-    const moviePosterStartPath = 'https://image.tmdb.org/t/p/w500';
+//   const setOfCards = arrayOfMovies.map(element => {
+//     const movieTitle = element.title.toUpperCase();
+//     const moviePosterStartPath = 'https://image.tmdb.org/t/p/w500';
+    
 
-    let movieYear = '';
-    if (element.release_date) {
-      movieYear = element.release_date.slice(0, 4);
-    }
+//     let movieYear = '';
+//     if (element.release_date) {
+//       movieYear = element.release_date.slice(0, 4);
+//     }
 
-    let movieGenres = element.genres.join(', ');
-    if (!(element.genres.length === 0) && !(movieYear === '')) {
-      movieGenres = movieGenres + ' |';
-    }
+//     let movieGenres = element.genres.join(', ');
+//     if (!(element.genres.length === 0) && !(movieYear === '')) {
+//       movieGenres = movieGenres + ' |';
+//     }
 
-    let moviePoster = noPosterCUT;
-    if (element.poster_path) {
-      moviePoster = moviePosterStartPath + element.poster_path;
-    }
+//     let moviePoster = noPosterCUT;
+//     if (element.poster_path) {
+//       moviePoster = moviePosterStartPath + element.poster_path;
+//     }
 
-    return `
-       <li class="card-container" data-id="${element.id}">
-        <img class="image-poster" src="${moviePoster}" alt="${element.title}"  />
-        <p class="movie-data">
-        ${movieTitle}  <br>
-        <span class="genre-year">            
-        ${movieGenres}
-        ${movieYear}         
-        </span>
-        </p>
-      </li>`;
-  });
+//     return `
+//        <li class="card-container" id="${element.id}">
+//         <img class="image-poster" src="${moviePoster}" alt="${element.title}"  />
+//         <p class="movie-data">
+//         ${movieTitle}  <br>
+//         <span class="genre-year">            
+//         ${movieGenres}
+//         ${movieYear}         
+//         </span>
+//         </p>
+//       </li>`;
+//   });
 
-  cardGalleryEl.innerHTML = setOfCards.join('');
-}
+//   cardGalleryEl.innerHTML = setOfCards.join('');
+// }
