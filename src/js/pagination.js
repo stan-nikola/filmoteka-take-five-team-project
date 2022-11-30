@@ -107,12 +107,10 @@ export default async function buildPagination(dataArr, rowPerPage) {
       }
 
       return `
-      <li class="card-container">
-        <div class="image-wrapper">
+      <li class="card-container" data-id="${element.id}">
         <img class="image-poster" src="${moviePoster}${
         element.poster_path
       }" alt="${element.title}"  />
-        </div>
         <p class="movie-data">
         ${movieTitle}  <br>
         <span class="genre-year">            

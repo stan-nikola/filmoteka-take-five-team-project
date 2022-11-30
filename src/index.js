@@ -4,15 +4,14 @@ import searchByName from './js/searchByName';
 import onSubmit from './js/searchByName';
 import { onUpBtnClick } from './js/scrollPage';
 
+// Imports from modalFilmCard section-----
+import refs from './js/modalFilmCardRefs';
+import { renderModalFilmCard, closeModal } from './js/modalFilmCardRender';
+// ---------------------------------------
+
 import { renderMovies } from './js/renderHomeFilms';
 import { buttonRef, addWatched, addQueue } from './js/addLocalStorage';
-import {
-  API_KEY,
-  BASE_URL,
-  refs,
-  renderModalFilmCard,
-  closeModal,
-} from './js/renderModalFilmCard';
+
 // Slider starter
 appendMovies();
 

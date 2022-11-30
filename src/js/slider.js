@@ -1,6 +1,6 @@
 import Swiper, { Navigation, Pagination, Autoplay } from 'swiper';
-import { FetchMoviesApi } from './apiService'
-import { renderModalFilmCard } from './renderModalFilmCard'
+import { FetchMoviesApi } from './apiService';
+import { renderModalFilmCard } from './modalFilmCardRender';
 
 const refs = {
   swiper: document.querySelector('.swiper'),
@@ -8,18 +8,17 @@ const refs = {
   backdrop: document.querySelector('.backdrop'),
 };
 
-refs.swiper.addEventListener('click', clickOnSliderCards)
+refs.swiper.addEventListener('click', clickOnSliderCards);
 
-async function clickOnSliderCards(evt){
-  if (evt.target.nodeName !== "IMG") {
-    return
+async function clickOnSliderCards(evt) {
+  if (evt.target.nodeName !== 'IMG') {
+    return;
   }
-  await renderModalFilmCard(evt)
+  await renderModalFilmCard(evt);
   refs.backdrop.classList.remove('is-hidden');
 }
 
-
-const fetchMoviesApi = new FetchMoviesApi()
+const fetchMoviesApi = new FetchMoviesApi();
 
 export async function appendMovies() {
   const data = await fetchMoviesApi.fetchTrendingMovies();
@@ -32,16 +31,16 @@ export async function appendMovies() {
     modules: [Navigation, Autoplay],
     breakpoints: {
       280: {
-        slidesPerView:2,
-        spaceBetween:10,
+        slidesPerView: 2,
+        spaceBetween: 10,
       },
       768: {
         slidesPerView: 5,
-        spaceBetween: 20
+        spaceBetween: 20,
       },
       1200: {
         slidesPerView: 8,
-        spaceBetween: 10
+        spaceBetween: 10,
       },
     },
     loop: true,
@@ -56,7 +55,7 @@ export async function appendMovies() {
   });
 }
 
-function createMarkUp({poster_path, vote_average, original_title, id}) {
+function createMarkUp({ poster_path, vote_average, original_title, id }) {
   return `
   <li class="swiper-slide">
     <span class="swiper-rating">${vote_average.toFixed(1)}</span>
@@ -64,6 +63,3 @@ function createMarkUp({poster_path, vote_average, original_title, id}) {
   </li>
   `;
 }
-
-
-

@@ -68,7 +68,7 @@ export function createMovieCard(arrayOfMovies) {
     }
 
     return `
-       <li class="card-container" id="${element.id}">
+       <li class="card-container" data-id="${element.id}">
         <img class="image-poster" src="${moviePoster}" alt="${element.title}"  />
         <p class="movie-data">
         ${movieTitle}  <br>

@@ -1,18 +1,10 @@
-const API_KEY = '62f46feb65c2319fb0db62c2c080ca35';
-const BASE_URL = 'https://api.themoviedb.org';
-const moviePoster = 'https://image.tmdb.org/t/p/w500';
-
-const refs = {
-  cardLi: document.querySelector('.card-container'),
-  modalCard: document.querySelector('.modal-card__container-content'),
-  movieContainer: document.querySelector('.movie-cards-gallery'),
-  backdrop: document.querySelector('.backdrop'),
-  btnClose: document.querySelector('.close-btn-js'),
-};
+import refs from './modalFilmCardRefs';
+import { API_KEY, BASE_URL, MOVIE_POSTER } from './apiService';
 
 async function renderModalFilmCard(evt) {
   refs.modalCard.innerHTML = '';
-  let filmId = evt.target.parentNode.id;
+  let filmId = evt.target.parentNode.dataset.id;
+  console.log(evt.target.parentNode);
   try {
     const response = await fetch(
       `${BASE_URL}/3/movie/${filmId}?api_key=${API_KEY}`
@@ -22,7 +14,7 @@ async function renderModalFilmCard(evt) {
     const cardMarkup = `<div class="modal-card__container-img">
             <img
               class="modal-card__current-img current-img-js"
-              src="${moviePoster}${result.poster_path}"
+              src="${MOVIE_POSTER}${result.poster_path}"
               alt="Poster of film "${result.title}"
             />
         </div>
@@ -70,18 +62,20 @@ async function renderModalFilmCard(evt) {
         </div>`;
     refs.modalCard.insertAdjacentHTML('afterbegin', cardMarkup);
     refs.backdrop.classList.remove('is-hidden');
+    window.addEventListener('keydown', onKeyCloseModal);
   } catch {}
+}
+
+function onKeyCloseModal(evt) {
+  evt.preventDefault();
+  if (evt.code === 'Escape') {
+    closeModal();
+  }
 }
 
 function closeModal() {
   refs.backdrop.classList.add('is-hidden');
+  window.removeEventListener('keydown', onKeyCloseModal);
 }
 
-export {
-  API_KEY,
-  BASE_URL,
-  moviePoster,
-  refs,
-  renderModalFilmCard,
-  closeModal,
-};
+export { renderModalFilmCard, closeModal };
