@@ -194,7 +194,7 @@ export const dataMerge = function (allMovies, allGenres) {
   }));
 };
 
-function pagination(total_pages, dataRowArr) {
+export function pagination(total_pages, dataRowArr) {
   let currentPage = 1;
   for (let i = 0; i <= total_pages; i += 1) {
     paginationElementList.appendChild(createPaginationEl(i + 1));
