@@ -38,6 +38,17 @@ export function handleLocalStorage() {
   addToWatched.addEventListener('click', addWatched);
   addToQueue.addEventListener('click', addQueue);
 }
-
+export function hiddenBtn() {
+  let watchedFilms = localStorage.getItem("filmsWatched");
+  let queueFilms = localStorage.getItem("filmsQueue");
+  if (watchedFilms.includes(currentFilmUnit) === true) {
+    const addToWatched = document.querySelector('.btn__watched-js');
+    addToWatched.setAttribute("disabled", "")
+  }
+  if (queueFilms.includes(currentFilmUnit) === true) {
+    const addToQueue = document.querySelector('.btn__queue-js');
+    addToQueue.setAttribute("disabled", "")
+  }
+}
 // const filtrFilm = (films) => {
 //     return films.filter((film, index, films) => films.indexOf(film) === index);

@@ -1,6 +1,7 @@
 import refs from './modalFilmCardRefs';
 import { API_KEY, BASE_URL, MOVIE_POSTER } from './apiService';
 import { handleLocalStorage } from './addLocalStorage';
+import { hiddenBtn } from './addLocalStorage';
 async function renderModalFilmCard(evt) {
   refs.modalCard.innerHTML = '';
   let filmId = evt.target.parentNode.dataset.id;
@@ -62,6 +63,7 @@ async function renderModalFilmCard(evt) {
         </div>`;
     refs.modalCard.insertAdjacentHTML('afterbegin', cardMarkup);
     refs.backdrop.classList.remove('is-hidden');
+    hiddenBtn();
     handleLocalStorage();
     window.addEventListener('keydown', onKeyCloseModal);
     refs.backdrop.addEventListener('click', onBackdropClick);
