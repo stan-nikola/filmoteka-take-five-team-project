@@ -13,8 +13,13 @@ async function renderModalFilmCard(evt) {
     console.log(result);
 
     let movieGenres = result.genres.map(genre => genre.name).join(', ');
-    let voteAverage = result.vote_average.toFixed(2);
+    let voteAverage = Number(result.vote_average.toFixed(2));
+    let voteAverageInt = Number(voteAverage.toFixed());
 
+    if (voteAverage === voteAverageInt) {
+      voteAverage = voteAverageInt;
+    };
+  
     const cardMarkup = `<div class="modal-card__container-img">
             <img
               class="modal-card__current-img current-img-js"
