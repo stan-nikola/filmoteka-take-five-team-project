@@ -3,6 +3,12 @@
   flex-wrap: wrap;
 }
 
+.library__warning-sign {
+  display: block;
+  text-align: center;
+  min-height: auto;
+}
+
 .movie-cards-gallery {
   list-style: none;
 
@@ -12,7 +18,7 @@
   padding: 20px;
   min-height: 1000px;
 
-//  min-height: ;
+  //  min-height: ;
   // flex-basis: calc((100% - 60px) / 3);
 
   @media screen and (min-width: 768px) {
@@ -27,7 +33,6 @@
     max-width: 1281;
     column-gap: 16px;
     row-gap: 32px;
-
   }
 }
 

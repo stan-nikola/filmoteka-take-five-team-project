@@ -5,13 +5,11 @@ import { handleLocalStorage } from './addLocalStorage';
 async function renderModalFilmCard(evt) {
   refs.modalCard.innerHTML = '';
   let filmId = evt.target.parentNode.dataset.id;
-  console.log(evt.target.parentNode);
   try {
     const response = await fetch(
       `${BASE_URL}/3/movie/${filmId}?api_key=${API_KEY}`
     );
     const result = await response.json();
-    console.log(result);
     const cardMarkup = `<div class="modal-card__container-img">
             <img
               class="modal-card__current-img current-img-js"
