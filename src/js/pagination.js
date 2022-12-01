@@ -9,9 +9,9 @@ import { createMovieCard } from './movieCardRender';
 let getEl = selector => document.querySelector(`${selector}`);
 const paginationElementList = getEl('#pagination_list_js'); //СЮДА ОТРИСОВЫВАЕМ СЧЁТЧИК СТРАНИЦ
 
-const paginationContainer = getEl('#pagination_js');
+export const paginationContainer = getEl('#pagination_js');
 
-export function pagination(pageCount, dataRowArr) {
+export async function pagination(pageCount, dataRowArr) {
   let currentPage = 1;
 
   if (pageCount === 1) {
@@ -19,6 +19,15 @@ export function pagination(pageCount, dataRowArr) {
     return;
   }
   // отрисовка елементов пагинатора
+  paginationElementList.innerHTML = '';
+  paginationContainer.innerHTML = '';
+  
+  for (let i = 0; i < pageCount; i += 1) {
+    paginationElementList.appendChild(createPaginationEl(i + 1));
+  }
+  
+  paginationContainer.appendChild(paginationElementList);
+
   paginationContainer.insertAdjacentHTML(
     'afterbegin',
     `<button type = "button" class = "pagination___btn--prev"> < </button>`
@@ -27,10 +36,6 @@ export function pagination(pageCount, dataRowArr) {
     'beforeend',
     `<button type = "button" class = "pagination___btn--next"> > </button>`
   );
-
-  for (let i = 0; i <= pageCount; i += 1) {
-    paginationElementList.appendChild(createPaginationEl(i + 1));
-  }
   // конец отрисовки єлементов пагинатора
 
   //логика работы с кнопками
@@ -91,6 +96,7 @@ export function pagination(pageCount, dataRowArr) {
 
     return paginationEl;
   }
+  console.log('Сработала функция пагинации');
 }
 //функция запроса по НОМЕРУ СТРАНИЦЫ
 async function paginatorTrendingFetch(currentPage) {
@@ -118,4 +124,10 @@ async function paginatorTrendingFetch(currentPage) {
   );
 
   createMovieCard(paginationMovieInfo);
+}
+
+export function fetchMovies(inputtedName) {
+  return fetch(
+    `${URL_FOR_FETCH_BY_NAME}?api_key=${API_KEY}&query=${inputtedName}`
+  ).then(response => response.json());
 }
