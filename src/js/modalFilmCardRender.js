@@ -1,5 +1,5 @@
 import refs from './modalFilmCardRefs';
-import { API_KEY, BASE_URL, MOVIE_POSTER } from './apiService';
+import { API_KEY, BASE_URL, MOVIE_POSTER, fetchTrailer } from './apiService';
 import { handleLocalStorage } from './addLocalStorage';
 
 import placeholderImg from '../images/no-poster/no-poster_CUT.jpg';
@@ -23,6 +23,17 @@ async function renderModalFilmCard(evt) {
       voteAverage = voteAverageInt;
     }
 
+    const dataTrailer = await fetchTrailer(filmId);
+    // const videoKey = dataTrailer.results[0].key;
+    const trailerObjeckt = dataTrailer.results.find(
+      option =>
+        option.name === 'Official Trailer' ||
+        option.name === 'Official Trailer [Subtitled]'
+    );
+    // console.log('VideoKey Obj', dataTrailer.results);
+    // console.log('trailerObjeckt', trailerObjeckt);
+    const trailerKey = trailerObjeckt.key;
+    console.log(result);
     const cardMarkup = `<div class="modal-card__container-img">
             <img
               class="modal-card__current-img current-img-js"
@@ -70,7 +81,11 @@ async function renderModalFilmCard(evt) {
           <button class="btn btn__queue btn__queue-js" data-id=${filmId} type="button">
             add to queue
           </button>
-        </div>`;
+        </div>
+        <div class="modal-card__container-video">
+          <iframe width=100%" height="250" src='https://www.youtube.com/embed/${trailerKey}'frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        `;
     refs.modalCard.insertAdjacentHTML('afterbegin', cardMarkup);
     refs.backdrop.classList.remove('is-hidden');
     handleLocalStorage();
