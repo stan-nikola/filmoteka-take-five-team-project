@@ -7,12 +7,12 @@ import placeholderImg from '../images/no-poster/no-poster_CUT.jpg';
 async function renderModalFilmCard(evt) {
   refs.modalCard.innerHTML = '';
   let filmId = evt.target.parentNode.dataset.id;
+
   try {
     const response = await fetch(
       `${BASE_URL}/3/movie/${filmId}?api_key=${API_KEY}`
     );
     const result = await response.json();
-    console.log(result);
 
     let movieGenres = result.genres.map(genre => genre.name).join(', ');
     let popularity = result.popularity;
@@ -62,12 +62,12 @@ async function renderModalFilmCard(evt) {
           </p> 
           <div class="modal-card__container-btn">
           <button
-            class="btn current-btn btn__watched btn__watched-js"
+            class="btn current-btn btn__watched btn__watched-js" data-id=${filmId}
             type="button"
           >
             add to Watched
           </button>
-          <button class="btn btn__queue btn__queue-js" type="button">
+          <button class="btn btn__queue btn__queue-js" data-id=${filmId} type="button">
             add to queue
           </button>
         </div>`;
