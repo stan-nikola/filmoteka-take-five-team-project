@@ -3,14 +3,18 @@ import { createMovieCard } from './movieCardRender';
 import { pagination } from './pagination';
 
 export async function renderMovies() {
-  const dataMovies = await fetchHomeTrendingMovies();
-  const dataGenres = await fetchGenres();
-  const genresList = dataGenres.genres;
-  const moviesList = dataMovies.results;
+  try {
+    const dataMovies = await fetchHomeTrendingMovies();
+    const dataGenres = await fetchGenres();
+    const genresList = dataGenres.genres;
+    const moviesList = dataMovies.results;
 
-  const movieInfo = dataMerge(moviesList, genresList);
+    const movieInfo = dataMerge(moviesList, genresList);
 
-  createMovieCard(movieInfo);
+    createMovieCard(movieInfo);
+  } catch (error) {
+    console.log(error.message);
+  }
 }
 
 export const dataMerge = function (allMovies, allGenres) {
