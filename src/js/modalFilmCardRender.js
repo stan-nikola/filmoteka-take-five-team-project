@@ -4,8 +4,6 @@ import { handleLocalStorage } from './addLocalStorage';
 
 import placeholderImg from '../images/no-poster/no-poster_CUT.jpg';
 
-// const placeholderImg = 'http://localhost:1234/no-poster_CUT.dd956c7c.jpg';
-
 async function renderModalFilmCard(evt) {
   refs.modalCard.innerHTML = '';
   let filmId = evt.target.parentNode.dataset.id;
