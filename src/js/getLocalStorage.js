@@ -24,6 +24,8 @@ export function getLocalStorage() {
 }
 
 function handleWatchedBtn() {
+  Ref.queueBtn.classList.toggle('header__libary__btn__active');
+  Ref.watchedBtn.classList.toggle('header__libary__btn__active');
   Ref.watchedBtn.disabled = true;
   Ref.queueBtn.disabled = false;
   if (localStorage.getItem('filmsWatched') !== null) {
@@ -41,6 +43,8 @@ function handleWatchedBtn() {
 }
 
 function handleQueueBtn() {
+  Ref.queueBtn.classList.toggle('header__libary__btn__active');
+  Ref.watchedBtn.classList.toggle('header__libary__btn__active');
   Ref.queueBtn.disabled = true;
   Ref.watchedBtn.disabled = false;
   if (localStorage.getItem('filmsQueue') !== null) {
