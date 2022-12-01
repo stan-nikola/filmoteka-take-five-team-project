@@ -19,6 +19,7 @@ export function getLocalStorage() {
     );
     Ref.pagination.classList.add('is-hidden');
   }
+
   Ref.watchedBtn.addEventListener('click', handleWatchedBtn);
   Ref.queueBtn.addEventListener('click', handleQueueBtn);
 }
@@ -55,4 +56,5 @@ function handleQueueBtn() {
     );
     Ref.pagination.classList.add('is-hidden');
   }
+
 }

@@ -1,64 +1,64 @@
-@import'../../node_modules/swiper/swiper-bundle.css';
+@import '../../node_modules/swiper/swiper-bundle.css';
 
-.swiper-container{
-    padding-top: 30px;
-    padding-bottom: 30px;
-       
+.swiper-container {
+  padding-top: 30px;
+  padding-bottom: 30px;
 }
 
-.swiper-title{
-    text-transform: uppercase;
-    text-align: center;
-    margin-bottom: 10px;
+.swiper-title {
+  text-transform: uppercase;
+  text-align: center;
+  margin-bottom: 10px;
 }
 .swiper {
-    width: 100%;
-    height: 180px; 
+  width: 100%;
+  height: 180px;
 }
 
-.swiper-image{
-    width: 100%;
-    height: 100%;
-    border-radius: 4%;
+.swiper-image {
+  width: 100%;
+  height: 100%;
+  border-radius: 4%;
 }
-.swiper-rating{
-    position: absolute;
-    bottom: 5px;
-    right: 5px;
+.swiper-rating {
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
-    font-weight: 500;
-    font-size: 13px;
-    line-height: 1.1;
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 1.1;
 
-    width: 40px;
-    height: 15px;
-    border-radius: 5%;
+  width: 40px;
+  height: 15px;
+  border-radius: 5%;
 
-    background-color:#FF6B08;
-    color: white;
-}
-
-.swiper-slide{
-    position: relative;
-    
-    transition: scale 250ms linear;
-    &:hover, &:focus{
-        scale:1.04;
-        
-    } 
+  background-color: #ff6b08;
+  color: white;
 }
 
-.swiper-button-next, .swiper-button-prev{
-    color: rgb(255, 107, 8);
-    border-radius: 10%;
-    transition: background-color 250ms linear;
-    &:hover, &:focus{
-        background-color: rgba(226, 230, 220, 0.733);
-       
-    }
+.swiper-slide {
+  position: relative;
+
+  transition: scale 250ms linear;
+  &:hover,
+  &:focus {
+    scale: 1.04;
+    cursor: pointer;
+  }
 }
 
+.swiper-button-next,
+.swiper-button-prev {
+  color: rgb(255, 107, 8);
+  border-radius: 10%;
+  transition: background-color 250ms linear;
+  &:hover,
+  &:focus {
+    background-color: rgba(226, 230, 220, 0.733);
+  }
+}

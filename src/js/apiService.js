@@ -15,7 +15,7 @@ export class FetchMoviesApi {
     try {
       loadStart();
       const response = await fetch(
-        `${BASE_URL}/3/trending/all/day?api_key=${API_KEY}`
+        `${BASE_URL}/3/trending/movie/day?api_key=${API_KEY}`
       );
       const data = response.json();
       loadStop();

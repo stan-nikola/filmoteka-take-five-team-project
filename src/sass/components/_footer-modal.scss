@@ -147,7 +147,7 @@
 
     .teammate__info {
         width: 100%;
-        height: auto;
+        max-height: 120px;
         padding: 10px;
 
     }
@@ -227,7 +227,7 @@
 
     .social__nets {
 
-        max-width: 240px;
+        max-width: 100%;
         height: auto;
 
 
@@ -369,7 +369,14 @@ height: 20px;
     
     width: 100px;
     transform: translate(620%, 20%);
-   
+
+ .img__thumb {
+        width: 100%;
+        height: auto;
+
+        overflow: hidden;
+
+    }
 
 
 }
