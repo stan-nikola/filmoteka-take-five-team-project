@@ -8,8 +8,11 @@ import { scrollOnSubmit } from './scrollPage';
 
 let userRequest = '';
 
-const inputNameEl = document.querySelector('.js-submitBtn');
+
 const inputFormEl = document.querySelector('.js-input-form');
+const warningNotificationEl = document.querySelector('.header__warning');
+
+warningNotificationEl.textContent = '';
 
 // const cardGalleryEl = document.querySelector('.movie-cards-gallery');
 
@@ -20,15 +23,25 @@ async function onSubmit(event) {
   scrollOnSubmit();
   userRequest = event.currentTarget.searchQuery.value.trim();
 
+  if (userRequest === '') {
+    event.currentTarget.searchQuery.value = '';
+    warningNotificationEl.textContent = 'Please, input your query';
+    return;
+  } else { warningNotificationEl.textContent = '' };
+  event.currentTarget.searchQuery.value = '';
+
   try {
     loadStart();
     const response = await fetchMovies(userRequest);
     const arrayOfMovies = response.results;
 
     if (arrayOfMovies.length === 0) {
-      console.log('Хрен вам, а не кино!');
-    }
-
+      console.log('Хрен вам, а не кино!');     
+      warningNotificationEl.textContent = 'Search result not successful. Enter the correct movie name and try again.';
+      return;
+    } else { warningNotificationEl.textContent = '' };
+    
+   
     const dataGenres = await fetchGenres();
     const genresList = dataGenres.genres;
 
