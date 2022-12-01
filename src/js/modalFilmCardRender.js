@@ -1,6 +1,9 @@
 import refs from './modalFilmCardRefs';
 import { API_KEY, BASE_URL, MOVIE_POSTER } from './apiService';
 import { handleLocalStorage } from './addLocalStorage';
+
+import placeholderImg from '../images/no-poster/no-poster_CUT.jpg';
+
 async function renderModalFilmCard(evt) {
   refs.modalCard.innerHTML = '';
   let filmId = evt.target.parentNode.dataset.id;
@@ -12,9 +15,7 @@ async function renderModalFilmCard(evt) {
     console.log(result);
 
     let movieGenres = result.genres.map(genre => genre.name).join(', ');
-
     let popularity = result.popularity;
-
     let voteAverage = Number(result.vote_average.toFixed(1));
     let voteAverageInt = Number(voteAverage.toFixed());
 
@@ -27,6 +28,7 @@ async function renderModalFilmCard(evt) {
               class="modal-card__current-img current-img-js"
               src="${MOVIE_POSTER}${result.poster_path}"
               alt="Poster of film "${result.title}"
+              onError="this.src='${placeholderImg}'"
             />
         </div>
         <div class="modal-card__container-description">
