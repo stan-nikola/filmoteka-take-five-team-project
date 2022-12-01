@@ -2,20 +2,20 @@
   "name": "parcel-project-template",
   "version": "2.0.0",
   "description": "",
-  "homepage": "https://stan-nikola.github.io/filmoteka-take-five-team-project",
+  "homepage": "https://stan-nikola.github.io/filmoteka-take-five-team-project/",
   "scripts": {
     "start": "parcel src/*.html",
     "build": "parcel build src/*.html --public-url /filmoteka-take-five-team-project/"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/goitacademy/parcel-project-template.git"
+    "url": "git+https://stan-nikola.github.io/filmoteka-take-five-team-project.git"
   },
   "keywords": [],
   "author": "Alexander Repeta <alexander.repeta@gmail.com>",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/goitacademy/parcel-project-template/issues"
+    "url": "https:/stan-nikola.github.io/filmoteka-take-five-team-project"
   },
   "dependencies": {
     "modern-normalize": "^1.1.0",
