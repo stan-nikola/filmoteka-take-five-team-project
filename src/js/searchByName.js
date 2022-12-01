@@ -8,7 +8,6 @@ import { scrollOnSubmit } from './scrollPage';
 
 let userRequest = '';
 
-
 const inputFormEl = document.querySelector('.js-input-form');
 const warningNotificationEl = document.querySelector('.header__warning');
 
@@ -20,14 +19,16 @@ inputFormEl.addEventListener('submit', onSubmit);
 
 async function onSubmit(event) {
   event.preventDefault();
-  scrollOnSubmit();
+
   userRequest = event.currentTarget.searchQuery.value.trim();
 
   if (userRequest === '') {
     event.currentTarget.searchQuery.value = '';
     warningNotificationEl.textContent = 'Please, input your query';
     return;
-  } else { warningNotificationEl.textContent = '' };
+  } else {
+    warningNotificationEl.textContent = '';
+  }
   event.currentTarget.searchQuery.value = '';
 
   try {
@@ -36,12 +37,16 @@ async function onSubmit(event) {
     const arrayOfMovies = response.results;
 
     if (arrayOfMovies.length === 0) {
-      console.log('Хрен вам, а не кино!');     
-      warningNotificationEl.textContent = 'Search result not successful. Enter the correct movie name and try again.';
+      console.log('Хрен вам, а не кино!');
+      warningNotificationEl.textContent =
+        'Search result not successful. Enter the correct movie name and try again.';
+      loadStop();
+
       return;
-    } else { warningNotificationEl.textContent = '' };
-    
-   
+    } else {
+      warningNotificationEl.textContent = '';
+    }
+
     const dataGenres = await fetchGenres();
     const genresList = dataGenres.genres;
 
@@ -50,6 +55,7 @@ async function onSubmit(event) {
 
     // calling rendering function
     createMovieCard(arrayOfMoviesWithGenres);
+    scrollOnSubmit();
     loadStop();
   } catch (error) {
     console.log(error.message);
