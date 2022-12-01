@@ -1,5 +1,32 @@
 import { team } from '../data/team.js';
 
+import staskarmanov from '../images/team/stanislav-karmanov.jpeg';
+console.log( staskarmanov );
+
+import dariapluto from '../images/team/daria-pluto.png';
+console.log( dariapluto );
+
+import maksimshvets from '../images/team/maksim-shviets.jpeg';
+console.log( maksimshvets )
+
+import sergeyj from '../images/team/sergey-j.png'
+console.log( sergeyj );
+
+import anton from '../images/team/anton-provorov.jpg';
+console.log( anton );
+
+import alex from '../images/team/alex-schlieden.jpeg'
+console.log( alex );
+
+import natalie from '../images/team/natalie.jpeg';
+console.log( natalie );
+
+import icons from '../images/icons/icons-opt.svg'
+console.log( icons );
+
+
+console.log( team );
+
 const footerRefs = {
 footerModalBtn: document.querySelector( '.js-modal' ),
 footerModalBackdrop: document.querySelector( ".footer__backdrop" ),
@@ -43,7 +70,7 @@ function showModalHandler( event )
                             <a href="" class="team__net-icon-link">
                                 <div class="team__net-icon-thumb">
                                     <svg class="team__net-icon" width="20px" height="20px">
-                                        <use href="./images/icons/icons-opt.svg#icon-instagram-opt"></use>
+                                        <use href="http://localhost:1234/icons-opt.8f2041b2.svg?1669854856927#icon-instagram-opt"></use>
                                     </svg>
                                 </div>
                             </a>
@@ -53,7 +80,7 @@ function showModalHandler( event )
                             <a href="" class="team__net-icon-link">
                                 <div class="team__net-icon-thumb">
                                     <svg class="team__net-icon" width="20px" height="20px">
-                                        <use href="./images/icons/icons.svg#icon-twitter"></use>
+                                        <use href="http://localhost:1234/icons-opt.8f2041b2.svg?1669854856927#icon-twitter-opt"></use>
                                     </svg>
                                 </div>
                             </a>
@@ -63,7 +90,7 @@ function showModalHandler( event )
                             <a href="" class="team__net-icon-link">
                                 <div class="team__net-icon-thumb">
                                     <svg class="team__net-icon" width="20px" height="20px">
-                                        <use href="./images/icons/icons.svg#icon-facebook"></use>
+                                        <use href="http://localhost:1234/icons-opt.8f2041b2.svg?1669854856927#icon-facebook-opt"></use>
                                     </svg>
                                 </div>
                             </a>
@@ -73,7 +100,7 @@ function showModalHandler( event )
                             <a href="" class="team__net-icon-link">
                                 <div class="team__net-icon-thumb">
                                     <svg class="team__net-icon" width="20px" height="20px">
-                                        <use href="./images/icons/icons.svg#icon-linkedin"></use>
+                                        <use href="http://localhost:1234/icons-opt.8f2041b2.svg?1669854856927#icon-linkedin-opt"></use>
                                     </svg>
                                 </div>
                             </a>
@@ -90,6 +117,8 @@ function showModalHandler( event )
             </div>
 
             </li>`).join( "" );
+    
+    console.log( teamMarkup );
     
     footerRefs.teamList.innerHTML = teamMarkup;
 
