@@ -5,7 +5,7 @@ export const team = [
  img1x: "", 
  img2x: "", 
  img3x: "",
- img: 'https://drive.google.com/file/d/1yXgHRReIo941cWU6J1dpBJ1i7a1av8C7/view?usp=sharing'},
+ img: "http://localhost:1234/stanislav-karmanov.50e0e6e2.jpeg?1669853090371"},
 
 {name:"Дарья Плуто", 
 role: "Scrum master", 
@@ -13,7 +13,7 @@ resposibilities:"Организация митингов команды, вед�
 img1x: "", 
 img2x: "", 
 img3x: "", 
-img: "./images/team/default-img-team.jpeg"},
+img: "http://localhost:1234/daria-pluto.30997a3e.png?1669853479227"},
 
 {name:"Максим Швец", 
 role: "Front-end developer", 
@@ -21,7 +21,7 @@ role: "Front-end developer",
 img1x: "", 
 img2x: "", 
 img3x: "", 
-img: "./images/team/default-img-team.jpeg"},
+img: "http://localhost:1234/maksim-shviets.1d2c9f7b.jpeg?1669853616274"},
 
 {name:"Сергей J", 
 role: "Front-end developer", 
@@ -29,7 +29,7 @@ resposibilities:"Верстка контейнеров страниц, верс�
 img1x: "", 
 img2x: "", 
 img3x: "", 
-img: "./images/team/default-img-team.jpeg"},
+img: "http://localhost:1234/sergey-j.579ce641.png?1669853751446"},
 
 {name:"Антон Проворов", 
 role: "Front-end developer", 
@@ -37,7 +37,7 @@ resposibilities:"Верстка хедера страниц, переключе�
 img1x: "", 
 img2x: "", 
 img3x: "", 
-img: "./images/team/anton-provorov.jpg"},
+img: "http://localhost:1234/anton-provorov.d11c1c66.jpg?1669853907213"},
 
 {name:"Ирина Рыбка", 
 role: "Front-end developer", 
@@ -77,7 +77,7 @@ resposibilities:"Верстка хедера страницы My Library, реа
 img1x: "", 
 img2x: "", 
 img3x: "",
-img: "./images/team/alex-schlieden.jpeg"},
+img: "http://localhost:1234/alex-schlieden.f53eea57.jpeg?1669854154598"},
 
 
 {name:"Орест Мазгаль", 
@@ -96,6 +96,6 @@ role: "Front-end developer",
 img1x: "", 
 img2x: "", 
 img3x: "", 
-img: "./images/team/default-img-team.jpeg"}
+img: "http://localhost:1234/natalie.31528d41.jpeg?1669854332040"}
 
 ]
