@@ -23,7 +23,6 @@ const fetchMoviesApi = new FetchMoviesApi();
 export async function appendMovies() {
   const data = await fetchMoviesApi.fetchTrendingMovies();
   const movies = data.results;
-  console.log(movies);
   const markup = movies.map(movie => createMarkUp(movie)).join('');
   refs.slider.insertAdjacentHTML('beforeend', markup);
 
