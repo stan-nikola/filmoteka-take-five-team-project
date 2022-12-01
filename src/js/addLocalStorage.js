@@ -1,34 +1,52 @@
-let currentFilmUnit;
-export function clickCurrentFilm() {
-  let galleryCargRef = document.querySelector(".movie-cards-gallery");
-  galleryCargRef.addEventListener("click", (event) => {
-    console.log(event.target.parentElement.outerHTML)
-    currentFilmUnit = event.target.parentElement.outerHTML
-    galleryCargRef.removeEventListener("click", galleryCargRef);
-  })
+import { BASE_URL, API_KEY } from './apiService';
 
-}
-
-
-function addWatched() {
-  if (localStorage.getItem("filmsWatched") === null) {
-    localStorage.setItem("filmsWatched", currentFilmUnit);
+async function addWatched(evt) {
+  let filmsWatched = [];
+  let filmId = evt.target.dataset.id;
+  const response = await fetch(
+    `${BASE_URL}/3/movie/${filmId}?api_key=${API_KEY}`
+  );
+  console.log(response);
+  const currentFilm = await response.json();
+  console.log(currentFilm);
+  if (localStorage.getItem('filmsWatched') === null) {
+    filmsWatched.push(currentFilm);
+    localStorage.setItem('filmsWatched', JSON.stringify(filmsWatched));
   } else {
-    let films = localStorage.getItem("filmsWatched");
-    if (films.includes(currentFilmUnit) !== true) {
-      localStorage.setItem("filmsWatched", films + currentFilmUnit);
-    }
+    filmsWatched = JSON.parse(localStorage.getItem('filmsWatched'));
+    filmsWatched.map(filmWatched => {
+      if (filmWatched.id === currentFilm.id) {
+        console.log('already there');
+        return;
+      } else {
+        filmsWatched.push(currentFilm);
+        localStorage.setItem('filmsWatched', JSON.stringify(filmsWatched));
+      }
+    });
   }
 }
 
-function addQueue() {
-  if (localStorage.getItem("filmsQueue") === null) {
-    localStorage.setItem("filmsQueue", currentFilmUnit);
+async function addQueue(evt) {
+  let filmsQueue = [];
+  let filmId = evt.target.dataset.id;
+  const response = await fetch(
+    `${BASE_URL}/3/movie/${filmId}?api_key=${API_KEY}`
+  );
+  const currentFilm = await response.json();
+
+  if (localStorage.getItem('filmsQueue') === null) {
+    filmsQueue.push(currentFilm);
+    localStorage.setItem('filmsQueue', JSON.stringify(filmsQueue));
   } else {
-    let films = localStorage.getItem("filmsQueue");
-    if (films.includes(currentFilmUnit) !== true) {
-      localStorage.setItem("filmsQueue", films + currentFilmUnit);
-    }
+    filmsQueue = JSON.parse(localStorage.getItem('filmsQueue'));
+    filmsQueue.map(filmQueue => {
+      if (filmQueue.id === currentFilm.id) {
+        return;
+      } else {
+        filmsQueue.push(currentFilm);
+        localStorage.setItem('filmsQueue', JSON.stringify(filmsQueue));
+      }
+    });
   }
 }
 
