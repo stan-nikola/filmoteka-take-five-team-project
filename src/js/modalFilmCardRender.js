@@ -4,7 +4,6 @@ import { handleLocalStorage } from './addLocalStorage';
 async function renderModalFilmCard(evt) {
   refs.modalCard.innerHTML = '';
   let filmId = evt.target.parentNode.dataset.id;
-  console.log(evt.target.parentNode);
   try {
     const response = await fetch(
       `${BASE_URL}/3/movie/${filmId}?api_key=${API_KEY}`
@@ -21,8 +20,8 @@ async function renderModalFilmCard(evt) {
 
     if (voteAverage === voteAverageInt) {
       voteAverage = voteAverageInt;
-    };
-  
+    }
+
     const cardMarkup = `<div class="modal-card__container-img">
             <img
               class="modal-card__current-img current-img-js"
@@ -75,7 +74,7 @@ async function renderModalFilmCard(evt) {
     handleLocalStorage();
     window.addEventListener('keydown', onKeyCloseModal);
     refs.backdrop.addEventListener('click', onBackdropClick);
-  } catch { }
+  } catch {}
 }
 
 function onBackdropClick(ev) {
@@ -85,7 +84,7 @@ function onBackdropClick(ev) {
 }
 
 function onKeyCloseModal(evt) {
-  const ESC_KEY_CODE = 'Escape'
+  const ESC_KEY_CODE = 'Escape';
   evt.preventDefault();
   if (evt.code === ESC_KEY_CODE) {
     closeModal();
