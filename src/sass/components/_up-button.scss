@@ -29,16 +29,11 @@
     transition: scale 200ms linear,
     opacity 250ms linear,
     background-color 200ms linear;
-
     opacity: 1;
-
-
     &:hover,
     &:focus {
-
         background-color: #FF001B;
     }
-
 }
 
 .btn-up.is-hidden {
