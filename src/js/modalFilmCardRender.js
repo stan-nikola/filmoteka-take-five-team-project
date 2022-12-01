@@ -17,8 +17,8 @@ async function renderModalFilmCard(evt) {
         option.name === 'Official Trailer' ||
         option.name === 'Official Trailer [Subtitled]'
     );
-    console.log('VideoKey Obj', dataTrailer.results);
-    console.log('trailerObjeckt', trailerObjeckt);
+    // console.log('VideoKey Obj', dataTrailer.results);
+    // console.log('trailerObjeckt', trailerObjeckt);
     const trailerKey = trailerObjeckt.key;
     console.log(result);
     const cardMarkup = `<div class="modal-card__container-img">
@@ -70,9 +70,9 @@ async function renderModalFilmCard(evt) {
             add to queue
           </button>
         </div>
-                  <div class="modal-card__container-video">
-                  <iframe width=100%" height="250" src='https://www.youtube.com/embed/${trailerKey}'frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                   </div>
+        <div class="modal-card__container-video">
+          <iframe width=100%" height="250" src='https://www.youtube.com/embed/${trailerKey}'frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
         `;
     refs.modalCard.insertAdjacentHTML('afterbegin', cardMarkup);
     refs.backdrop.classList.remove('is-hidden');
