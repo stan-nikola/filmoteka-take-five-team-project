@@ -28,20 +28,17 @@
   width: 40px;
   height: 40px;
 
-  font-family: 'Roboto';
-  font-style: normal;
-  font-weight: 500;
   font-size: 12px;
   line-height: 1.33;
-  color: #000000;
+  color: var(--main-text-color);
   cursor: pointer;
 }
 
 .pagination__el--current {
 
-  background: #FF6B08;
+  background-color: var(--accent-color);
   border-radius: 5px;
-  color: #FFFFFF;
+  color: var(--second-text-color);
 }
 
 .hidden {
@@ -55,7 +52,7 @@
   left: 20px;
   top: 2103px;
 
-  background: #F7F7F7;
+  background: var(--footer-background);
   border-radius: 5px;
   border: none;
 }

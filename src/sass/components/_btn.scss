@@ -3,14 +3,13 @@
     padding: 6px 27px 6px 27px;
   
     cursor: pointer;
-    border: 1px solid #000000;
+    border: 1px solid var(--main-text-color);
     background-color: transparent;
   
     width: 110px;
-    font-weight: 500;
     line-height: 1.33;
     text-transform: uppercase;
-    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    transition: background-color var(--animation);
   
     @media screen and (min-width: 767px) and (max-width: 1199px) {
       width: 125px;
@@ -23,9 +22,9 @@
     }
     &:hover,
     &:focus {
-    background-color: #ff6b01;
-    color: #ffffff;
-    border: 1px solid #ff6b01;
+    background-color: var(--accent-btn-color);
+    color: var(--second-text-color);
+    border: 1px solid var(--accent-btn-color);
   
   }
   }

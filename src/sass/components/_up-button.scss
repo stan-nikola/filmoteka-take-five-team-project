@@ -1,7 +1,7 @@
 .btn-up {
     position: fixed;
     border-radius: 50%;
-    background-color: #FF6B08;
+    background-color: var(--accent-btn-color);
     width: 50px;
     height: 50px;
     display: flex;
@@ -27,16 +27,16 @@
     }
 
     transition: scale 200ms linear,
-    opacity 250ms linear,
+    opacity var(--second-animation),
     background-color 200ms linear;
     opacity: 1;
     &:hover,
     &:focus {
-        background-color: #FF001B;
+        background-color: var(--additional-accent-color);
     }
 }
 
 .btn-up.is-hidden {
     opacity: 0;
-    transition: opacity 250ms linear;
+    transition: opacity var(--second-animation);
 }

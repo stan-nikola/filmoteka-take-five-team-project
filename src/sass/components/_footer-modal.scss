@@ -9,7 +9,7 @@
 
         padding: 20px;
         
-        background-color: rgba(0, 0, 0, 0.2);
+        background-color: var(--backdrop-background);
         z-index: 1;
         overflow: auto;
 
@@ -37,7 +37,7 @@
         margin-left: auto;
         margin-right: auto;
 
-        background: white;
+        background: var(--second-text-color);
         border-radius: 3px;
 
         // transform: translate(-50%, -50%) scale(1) rotate(1turn);
@@ -56,18 +56,15 @@
         padding: 6px;
 
         border: 0px;
-        background-color: white;
-        fill: #000000;
+        background-color: var(--second-text-color);
+        fill: var(--main-text-color);
 
-        transition-property: fill;
-        transition-duration: 250ms;
-        transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-
+        transition-property: fill var(--animation);
     }
 
     .modal-close__btn:hover {
 
-        fill: orange;
+        fill: var(--accent-btn-color);
 
     }
 
@@ -97,13 +94,11 @@
         text-align: center;
         text-transform: uppercase;
 
-        font-family: 'Roboto';
-        font-style: normal;
         font-weight: 700;
         font-size: 20px;
         line-height: 1.15;
 
-        color: #FF6B01;
+        color: var(--accent-color);
 
     }
 
@@ -164,13 +159,10 @@
 
         position: relative;
 
-        font-family: 'Roboto';
-        font-style: normal;
-        font-weight: 500;
         font-size: 10px;
         line-height: 1.33;
 
-        color: #FF6B08;
+        color: var(--accent-color);
 
     }
 
@@ -186,7 +178,7 @@
         width: 1px;
         height: 16px;
 
-        border: 0.5px solid #FF6B08;
+        border: 0.5px solid var(--accent-color);
 
     }
 
@@ -197,13 +189,11 @@
 
         text-transform: uppercase;
 
-        font-family: 'Roboto';
-        font-style: normal;
         font-weight: 700;
         font-size: 10px;
         line-height: 1.33;
 
-        color: #FF6B08;
+        color: var(--accent-color);
 
     }
 
@@ -213,13 +203,10 @@
         text-align: justify;
         word-break: keep-all;
 
-        font-family: 'Roboto';
-        font-style: normal;
-        font-weight: 500;
         font-size: 12px;
         line-height: 1.33;
 
-        color: #000000;
+        color: var(--main-text-color);
 
     }
 
@@ -258,30 +245,26 @@
 
 
 
-        background-color: #FFFFFF;
+        background-color: var(--second-text-color);
 
 
-        transition-property: background-color;
-        transition-duration: 250ms;
-        transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+        transition-property: background-color var(--animation);
     }
 
     .team__net-icon {
         fill: #afb1b8;
 
-        transition-property: fill;
-        transition-duration: 250ms;
-        transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+        transition: fill var(--animation);
     }
 
     .team__net-icon-link:hover .team__net-icon-thumb,
     .team__net-icon-link:focus .team__net-icon-thumb {
-        background-color: #FF6B01;
+        background-color: var(--accent-btn-color);
     }
 
 
     .team__net-icon-link:hover .team__net-icon .team__net-icon-link:focus .team__net-icon {
-        fill: black;
+        fill: var(--main-text-color);
     }
 
 

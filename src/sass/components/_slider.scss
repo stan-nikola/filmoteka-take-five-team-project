@@ -29,7 +29,6 @@
   align-items: center;
   justify-content: center;
 
-  font-weight: 500;
   font-size: 13px;
   line-height: 1.1;
 
@@ -37,14 +36,14 @@
   height: 15px;
   border-radius: 5%;
 
-  background-color: #ff6b08;
-  color: white;
+  background-color: var(--accent-color);
+  color: var(--second-text-color);
 }
 
 .swiper-slide {
   position: relative;
 
-  transition: scale 250ms linear;
+  transition: scale var(--second-animation);
   &:hover,
   &:focus {
     scale: 1.04;
@@ -54,9 +53,9 @@
 
 .swiper-button-next,
 .swiper-button-prev {
-  color: rgb(255, 107, 8);
+  color: var(--accent-btn-color);
   border-radius: 10%;
-  transition: background-color 250ms linear;
+  transition: background-color var(--second-animation);
   &:hover,
   &:focus {
     background-color: rgba(226, 230, 220, 0.733);
