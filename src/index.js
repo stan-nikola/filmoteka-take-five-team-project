@@ -15,7 +15,7 @@ import { renderMovies2 } from './js/pagination';
 // Slider starter
 appendMovies();
 
-renderMovies2();
+renderMovies();
 
 // Modal listeners------------------------
 refs.movieContainer.addEventListener('click', renderModalFilmCard);

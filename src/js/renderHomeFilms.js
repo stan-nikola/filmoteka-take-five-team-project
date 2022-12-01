@@ -12,6 +12,12 @@ export async function renderMovies() {
     const movieInfo = dataMerge(moviesList, genresList);
 
     createMovieCard(movieInfo);
+
+    let pageCount = 5;
+    
+    pagination(pageCount, movieInfo);
+
+
   } catch (error) {
     console.log(error.message);
   }
