@@ -18,33 +18,33 @@
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
     0px 2px 1px rgba(0, 0, 0, 0.2);
 
-    @media screen and (min-width: 320px) {
-      min-width: 290px;
-    }
+  @media screen and (min-width: 320px) {
+    min-width: 290px;
+  }
 
-    @media screen and (min-width: 768px)  {
-      min-width: 704px;
-      height: auto;
-      overflow-y: scroll;
+  @media screen and (min-width: 768px) {
+    min-width: 704px;
+    height: auto;
+    overflow-y: scroll;
+  }
+
+  @media screen and (min-width: 1280px) {
+    min-width: 806px;
+    height: auto;
+    overflow: hidden;
+  }
+  &__container-content {
+    padding: 48px 20px 40px 20px;
+
+    @media screen and (min-width: 768px) {
+      display: flex;
+      flex-wrap: wrap;
+      padding: 40px 72px 40px 36px;
     }
 
     @media screen and (min-width: 1280px) {
-      min-width: 806px;
-      height: auto;
-      overflow: hidden;
+      padding: 40px 12px;
     }
-  &__container-content {
-    padding: 48px 20px 40px 20px;
-  
-      @media screen and (min-width: 768px) {
-        display: flex;
-        flex-wrap: wrap;
-        padding: 40px 72px 40px 36px;
-      }
-    
-      @media screen and (min-width: 1280px) {
-        padding: 40px 12px;
-      }
   }
 
   &__container-img {
@@ -52,35 +52,35 @@
     width: 240px;
     height: 357px;
     margin-bottom: 20px;
-  
-      @media screen and (min-width: 767px) and (max-width: 1199px) {
-        margin-right: 68px;
-        width: 264px;
-        height: 374px;
-      }
-    
-      @media screen and (min-width: 1280px) {
-        width: 375px;
-        height: 478px;
-        margin-right: 16px;
-      }
+
+    @media screen and (min-width: 767px) and (max-width: 1199px) {
+      margin-right: 68px;
+      width: 264px;
+      height: 374px;
+    }
+
+    @media screen and (min-width: 1280px) {
+      width: 375px;
+      height: 478px;
+      margin-right: 16px;
+    }
   }
   &__container-description {
     margin-bottom: 20px;
-  
-      @media screen and (min-width: 767px) and (max-width: 1199px) {
-        width: 264px;
-      }
-    
-      @media screen and (min-width: 1280px) {
-        width: 391px;
-      }
+
+    @media screen and (min-width: 767px) and (max-width: 1199px) {
+      width: 264px;
+    }
+
+    @media screen and (min-width: 1280px) {
+      width: 391px;
+    }
   }
   &__container-btn {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-  
+
     @media screen and (min-width: 767px) and (max-width: 1199px) {
       margin-top: 20px;
     }
@@ -90,13 +90,17 @@
     }
   }
 
+  &__container-video {
+    padding-top: 10px;
+  }
+
   &__current-img {
     margin-left: auto;
     margin-right: auto;
     object-fit: cover;
     width: 240px;
     height: 357px;
-  border-radius: 5px;
+    border-radius: 5px;
     @media screen and (min-width: 767px) and (max-width: 1199px) {
       width: 264px;
       height: 374px;
@@ -106,13 +110,13 @@
       height: 478px;
     }
   }
-  
+
   &__name-film {
     margin-bottom: 20px;
     font-weight: 500;
     font-size: 20px;
     line-height: 1.15;
-  
+
     @media screen and (min-width: 1280px) {
       font-size: 30px;
       line-height: 1.17;
@@ -125,7 +129,7 @@
     padding: 0;
     line-height: 1.33;
     color: #8c8c8c;
-  
+
     @media screen and (min-width: 1280px) {
       font-size: 12px;
     }
@@ -137,7 +141,7 @@
     display: flex;
     align-items: center;
     align-content: center;
-  }  
+  }
 }
 
 .item {
@@ -156,7 +160,7 @@
     color: #fff;
     padding: 1px 9px 1px 10px;
     border-radius: 5px;
-  
+
     @media screen and (min-width: 1280px) {
       margin-left: 85px;
     }
@@ -165,7 +169,7 @@
     margin-left: 53px;
     line-height: 1.17;
     color: #000000;
-  
+
     @media screen and (min-width: 1280px) {
       margin-left: 97px;
     }
@@ -176,8 +180,7 @@
     color: #000000;
     width: 107px;
     text-transform: uppercase;
-    
-  
+
     @media screen and (min-width: 1280px) {
       margin-left: 83px;
     }
@@ -186,11 +189,11 @@
     margin-left: 76px;
     line-height: 1.33;
     color: #000000;
-  
+
     @media screen and (min-width: 1280px) {
       margin-left: 120px;
     }
-  } 
+  }
 }
 
 .about {
@@ -204,10 +207,9 @@
   &__description {
     line-height: 1.67;
     margin-bottom: 8px;
-  
+
     @media screen and (min-width: 1280px) {
       font-size: 12px;
     }
   }
 }
-

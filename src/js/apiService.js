@@ -59,6 +59,18 @@ export async function fetchGenres() {
   }
 }
 
+export async function fetchTrailer(filmId) {
+  try {
+    const response = await fetch(
+      `${BASE_URL}/3/movie/${filmId}/videos?api_key=${API_KEY}`
+    );
+    const dataTrailer = response.json();
+    return dataTrailer;
+  } catch (error) {
+    console.log(error);
+  }
+}
+
 export function fetchMovies(inputtedName) {
   return fetch(
     `${URL_FOR_FETCH_BY_NAME}?api_key=${API_KEY}&query=${inputtedName}`
