@@ -3,8 +3,10 @@ import { API_KEY, BASE_URL, MOVIE_POSTER, fetchTrailer } from './apiService';
 import { handleLocalStorage } from './addLocalStorage';
 
 import placeholderImg from '../images/no-poster/no-poster_CUT.jpg';
+import { loadStart, loadStop } from './loadingSpinner';
 
 async function renderModalFilmCard(evt) {
+  loadStart();
   refs.body.classList.add('modal-open');
   refs.modalCard.innerHTML = '';
   let filmId = evt.target.parentNode.dataset.id;
@@ -26,14 +28,13 @@ async function renderModalFilmCard(evt) {
 
     const dataTrailer = await fetchTrailer(filmId);
     // const videoKey = dataTrailer.results[0].key;
-    const trailerObjeckt = dataTrailer.results.find(
+    const trailerObject = dataTrailer.results.find(
       option =>
         option.name === 'Official Trailer' ||
         option.name === 'Official Trailer [Subtitled]'
     );
-    // console.log('VideoKey Obj', dataTrailer.results);
-    // console.log('trailerObjeckt', trailerObjeckt);
-    const trailerKey = trailerObjeckt.key;
+
+    const trailerKey = trailerObject.key;
     console.log(result);
     const cardMarkup = `<div class="modal-card__container-img">
             <img
@@ -92,6 +93,7 @@ async function renderModalFilmCard(evt) {
     handleLocalStorage();
     window.addEventListener('keydown', onKeyCloseModal);
     refs.backdrop.addEventListener('click', onBackdropClick);
+    loadStop();
   } catch {}
 }
 
