@@ -1,9 +1,6 @@
 import refs from './modalFilmCardRefs';
 import { API_KEY, BASE_URL, MOVIE_POSTER } from './apiService';
 import { handleLocalStorage } from './addLocalStorage';
-
-import placeholderImg from '../images/no-poster/no-poster_CUT.jpg';
-
 async function renderModalFilmCard(evt) {
   refs.modalCard.innerHTML = '';
   let filmId = evt.target.parentNode.dataset.id;
@@ -14,12 +11,15 @@ async function renderModalFilmCard(evt) {
     );
     const result = await response.json();
     console.log(result);
+
+    let movieGenres = result.genres.map(genre => genre.name).join(', ');
+    let voteAverage = result.vote_average.toFixed(2);
+
     const cardMarkup = `<div class="modal-card__container-img">
             <img
               class="modal-card__current-img current-img-js"
               src="${MOVIE_POSTER}${result.poster_path}"
               alt="Poster of film "${result.title}"
-              onError="this.src='${placeholderImg}'"
             />
         </div>
         <div class="modal-card__container-description">
@@ -28,7 +28,7 @@ async function renderModalFilmCard(evt) {
             <li class="modal-card__item item">
               <span>Vote / Votes</span>
               <p class="item__vote-value">
-                <span class="item__vote-rating">${result.vote_average}</span>
+                <span class="item__vote-rating">${voteAverage}</span>
                 / <span class="item__votes-vews">${result.vote_count}</span>
               </p>
             </li>
@@ -44,9 +44,7 @@ async function renderModalFilmCard(evt) {
             </li>
             <li class="modal-card__item item">
               <span>Genre</span>
-              <p class="item__genre-value">${result.genres.map(
-                genre => genre.name
-              )}</p>
+              <p class="item__genre-value">${movieGenres}</p>
             </li>
           </ul>
           <h3 class="about about__header">About</h3>
@@ -56,13 +54,11 @@ async function renderModalFilmCard(evt) {
           <div class="modal-card__container-btn">
           <button
             class="btn current-btn btn__watched btn__watched-js"
-            type="button" data-id="${result.id}"
+            type="button"
           >
             add to Watched
           </button>
-          <button class="btn btn__queue btn__queue-js" type="button" data-id="${
-            result.id
-          }">
+          <button class="btn btn__queue btn__queue-js" type="button">
             add to queue
           </button>
         </div>`;
@@ -71,7 +67,7 @@ async function renderModalFilmCard(evt) {
     handleLocalStorage();
     window.addEventListener('keydown', onKeyCloseModal);
     refs.backdrop.addEventListener('click', onBackdropClick);
-  } catch {}
+  } catch { }
 }
 
 function onBackdropClick(ev) {
@@ -81,7 +77,7 @@ function onBackdropClick(ev) {
 }
 
 function onKeyCloseModal(evt) {
-  const ESC_KEY_CODE = 'Escape';
+  const ESC_KEY_CODE = 'Escape'
   evt.preventDefault();
   if (evt.code === ESC_KEY_CODE) {
     closeModal();
