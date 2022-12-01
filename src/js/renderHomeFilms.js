@@ -11,6 +11,11 @@ export async function renderMovies() {
   const movieInfo = dataMerge(moviesList, genresList);
 
   createMovieCard(movieInfo);
+
+  const pageCount = 8; // временная переменная - после настройки отрисовки заменить на dataMovies.total_pages
+
+  pagination(pageCount, movieInfo);
+  
 }
 
 export const dataMerge = function (allMovies, allGenres) {
