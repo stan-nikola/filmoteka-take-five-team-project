@@ -1,6 +1,9 @@
 import refs from './modalFilmCardRefs';
 import { API_KEY, BASE_URL, MOVIE_POSTER } from './apiService';
 import { handleLocalStorage } from './addLocalStorage';
+
+const placeholderImg = 'http://localhost:1234/no-poster_CUT.dd956c7c.jpg';
+
 async function renderModalFilmCard(evt) {
   refs.modalCard.innerHTML = '';
   let filmId = evt.target.parentNode.dataset.id;
@@ -16,6 +19,7 @@ async function renderModalFilmCard(evt) {
               class="modal-card__current-img current-img-js"
               src="${MOVIE_POSTER}${result.poster_path}"
               alt="Poster of film "${result.title}"
+              onError="this.src='${placeholderImg}'"
             />
         </div>
         <div class="modal-card__container-description">
