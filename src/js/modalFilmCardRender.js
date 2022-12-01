@@ -13,10 +13,7 @@ async function renderModalFilmCard(evt) {
     console.log(result);
 
     let movieGenres = result.genres.map(genre => genre.name).join(', ');
-
-    let popularity = result.popularity;
-
-    let voteAverage = Number(result.vote_average.toFixed(1));
+    let voteAverage = Number(result.vote_average.toFixed(2));
     let voteAverageInt = Number(voteAverage.toFixed());
 
     if (voteAverage === voteAverageInt) {
@@ -42,7 +39,7 @@ async function renderModalFilmCard(evt) {
             </li>
             <li class="modal-card__item item">
               <span>Popularity</span>
-              <p class="item__popularity-value">${popularity}</p>
+              <p class="item__popularity-value">${result.popularity}</p>
             </li>
             <li class="modal-card__item">
               <span>Original Title</span>
