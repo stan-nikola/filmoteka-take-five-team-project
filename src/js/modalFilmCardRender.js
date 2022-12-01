@@ -1,6 +1,7 @@
 import refs from './modalFilmCardRefs';
 import { API_KEY, BASE_URL, MOVIE_POSTER } from './apiService';
 import { handleLocalStorage } from './addLocalStorage';
+
 async function renderModalFilmCard(evt) {
   refs.modalCard.innerHTML = '';
   let filmId = evt.target.parentNode.dataset.id;
@@ -41,8 +42,8 @@ async function renderModalFilmCard(evt) {
             <li class="modal-card__item item">
               <span>Genre</span>
               <p class="item__genre-value">${result.genres.map(
-      genre => genre.name
-    )}</p>
+                genre => genre.name
+              )}</p>
             </li>
           </ul>
           <h3 class="about about__header">About</h3>
@@ -65,7 +66,7 @@ async function renderModalFilmCard(evt) {
     handleLocalStorage();
     window.addEventListener('keydown', onKeyCloseModal);
     refs.backdrop.addEventListener('click', onBackdropClick);
-  } catch { }
+  } catch {}
 }
 
 function onBackdropClick(ev) {
@@ -75,7 +76,7 @@ function onBackdropClick(ev) {
 }
 
 function onKeyCloseModal(evt) {
-  const ESC_KEY_CODE = 'Escape'
+  const ESC_KEY_CODE = 'Escape';
   evt.preventDefault();
   if (evt.code === ESC_KEY_CODE) {
     closeModal();

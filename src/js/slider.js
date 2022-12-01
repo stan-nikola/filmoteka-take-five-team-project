@@ -14,7 +14,7 @@ async function clickOnSliderCards(evt) {
   if (evt.target.nodeName !== 'IMG') {
     return;
   }
-  await renderModalFilmCard(evt);
+  renderModalFilmCard(evt);
   refs.backdrop.classList.remove('is-hidden');
 }
 
@@ -57,9 +57,9 @@ export async function appendMovies() {
 
 function createMarkUp({ poster_path, vote_average, original_title, id }) {
   return `
-  <li class="swiper-slide">
+  <li class="swiper-slide" data-id="${id}">
     <span class="swiper-rating">${vote_average.toFixed(1)}</span>
-    <img class="swiper-image" id="${id}" src="https://image.tmdb.org/t/p/w500${poster_path}" alt="${original_title}">
+    <img class="swiper-image" src="https://image.tmdb.org/t/p/w500${poster_path}" alt="${original_title}">
   </li>
   `;
 }
