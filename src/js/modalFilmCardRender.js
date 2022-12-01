@@ -11,7 +11,7 @@ async function renderModalFilmCard(evt) {
     );
     const result = await response.json();
     const dataTrailer = await fetchTrailer(filmId);
-    const videoKey = dataTrailer.results[0].key;
+    // const videoKey = dataTrailer.results[0].key;
     const trailerObjeckt = dataTrailer.results.find(
       option =>
         option.name === 'Official Trailer' ||
