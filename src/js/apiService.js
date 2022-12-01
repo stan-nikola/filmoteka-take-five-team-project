@@ -2,7 +2,8 @@ import { loadStart, loadStop } from './loadingSpinner';
 
 export const API_KEY = '62f46feb65c2319fb0db62c2c080ca35';
 export const BASE_URL = 'https://api.themoviedb.org';
-const URL_FOR_FETCH_BY_NAME = 'https://api.themoviedb.org/3/search/movie';
+export const URL_FOR_FETCH_BY_NAME =
+  'https://api.themoviedb.org/3/search/movie';
 export const MOVIE_POSTER = 'https://image.tmdb.org/t/p/w500';
 
 export class FetchMoviesApi {
