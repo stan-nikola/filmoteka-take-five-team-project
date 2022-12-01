@@ -1,6 +1,6 @@
 import { Spinner } from 'spin.js';
 
-const target = document.querySelector('.js-load-spiner');
+const target = document.querySelector('.js-load-spinner');
 
 var opts = {
   lines: 11, // The number of lines to draw
