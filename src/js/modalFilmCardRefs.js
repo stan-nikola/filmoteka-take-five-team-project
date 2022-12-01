@@ -4,6 +4,7 @@ const refs = {
   movieContainer: document.querySelector('.movie-cards-gallery'),
   backdrop: document.querySelector('.backdrop'),
   btnClose: document.querySelector('.close-btn-js'),
+  body: document.querySelector('body'),
 };
 
 export default refs;

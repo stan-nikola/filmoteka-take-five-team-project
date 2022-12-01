@@ -5,6 +5,7 @@ import { handleLocalStorage } from './addLocalStorage';
 import placeholderImg from '../images/no-poster/no-poster_CUT.jpg';
 
 async function renderModalFilmCard(evt) {
+  refs.body.classList.add('modal-open');
   refs.modalCard.innerHTML = '';
   let filmId = evt.target.parentNode.dataset.id;
 
@@ -109,6 +110,7 @@ function onKeyCloseModal(evt) {
 }
 
 function closeModal() {
+  refs.body.classList.remove('modal-open');
   refs.backdrop.classList.add('is-hidden');
   window.removeEventListener('keydown', onKeyCloseModal);
   refs.backdrop.removeEventListener('click', onBackdropClick);
