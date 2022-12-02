@@ -1,8 +1,11 @@
 import refs from './modalFilmCardRefs';
-import { API_KEY, BASE_URL, MOVIE_POSTER, fetchTrailer } from './apiService';
+import { API_KEY, BASE_URL, MOVIE_POSTER } from './apiService';
+
 import { handleLocalStorage } from './localStorage/addLocalStorage';
+
 import placeholderImg from '../images/no-poster/no-poster_CUT.jpg';
 import { loadStart, loadStop } from './loadingSpinner';
+import { handleTrailerMovie } from './renderMovieTrailerModal';
 
 async function renderModalFilmCard(evt) {
   loadStart();
@@ -25,16 +28,6 @@ async function renderModalFilmCard(evt) {
       voteAverage = voteAverageInt;
     }
 
-    const dataTrailer = await fetchTrailer(filmId);
-    // const videoKey = dataTrailer.results[0].key;
-    const trailerObject = dataTrailer.results.find(
-      option =>
-        option.name === 'Official Trailer' ||
-        option.name === 'Official Trailer [Subtitled]'
-    );
-
-    trailerKey = trailerObject.key;
-    console.log(result);
     const cardMarkup = `<div class="modal-card__container-img">
             <img
               class="modal-card__current-img current-img-js"
@@ -84,14 +77,21 @@ async function renderModalFilmCard(evt) {
           </button>
         </div>
         <div class="modal-card__container-video">
-          <iframe width=100%" height="250" src='https://www.youtube.com/embed/${trailerKey}'frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        </div>`;
+          <button class="btn__trailer__modal__js" data-movieid=${filmId} type="button">
+           Watch Trailer
+          </button> 
+          <p class="info__no__trailer__modal__js" style="display: none;">Sorry No Trailer</p> 
+            <div class="modal-card__trailer__video__js">
+             </div>
+        </div>
+        `;
     refs.modalCard.insertAdjacentHTML('afterbegin', cardMarkup);
     refs.backdrop.classList.remove('is-hidden');
-    await handleLocalStorage();
+    handleLocalStorage();
+    handleTrailerMovie();
     window.addEventListener('keydown', onKeyCloseModal);
     refs.backdrop.addEventListener('click', onBackdropClick);
-    refs.btnClose.addEventListener('click', closeModal);
+
     loadStop();
   } catch {}
 }
