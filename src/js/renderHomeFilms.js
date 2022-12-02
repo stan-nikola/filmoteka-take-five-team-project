@@ -1,6 +1,7 @@
 import { fetchHomeTrendingMovies, fetchGenres } from './apiService';
 import { createMovieCard } from './movieCardRender';
 import { pagination } from './pagination';
+import { notificationError } from './notifications';
 
 export async function renderMovies() {
   try {
@@ -14,12 +15,10 @@ export async function renderMovies() {
     createMovieCard(movieInfo);
 
     let pageCount = 5;
-    
+
     pagination(pageCount, movieInfo);
-
-
   } catch (error) {
-    console.log(error.message);
+    notificationError(error.message);
   }
 }
 

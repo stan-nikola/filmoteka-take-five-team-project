@@ -5,6 +5,7 @@ import onSubmit from './js/searchByName';
 import { onUpBtnClick } from './js/scrollPage';
 import * as theme from './js/colorTheme';
 
+
 // Imports from modalFilmCard section-----
 import refs from './js/modalFilmCardRefs';
 import { renderModalFilmCard, closeModal } from './js/modalFilmCardRender';
