@@ -15,7 +15,7 @@
   margin: 0;
   margin-right: auto;
   margin-left: auto;
-  padding: 20px;
+  padding: 20px 20px 40px 20px;
   min-height: 1000px;
 
   // flex-basis: calc((100% - 60px) / 3);
@@ -38,16 +38,24 @@
 .card-container {
   width: 280px;
   min-height: 443px;
-  margin-bottom: 20px;
+  // margin-bottom: 20px;
   cursor: pointer;
-  // outline: 2px solid red;
+  outline: 2px solid red;
+
+  &:not(:last-child) {
+      margin-bottom: 20px;
+  }
 
   transition: scale var(--animation);
   
   @media screen and (min-width: 768px) {
     width: 336px;
     min-height: 495px;
-    margin-bottom: 0;
+    // margin-bottom: 0;
+    
+    &:not(:last-child) {
+        margin-bottom: 0px;
+    }
   }
 
   @media screen and (min-width: 1280px) {
@@ -55,6 +63,7 @@
     min-height: 634px;
   }
 
+   
   &:hover {
     scale: 1.01;
   }
