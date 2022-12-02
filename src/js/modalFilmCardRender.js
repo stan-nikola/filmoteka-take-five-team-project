@@ -7,6 +7,8 @@ import placeholderImg from '../images/no-poster/no-poster_CUT.jpg';
 import { loadStart, loadStop } from './loadingSpinner';
 import { handleTrailerMovie } from './renderMovieTrailerModal';
 
+let filmId;
+
 async function renderModalFilmCard(evt) {
   loadStart();
   refs.body.classList.add('modal-open');
