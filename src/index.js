@@ -8,6 +8,7 @@ import * as theme from './js/colorTheme';
 // Imports from modalFilmCard section-----
 import refs from './js/modalFilmCardRefs';
 import { renderModalFilmCard, closeModal } from './js/modalFilmCardRender';
+
 // ---------------------------------------
 import { renderMovies2 } from './js/pagination';
 import { renderMovies } from './js/renderHomeFilms';
