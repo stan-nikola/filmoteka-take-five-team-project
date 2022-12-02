@@ -7,7 +7,7 @@ import * as theme from './js/colorTheme';
 
 // Imports from modalFilmCard section-----
 import refs from './js/modalFilmCardRefs';
-import { renderModalFilmCard, closeModal } from './js/modalFilmCardRender';
+import { renderModalFilmCard } from './js/modalFilmCardRender';
 // ---------------------------------------
 import { renderMovies2 } from './js/pagination';
 import { renderMovies } from './js/renderHomeFilms';
@@ -20,6 +20,5 @@ renderMovies();
 
 // Modal listeners------------------------
 refs.movieContainer.addEventListener('click', renderModalFilmCard);
-refs.btnClose.addEventListener('click', closeModal);
 
 onUpBtnClick();

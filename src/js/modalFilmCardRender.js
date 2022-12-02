@@ -1,7 +1,6 @@
 import refs from './modalFilmCardRefs';
 import { API_KEY, BASE_URL, MOVIE_POSTER, fetchTrailer } from './apiService';
-import { handleLocalStorage } from './addLocalStorage';
-
+import { handleLocalStorage } from './localStorage/addLocalStorage';
 import placeholderImg from '../images/no-poster/no-poster_CUT.jpg';
 import { loadStart, loadStop } from './loadingSpinner';
 
@@ -9,7 +8,7 @@ async function renderModalFilmCard(evt) {
   loadStart();
   refs.body.classList.add('modal-open');
   refs.modalCard.innerHTML = '';
-  let filmId = evt.target.parentNode.dataset.id;
+  filmId = evt.target.parentNode.dataset.id;
 
   try {
     const response = await fetch(
@@ -34,7 +33,7 @@ async function renderModalFilmCard(evt) {
         option.name === 'Official Trailer [Subtitled]'
     );
 
-    const trailerKey = trailerObject.key;
+    trailerKey = trailerObject.key;
     console.log(result);
     const cardMarkup = `<div class="modal-card__container-img">
             <img
@@ -86,13 +85,13 @@ async function renderModalFilmCard(evt) {
         </div>
         <div class="modal-card__container-video">
           <iframe width=100%" height="250" src='https://www.youtube.com/embed/${trailerKey}'frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        </div>
-        `;
+        </div>`;
     refs.modalCard.insertAdjacentHTML('afterbegin', cardMarkup);
     refs.backdrop.classList.remove('is-hidden');
-    handleLocalStorage();
+    await handleLocalStorage();
     window.addEventListener('keydown', onKeyCloseModal);
     refs.backdrop.addEventListener('click', onBackdropClick);
+    refs.btnClose.addEventListener('click', closeModal);
     loadStop();
   } catch {}
 }
