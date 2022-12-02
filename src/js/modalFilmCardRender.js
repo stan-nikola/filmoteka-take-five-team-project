@@ -91,6 +91,9 @@ async function renderModalFilmCard(evt) {
     handleLocalStorage();
     window.addEventListener('keydown', onKeyCloseModal);
     refs.backdrop.addEventListener('click', onBackdropClick);
+    setTimeout(()=>{
+      refs.btnClose.classList.add('animate__animated', 'animate__backInLeft');
+    },500)
   } catch {}
 }
 
@@ -112,6 +115,7 @@ function closeModal() {
   refs.backdrop.classList.add('is-hidden');
   window.removeEventListener('keydown', onKeyCloseModal);
   refs.backdrop.removeEventListener('click', onBackdropClick);
+  refs.btnClose.classList.remove('animate__animated', 'animate__backInLeft');
 }
 
 export { renderModalFilmCard, closeModal, onKeyCloseModal, onBackdropClick };
