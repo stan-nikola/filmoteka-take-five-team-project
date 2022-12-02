@@ -1,10 +1,12 @@
 import { fetchTrailer } from './apiService';
+import { notificationError } from './notifications';
 
 export async function renderTrailerModal(event) {
   let trailerId = event.target.dataset.movieid;
 
+  const trailerBtn = document.querySelector('.btn__trailer__modal__js');
+
   const dataTrailer = await fetchTrailer(trailerId);
-  // const videoKey = dataTrailer.results[0].key;
   const trailerObject = dataTrailer.results.find(
     option =>
       option.name === 'Official Trailer' ||
@@ -13,10 +15,7 @@ export async function renderTrailerModal(event) {
   const trailercontainer = document.querySelector(
     '.modal-card__trailer__video__js'
   );
-  const trailerBtn = document.querySelector('.btn__trailer__modal__js');
-  const trailerInfo = document.querySelector('.info__no__trailer__modal__js');
   if (trailerObject) {
-    // console.log('TRAILER KEY ', trailerObject.key);
     console.log('TRAILER IFRAME IS CREATET');
     const trailerMarkup = `
     <div>
@@ -27,7 +26,7 @@ export async function renderTrailerModal(event) {
     trailerBtn.disabled = true;
     return;
   } else {
-    trailerInfo.style.display = 'block';
+    notificationError('Sorry No Trailer');
   }
 }
 

@@ -82,7 +82,6 @@ async function renderModalFilmCard(evt) {
           <button class="btn__trailer__modal__js" data-movieid=${filmId} type="button">
            Watch Trailer
           </button> 
-          <p class="info__no__trailer__modal__js" style="display: none;">Sorry No Trailer</p> 
             <div class="modal-card__trailer__video__js">
              </div>
         </div>
