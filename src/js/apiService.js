@@ -1,5 +1,7 @@
 import { loadStart, loadStop } from './loadingSpinner';
 
+import { notificationError } from './notifications';
+
 export const API_KEY = '62f46feb65c2319fb0db62c2c080ca35';
 export const BASE_URL = 'https://api.themoviedb.org';
 export const URL_FOR_FETCH_BY_NAME =
@@ -20,9 +22,10 @@ export class FetchMoviesApi {
       );
       const data = response.json();
       loadStop();
+      
       return data;
     } catch (error) {
-      console.log(error);
+      notificationError(`Error!!!  ${error}`);
     }
   }
 
@@ -44,7 +47,8 @@ export async function fetchHomeTrendingMovies() {
     loadStop();
     return data;
   } catch (error) {
-    console.log(error);
+    notificationError(`Error!!!  ${error}`);
+    
   }
 }
 
@@ -56,7 +60,7 @@ export async function fetchGenres() {
     const dataGenres = response.json();
     return dataGenres;
   } catch (error) {
-    console.log(error);
+    notificationError(`Error!!!  ${error}`);
   }
 }
 
@@ -68,7 +72,7 @@ export async function fetchTrailer(filmId) {
     const dataTrailer = response.json();
     return dataTrailer;
   } catch (error) {
-    console.log(error);
+    notificationError(`Error!!!  ${error}`);
   }
 }
 

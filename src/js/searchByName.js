@@ -3,7 +3,7 @@ import { dataMerge } from './renderHomeFilms';
 import { loadStart, loadStop } from './loadingSpinner';
 // import noPosterCUT from '../images/no-poster/no-poster_CUT.jpg';
 import { createMovieCard } from './movieCardRender';
-
+import { notificationError } from './notifications';
 import { scrollOnSubmit } from './scrollPage';
 
 let userRequest = '';
@@ -58,7 +58,7 @@ async function onSubmit(event) {
     scrollOnSubmit();
     loadStop();
   } catch (error) {
-    console.log(error.message);
+    notificationError(error.message);
   }
 }
 
