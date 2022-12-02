@@ -1,15 +1,79 @@
-.dark{
-    background-color: var(--dark-theme-background-color);
-
-    color: var(--second-text-color);
+.header.container {
+  position: relative;
+}
+.switch__theme {
+  display: inline-block;
+  height: 30px;
+  width: 60px;
+  position: absolute;
+  bottom: 15%;
+  left: 10%;
+  border-radius: 34px;
+  z-index: 2;
+}
+.switch__theme__library {
+  display: inline-block;
+  height: 30px;
+  width: 60px;
+  position: absolute;
+  top: 40%;
+  left: 5%;
+  border-radius: 34px;
+  z-index: 2;
 }
 
-.theme{
-    margin-bottom: 10px;
-    color: var(--second-text-color);
-    font-weight: 400;
-    font-size: 15px;
+.switch__input {
+  opacity: 0;
+  visibility: hidden;
+  border-radius: 34px;
 }
-.light-theme{
-    margin-right: 10px;
+
+.switch__slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  border-radius: 30px;
+}
+
+.switch__slider::before {
+  content: '';
+  position: absolute;
+  cursor: pointer;
+  left: 0;
+  bottom: 0;
+  background-color: white;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 1px solid #111;
+  transition: 1s step-start;
+  z-index: 7;
+}
+
+.switch__input:checked + .switch__slider {
+  background-color: #111;
+}
+.switch__input:checked + .switch__slider::before {
+  right: 0;
+  left: auto;
+}
+
+.moon__icon,
+.sun__icon {
+  position: absolute;
+  z-index: 6;
+}
+.moon__icon {
+  fill: black;
+  right: 0;
+  bottom: 1px;
+}
+.sun__icon {
+  fill: rgb(163, 163, 50);
+  left: 8.5%;
+  top: 5px;
 }
