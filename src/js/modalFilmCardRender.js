@@ -81,6 +81,8 @@ async function renderModalFilmCard(evt) {
            Watch Trailer
           </button> 
           <p class="info__no__trailer__modal__js" style="display: none;">Sorry No Trailer</p> 
+            <div class="modal-card__trailer__video__js">
+             </div>
         </div>
         `;
     refs.modalCard.insertAdjacentHTML('afterbegin', cardMarkup);

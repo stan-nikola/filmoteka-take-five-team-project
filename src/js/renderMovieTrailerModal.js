@@ -13,14 +13,19 @@ export async function renderTrailerModal(event) {
   if (trailerObject) {
     // console.log('TRAILER KEY ', trailerObject.key);
     console.log('TRAILER IFRAME IS CREATET');
-    return `
+    const trailerMarkup = `
     <div>
         <iframe width=100 % " height="250" src='https://www.youtube.com/embed/${trailerObject.key}'frameborder = "0" allow = "accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen ></iframe >
     </div>
       `;
+    const trailercontainer = document.querySelector(
+      '.modal-card__trailer__video__js'
+    );
+    trailercontainer.insertAdjacentHTML('afterbegin', trailerMarkup);
+    return;
   } else {
-    const trailerP = document.querySelector('.info__no__trailer__modal__js');
-    trailerP.style.display = 'block';
+    const trailerInfo = document.querySelector('.info__no__trailer__modal__js');
+    trailerInfo.style.display = 'block';
   }
 }
 
