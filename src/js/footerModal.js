@@ -15,14 +15,29 @@ console.log( sergeyj );
 import anton from '../images/team/anton-provorov.jpg';
 console.log( anton );
 
+import ira from '../images/team/ira-rybka.jpeg'
+console.log( ira );
+
+import valentyn from '../images/team/valentyn.jpeg';
+console.log( valentyn );
+
+import slava from '../images/team/slava.jpeg';
+console.log( slava );
+
+import oleh from '../images/team/oleh.png';
+console.log( oleh );
+
 import alex from '../images/team/alex-schlieden.jpeg'
 console.log( alex );
 
-import natalie from '../images/team/natalie.jpeg';
+import orest from '../images/team/orest.jpeg';
+console.log( orest );
+
+import natalie from '../images/team/natalie.png';
 console.log( natalie );
 
-import icons from '../images/icons/icons-opt.svg'
-console.log( icons );
+import iconNets from '../images/icons/icons-social-nets.svg'
+console.log( iconNets );
 
 
 console.log( team );
@@ -46,61 +61,32 @@ function showModalHandler( event )
         
     const teamMarkup = team.map( ( item ) => ` <li class="team__list-item">
 
-                    <div class="teammate__card">
-                <div class="img__thumb">
-                    <img src=${item.img} alt="" class="teammate__picture">
+            <div class="teammate__card">
+                        <div class="img__thumb">
+                            <img src=${item.img} alt="" class="teammate__picture">
 
-                </div>
+                        </div>
 
-                <div class="teammate__info">
-                    <div class="info__thumb">
-                        <p class="name">${item.name}</p>
-                        <p class="role">${item.role}</p>
-                    </div>
-                    <p class="responsibilities">${item.resposibilities}</p>
-
-
-                </div>
-
-                <div class="social__nets">
+                        <div class="social__nets">
 
                     <ul class="team__nets-list">
 
                         <li class="team__nets-list-item">
-                            <a href="" class="team__net-icon-link">
+                            <a href=${item.git} class="team__net-icon-link">
                                 <div class="team__net-icon-thumb">
-                                    <svg class="team__net-icon" width="20px" height="20px">
-                                        <use href="http://localhost:1234/icons-opt.8f2041b2.svg?1669854856927#icon-instagram-opt"></use>
+                                    <svg class="team__net-icon" width="30px" height="30px">
+                                        <use href="http://localhost:1234/icons-social-nets.473c5594.svg?1670009233147#icon-git-opt"></use>
                                     </svg>
                                 </div>
                             </a>
                         </li>
 
-                        <li class="team__nets-list-item">
-                            <a href="" class="team__net-icon-link">
-                                <div class="team__net-icon-thumb">
-                                    <svg class="team__net-icon" width="20px" height="20px">
-                                        <use href="http://localhost:1234/icons-opt.8f2041b2.svg?1669854856927#icon-twitter-opt"></use>
-                                    </svg>
-                                </div>
-                            </a>
-                        </li>
 
                         <li class="team__nets-list-item">
-                            <a href="" class="team__net-icon-link">
+                            <a href=${item.linkedin} class="team__net-icon-link">
                                 <div class="team__net-icon-thumb">
-                                    <svg class="team__net-icon" width="20px" height="20px">
-                                        <use href="http://localhost:1234/icons-opt.8f2041b2.svg?1669854856927#icon-facebook-opt"></use>
-                                    </svg>
-                                </div>
-                            </a>
-                        </li>
-
-                        <li class="team__nets-list-item">
-                            <a href="" class="team__net-icon-link">
-                                <div class="team__net-icon-thumb">
-                                    <svg class="team__net-icon" width="20px" height="20px">
-                                        <use href="http://localhost:1234/icons-opt.8f2041b2.svg?1669854856927#icon-linkedin-opt"></use>
+                                    <svg class="team__net-icon" width="30px" height="30px">
+                                        <use href="http://localhost:1234/icons-social-nets.473c5594.svg?1670009233147#icon-linkedin-opt"></use>
                                     </svg>
                                 </div>
                             </a>
@@ -112,6 +98,22 @@ function showModalHandler( event )
 
 
                 </div>
+
+
+
+
+
+                        <div class="teammate__info">
+                            <div class="info__thumb">
+                                <p class="name">${item.name}</p>
+                                <p class="role">${item.role}</p>
+                            </div>
+                            <p class="responsibilities">${item.resposibilities}</p>
+
+
+                        </div>
+
+                
 
 
             </div>
