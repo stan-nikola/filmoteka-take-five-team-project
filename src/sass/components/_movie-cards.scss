@@ -18,7 +18,6 @@
   padding: 20px;
   min-height: 1000px;
 
-  //  min-height: ;
   // flex-basis: calc((100% - 60px) / 3);
 
   @media screen and (min-width: 768px) {
@@ -37,15 +36,14 @@
 }
 
 .card-container {
-  // display: flex;
-  // flex-wrap: wrap;
-
   width: 280px;
   min-height: 443px;
   margin-bottom: 20px;
   cursor: pointer;
   // outline: 2px solid red;
 
+  transition: scale var(--animation);
+  
   @media screen and (min-width: 768px) {
     width: 336px;
     min-height: 495px;
@@ -55,6 +53,13 @@
   @media screen and (min-width: 1280px) {
     width: 394px;
     min-height: 634px;
+  }
+
+  &:hover {
+    scale: 1.01;
+  }
+  &:focus {
+    scale: 1.01;
   }
 }
 

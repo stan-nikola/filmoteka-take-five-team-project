@@ -37,7 +37,7 @@ async function onSubmit(event) {
     const arrayOfMovies = response.results;
 
     if (arrayOfMovies.length === 0) {
-      console.log('Хрен вам, а не кино!');
+      // console.log('Хрен вам, а не кино!');
       warningNotificationEl.textContent =
         'Search result not successful. Enter the correct movie name and try again.';
       loadStop();
@@ -51,7 +51,7 @@ async function onSubmit(event) {
     const genresList = dataGenres.genres;
 
     const arrayOfMoviesWithGenres = dataMerge(arrayOfMovies, genresList);
-    console.log(arrayOfMoviesWithGenres);
+    // console.log(arrayOfMoviesWithGenres);
 
     // calling rendering function
     createMovieCard(arrayOfMoviesWithGenres);
