@@ -9,7 +9,7 @@
     width: 110px;
     line-height: 1.33;
     text-transform: uppercase;
-    transition: background-color var(--animation);
+    transition: box-shadow, background-color var(--animation);
   
     @media screen and (min-width: 767px) and (max-width: 1199px) {
       width: 125px;
@@ -25,6 +25,7 @@
     background-color: var(--accent-btn-color);
     color: var(--second-text-color);
     border: 1px solid var(--accent-btn-color);
+    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
   
   }
   }
