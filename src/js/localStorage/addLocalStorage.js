@@ -1,4 +1,5 @@
-import { BASE_URL, API_KEY } from './apiService';
+import { BASE_URL, API_KEY } from '../apiService';
+// import renderFilmCardInLibrary from '../libraryFilmCard';
 
 let filmId;
 
@@ -58,11 +59,41 @@ async function addQueue(evt) {
     }
   }
 }
+let watchedMovies = [];
+let watchedIds = [];
 
-export function handleLocalStorage() {
-  const addToWatched = document.querySelector('.btn__watched-js');
-
-  const addToQueue = document.querySelector('.btn__queue-js');
-  addToWatched.addEventListener('click', addWatched);
-  addToQueue.addEventListener('click', addQueue);
+export async function handleLocalStorage() {
+  const watchedBtn = document.querySelector('.btn__watched-js');
+  const queueBtn = document.querySelector('.btn__queue-js');
+  // if (localStorage.getItem('filmsWatched') !== null) {
+  //   watchedMovies = JSON.parse(localStorage.getItem('filmsWatched'));
+  //   watchedMovies.map(movie => {
+  //     watchedIds.push(movie.id);
+  //   });
+  //   if (watchedIds.includes(Number(watchedBtn.dataset.id))) {
+  //     watchedBtn.textContent = 'Delete from Watched';
+  //     watchedBtn.addEventListener(
+  //       'click',
+  //       deleteFromWatched(
+  //         watchedMovies,
+  //         watchedIds.indexOf(Number(watchedBtn.dataset.id))
+  //       )
+  //     );
+  //     return;
+  //   }
+  // }
+  watchedBtn.addEventListener('click', addWatched);
+  queueBtn.addEventListener('click', addQueue);
 }
+
+// function deleteFromWatched(array, position) {
+//   const newArray = array.splice(position, 1);
+//   localStorage.setItem('filmsWatched', JSON.stringify(newArray));
+//   console.log(newArray);
+//   renderFilmCardInLibrary(JSON.parse(localStorage.getItem('filmsWatched')));
+// }
+
+// export function handleLocalStorage() {
+//   const addToWatched = document.querySelector('.btn__watched-js');
+//   const addToQueue = document.querySelector('.btn__queue-js');
+// }

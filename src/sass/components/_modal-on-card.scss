@@ -8,7 +8,6 @@
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 1100;
- 
 
   height: 90vh;
   overflow-y: scroll;
@@ -164,6 +163,16 @@
     @media screen and (min-width: 1280px) {
       margin-left: 85px;
     }
+  }
+
+  &__vote-rating.library {
+    display: inline-block;
+    text-align: center;
+    font-size: 12px;
+    margin-left: 8px;
+    width: 40px;
+    height: 20px;
+    padding: 0px;
   }
   &__popularity-value {
     margin-left: 53px;
