@@ -1,6 +1,7 @@
 body {
-  font-family: 'Roboto', sans-serif;
-  font-weight: 500;
+  font-family: var(--page-font);
+  font-weight: var(--page-font-weight);
+  font-style: normal;
   font-size: 12px;
   line-height: 1.3;
   height: 100%;

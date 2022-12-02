@@ -1,12 +1,12 @@
 .dark{
-    background-color: rgb(35, 37, 61);
+    background-color: var(--dark-theme-background-color);
 
-    color: white;
+    color: var(--second-text-color);
 }
 
 .theme{
     margin-bottom: 10px;
-    color: white;
+    color: var(--second-text-color);
     font-weight: 400;
     font-size: 15px;
 }

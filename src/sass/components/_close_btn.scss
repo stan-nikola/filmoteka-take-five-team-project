@@ -17,12 +17,12 @@
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+      transition: fill var(--animation);
       // outline: black 1px solid;
     }
   
     &:hover &__icon,
     &:focus &__icon {
-      fill: #ff6b01;
+      fill: var(--accent-btn-color);
     }
   }

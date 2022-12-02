@@ -14,7 +14,7 @@
   overflow-y: scroll;
   // margin-top: 15px;
 
-  background-color: #fff;
+  background-color: var(--second-text-color);
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
     0px 2px 1px rgba(0, 0, 0, 0.2);
 
@@ -113,7 +113,6 @@
 
   &__name-film {
     margin-bottom: 20px;
-    font-weight: 500;
     font-size: 20px;
     line-height: 1.15;
 
@@ -128,7 +127,7 @@
     list-style-type: none;
     padding: 0;
     line-height: 1.33;
-    color: #8c8c8c;
+    color: var(--modal-font-color);
 
     @media screen and (min-width: 1280px) {
       font-size: 12px;
@@ -148,16 +147,16 @@
   &__votes-vews {
     margin-left: 3px;
     line-height: 1.17;
-    background-color: #f7f7f7;
-    color: #000000;
+    background-color: var(--footer-background);
+    color: var(--main-text-colo);
     border-radius: 5px;
     padding: 1px 4px;
   }
   &__vote-rating {
     margin-left: 41px;
     margin-right: 2px;
-    background-color: #ff6b08;
-    color: #fff;
+    background-color: var(--accent-color);
+    color: var(--second-text-color);
     padding: 1px 9px 1px 10px;
     border-radius: 5px;
 
@@ -168,7 +167,7 @@
   &__popularity-value {
     margin-left: 53px;
     line-height: 1.17;
-    color: #000000;
+    color: var(--main-text-color);
 
     @media screen and (min-width: 1280px) {
       margin-left: 97px;
@@ -177,7 +176,7 @@
   &__title-value {
     margin-left: 39px;
     line-height: 1.33;
-    color: #000000;
+    color: var(--main-text-color);
     width: 107px;
     text-transform: uppercase;
 
@@ -188,7 +187,7 @@
   &__genre-value {
     margin-left: 76px;
     line-height: 1.33;
-    color: #000000;
+    color: var(--main-text-color);
 
     @media screen and (min-width: 1280px) {
       margin-left: 120px;
@@ -199,7 +198,6 @@
 .about {
   &__header {
     margin-bottom: 8px;
-    font-weight: 500;
     font-size: 12px;
     line-height: 1.33;
     text-transform: uppercase;

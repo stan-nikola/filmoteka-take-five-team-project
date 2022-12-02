@@ -4,9 +4,9 @@
     bottom: 70px;
     right: 30px;
     border-radius: 50%;
-    background-color: transparent;
-    width: 40px;
-    height: 40px;
+    background-color:transparent ;
+    width: 50px;
+    height: 50px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -30,36 +30,29 @@
     }
 
     transition: scale 200ms linear,
-    opacity 250ms linear,
+    opacity var(--second-animation),
     background-color 200ms linear;
     opacity: 1;
-    // &:hover,
-    // &:focus {
-    //     background-color: #FF001B;
-    // }
 }
 
 .btn-up.is-hidden {
     opacity: 0;
-    transition: opacity 250ms linear;
+    transition: opacity var(--second-animation);
 }
 
 .btn-scroll {
-    fill: rgba(0, 0, 0, 0.4);
+    fill: var(--second-icon-fill);
     transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
     width: 40px;
     height: 40px;
 
-      &:hover,
-      &:focus {
-        fill: #ff6b01;
-      }
+    &:hover,
+    &:focus {
+        fill: var(--accent-btn-color);
+    }
 
-      @media screen and (min-width: 1280px) {
+    @media screen and (min-width: 1280px) {
         width: 50px;
         height: 50px;
-      }
     }
-    
-
-  
+}
