@@ -14,6 +14,7 @@ import { renderMovies2 } from './js/pagination';
 import { renderMovies } from './js/renderHomeFilms';
 import { renderMovies2 } from './js/pagination';
 
+
 // Slider starter
 appendMovies();
 
@@ -24,3 +25,4 @@ refs.movieContainer.addEventListener('click', renderModalFilmCard);
 refs.btnClose.addEventListener('click', closeModal);
 
 onUpBtnClick();
+

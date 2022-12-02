@@ -33,3 +33,7 @@ export function handleTrailerMovie() {
   const trailerBtn = document.querySelector('.btn__trailer__modal__js');
   trailerBtn.addEventListener('click', renderTrailerModal);
 }
+
+
+
+
