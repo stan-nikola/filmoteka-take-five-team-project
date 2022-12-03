@@ -7,14 +7,12 @@ import { createMovieCard } from './movieCardRender';
 
 let getEl = selector => document.querySelector(`${selector}`);
 const paginationElementList = getEl('#pagination_list_js'); //СЮДА ОТРИСОВЫВАЕМ СЧЁТЧИК СТРАНИЦ
-const paginationContainer = getEl('#pagination_js');
-
 
 export class Paginator {
-  constructor(current, all) {
+  constructor(current, all, inputtedName) {
     this.current = current;
     this.all = all;
-
+    this.inputtedName = inputtedName;
 
     if (this.current < 1 || this.current > this.all) {
       throw `Ошибка пагинатора: (текущая страница ${this.current}, всего страниц ${this.all})`;
@@ -22,9 +20,11 @@ export class Paginator {
   }
 
   async render() {
+    paginationElementList.innerHTML = '';
     if (this.all === 1) {
       return;
     }
+
     paginationElementList.insertAdjacentHTML(
       'afterbegin',
       `<button type = "button" class = "pagination___btn--prev"> < </button>`
@@ -68,7 +68,10 @@ export class Paginator {
         this.current -= 1;
         paginationElementList.innerHTML = '';
         this.render();
-
+        if (this.inputtedName) {
+          paginatorSearchFetch(`${this.inputtedName}`, `${this.current}`);
+          console.log('ehhhhaaaaa');
+        }
         paginatorTrendingFetch(`${this.current}`);
 
         onUpBtnClick();
@@ -84,7 +87,10 @@ export class Paginator {
         this.current += 1;
         paginationElementList.innerHTML = '';
         this.render();
-
+        if (this.inputtedName) {
+          paginatorSearchFetch(`${this.inputtedName}`, `${this.current}`);
+          console.log('ehhhhaaaaa');
+        }
         paginatorTrendingFetch(`${this.current}`);
 
         onUpBtnClick();
@@ -110,7 +116,10 @@ export class Paginator {
       this.current = Number(paginationEl.innerText);
       paginationElementList.innerHTML = '';
       this.render();
-
+      if (this.inputtedName) {
+        paginatorSearchFetch(`${this.inputtedName}`, `${this.current}`);
+        console.log('ehhhhaaaaa');
+      }
       paginatorTrendingFetch(`${this.current}`);
 
       onUpBtnClick();
@@ -152,9 +161,37 @@ async function paginatorTrendingFetch(currentPage) {
   createMovieCard(paginationMovieInfo);
 }
 
-export function fetchMovies(inputtedName) {
-  return fetch(
-    `${URL_FOR_FETCH_BY_NAME}?api_key=${API_KEY}&query=${inputtedName}`
-  ).then(response => response.json());
-}
+async function paginatorSearchFetch(inputtedName, currentPage) {
+  async function paginationTrendingMovies() {
+    try {
+      loadStart();
+      const response = await fetch(
+        `${URL_FOR_FETCH_BY_NAME}?api_key=${API_KEY}&query=${inputtedName}&page=${currentPage}`
+      );
+      const data = response.json();
+      loadStop();
+      return data;
+    } catch (error) {
+      console.log(error);
+    }
+  }
 
+  const paginationDataMovies = await paginationTrendingMovies(currentPage);
+  const paginationDataGenres = await fetchGenres();
+  console.log(
+    '🚀 ~ file: pagination.js:171 ~ paginationTrendingMovies ~ inputtedName',
+    inputtedName
+  );
+  console.log(
+    '🚀 ~ file: pagination.js:171 ~ paginationTrendingMovies ~ currentPage',
+    currentPage
+  );
+  const paginationGenresList = paginationDataGenres.genres;
+  const paginationMoviesList = paginationDataMovies.results;
+  const paginationMovieInfo = dataMerge(
+    paginationMoviesList,
+    paginationGenresList
+  );
+
+  createMovieCard(paginationMovieInfo);
+}
