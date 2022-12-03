@@ -7,16 +7,6 @@
       <span class="logo__text">Filmoteka</span>
     </a>
     <nav>
-      <div class="theme">
-        <label class="light-theme">
-          <input class="theme-input" type="radio" name="color" value="light" checked/>
-          Light
-        </label>
-        <label class="dark-theme">
-          <input class="theme-input" type="radio" name="color" value="dark"/>
-          Dark
-        </label>
-      </div>
       <ul class="nav list">
         <li class="nav__item">
           <a class="nav__link nav__link--current" href="./index.html">HOME</a>
@@ -26,6 +16,16 @@
         </li>
       </ul>
     </nav>
+    <label class="switch__theme">
+      <svg class="moon__icon" width="30" height="30">
+        <use href="./images/icons/icons-opt.svg#icon-moon-stars"></use>
+      </svg>
+      <input type="checkbox" class="switch__input" />
+      <span class="switch__slider"></span>
+      <svg class="sun__icon" width="20" height="20">
+        <use href="./images/icons/icons-opt.svg#icon-brightness-up"></use>
+      </svg>
+    </label>
   </div>
   <div class="header__search-thumb">
     <form class="search-form js-input-form">

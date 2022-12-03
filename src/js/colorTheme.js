@@ -1,20 +1,32 @@
-const refs = {
-  dark: document.querySelector('.dark-theme'),
-  light: document.querySelector('.light-theme'),
+const refsTheme = {
+  checkbox: document.querySelector('.switch__input'),
   body: document.querySelector('body'),
   modal: document.querySelector('.modal-card__container-content'),
 };
+export { refsTheme };
+export function addThemeLocalStorage() {
+  refsTheme.checkbox.addEventListener("click", () => {
+    if (localStorage.getItem("theme") === "dark") {
+      localStorage.removeItem("theme");
+    } else {
+      localStorage.setItem("theme", "dark")
+    }
+  })
+}
 
-refs.dark.addEventListener('click', switchTheme);
-refs.light.addEventListener('click', switchTheme);
-
-export function switchTheme(e) {
-  if (e.target.value === 'dark') {
-    refs.body.classList.add('dark');
-    refs.modal.classList.add('dark');
+export function useDarkTheme() {
+  if (localStorage.getItem("theme") === "dark") {
+    refsTheme.checkbox.setAttribute("checked", '');
+    refsTheme.body.style.backgroundColor = "#111111";
+    refsTheme.body.style.color = "white";
+    refsTheme.modal.style.backgroundColor = "#111111";
+    refsTheme.modal.style.color = "white";
   }
-  if (e.target.value === 'light') {
-    refs.body.classList.remove('dark');
-    refs.modal.classList.add('dark');
+  if (localStorage.getItem("theme") !== "dark") {
+    refsTheme.body.style.backgroundColor = "white";
+    refsTheme.body.style.color = "black";
+    refsTheme.modal.style.backgroundColor = "white";
+    refsTheme.modal.style.color = "black";
   }
 }
+
