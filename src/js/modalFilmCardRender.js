@@ -92,6 +92,9 @@ async function renderModalFilmCard(evt) {
     handleTrailerMovie();
     window.addEventListener('keydown', onKeyCloseModal);
     refs.backdrop.addEventListener('click', onBackdropClick);
+    setTimeout(()=>{
+      refs.btnClose.classList.add('animate__animated', 'animate__zoomIn');
+    },500)
 
     loadStop();
   } catch {}
@@ -116,6 +119,7 @@ function closeModal() {
   refs.backdrop.classList.add('is-hidden');
   window.removeEventListener('keydown', onKeyCloseModal);
   refs.backdrop.removeEventListener('click', onBackdropClick);
+  refs.btnClose.classList.remove('animate__animated', 'animate__zoomIn');
 }
 
 export { renderModalFilmCard, closeModal, onKeyCloseModal, onBackdropClick };
