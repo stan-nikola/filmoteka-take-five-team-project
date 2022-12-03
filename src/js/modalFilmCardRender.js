@@ -92,9 +92,8 @@ async function renderModalFilmCard(evt) {
     handleTrailerMovie();
     window.addEventListener('keydown', onKeyCloseModal);
     refs.backdrop.addEventListener('click', onBackdropClick);
-    setTimeout(()=>{
-      refs.btnClose.classList.add('animate__animated', 'animate__zoomIn');
-    },500)
+
+    refs.btnClose.classList.add('animate__animated', 'animate__zoomIn');
 
     loadStop();
   } catch {}
