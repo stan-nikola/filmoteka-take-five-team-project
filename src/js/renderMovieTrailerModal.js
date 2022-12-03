@@ -1,5 +1,6 @@
 import { fetchTrailer } from './apiService';
-import { notificationError } from './notifications';
+
+import { notificationWarning } from './notifications';
 
 export async function renderTrailerModal(event) {
   let trailerId = event.target.dataset.movieid;
@@ -26,7 +27,7 @@ export async function renderTrailerModal(event) {
     trailerBtn.disabled = true;
     return;
   } else {
-    notificationError('Sorry No Trailer');
+    notificationWarning('Sorry, trailer not available');
   }
 }
 
@@ -34,7 +35,3 @@ export function handleTrailerMovie() {
   const trailerBtn = document.querySelector('.btn__trailer__modal__js');
   trailerBtn.addEventListener('click', renderTrailerModal);
 }
-
-
-
-
