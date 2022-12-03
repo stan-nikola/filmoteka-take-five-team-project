@@ -4,6 +4,8 @@ import { Ref } from './getLocalStorage';
 
 import { notificationSuccess, notificationWarning } from './../notifications';
 
+const cardGalleryEl = document.querySelector('.movie-cards-gallery-library');
+
 let filmId;
 let movieAddedMsg;
 let targetBtn;
@@ -23,7 +25,7 @@ async function handleWatched() {
     let watchedMovies = JSON.parse(localStorage.getItem('filmsWatched'));
     watchedMovies.map(movie => watchedIds.push(movie.id));
     if (watchedIds.includes(Number(watchedBtn.dataset.id))) {
-      watchedBtn.textContent = 'Delete from Watched';
+      watchedBtn.textContent = 'Remove from Watched';
       watchedBtn.addEventListener('click', deleteWatched);
       return;
     }
@@ -40,7 +42,7 @@ async function handleQueue() {
     let queueMovies = JSON.parse(localStorage.getItem('filmsQueue'));
     queueMovies.map(movie => queueIds.push(movie.id));
     if (queueIds.includes(Number(queueBtn.dataset.id))) {
-      queueBtn.textContent = 'Delete from Queue';
+      queueBtn.textContent = 'Remove from Queue';
       queueBtn.addEventListener('click', deleteQueue);
       return;
     }
@@ -64,8 +66,8 @@ async function addWatched(evt) {
     filmsWatched.push(currentFilm);
     localStorage.setItem('filmsWatched', JSON.stringify(filmsWatched));
     notificationSuccess(movieAddedMsg);
-    watchedBtn.textContent = 'delete from watched';
-    if (Ref.watchedBtn.disabled === true) {
+    watchedBtn.textContent = 'remove from watched';
+    if (cardGalleryEl && Ref.watchedBtn.disabled) {
       renderFilmCardInLibrary(filmsWatched);
     }
     watchedBtn.removeEventListener('click', addWatched);
@@ -74,11 +76,11 @@ async function addWatched(evt) {
   }
   filmsWatched = JSON.parse(localStorage.getItem('filmsWatched'));
   filmsWatched.push(currentFilm);
-  if (Ref.watchedBtn.disabled === true) {
+  if (cardGalleryEl && Ref.watchedBtn.disabled) {
     renderFilmCardInLibrary(filmsWatched);
   }
   localStorage.setItem('filmsWatched', JSON.stringify(filmsWatched));
-  watchedBtn.textContent = 'delete from watched';
+  watchedBtn.textContent = 'remove from watched';
   notificationSuccess(movieAddedMsg);
   watchedBtn.removeEventListener('click', addWatched);
   watchedBtn.addEventListener('click', deleteWatched);
@@ -86,9 +88,9 @@ async function addWatched(evt) {
 
 async function deleteWatched() {
   let watchedIds = [];
-  let movieDeletedWatchedMsg = `Movie has been deleted from WATCHED`;
+  let movieDeletedWatchedMsg = `Movie has been removed from WATCHED`;
   watchedBtn = document.querySelector('.btn__watched-js');
-  watchedBtn.textContent = 'delete from watched';
+  watchedBtn.textContent = 'remove from watched';
   let watchedMovies = JSON.parse(localStorage.getItem('filmsWatched'));
   watchedMovies.map(movie => watchedIds.push(movie.id));
   if (watchedIds.includes(Number(watchedBtn.dataset.id))) {
@@ -96,7 +98,7 @@ async function deleteWatched() {
     localStorage.setItem('filmsWatched', JSON.stringify(watchedMovies));
     watchedBtn.textContent = 'add to watched';
     notificationWarning(movieDeletedWatchedMsg);
-    if (Ref.watchedBtn.disabled === true) {
+    if (cardGalleryEl && Ref.watchedBtn.disabled) {
       renderFilmCardInLibrary(watchedMovies);
     }
     watchedBtn.removeEventListener('click', deleteWatched);
@@ -118,8 +120,8 @@ async function addQueue(evt) {
     filmsQueue.push(currentFilm);
     localStorage.setItem('filmsQueue', JSON.stringify(filmsQueue));
     notificationSuccess(movieAddedMsg);
-    queueBtn.textContent = 'delete from queue';
-    if (Ref.queueBtn.disabled === true) {
+    queueBtn.textContent = 'remove from queue';
+    if (cardGalleryEl && Ref.queueBtn.disabled) {
       renderFilmCardInLibrary(filmsQueue);
     }
     queueBtn.removeEventListener('click', addQueue);
@@ -130,8 +132,8 @@ async function addQueue(evt) {
   filmsQueue.push(currentFilm);
   localStorage.setItem('filmsQueue', JSON.stringify(filmsQueue));
   notificationSuccess(movieAddedMsg);
-  queueBtn.textContent = 'delete from queue';
-  if (Ref.queueBtn.disabled === true) {
+  queueBtn.textContent = 'remove from queue';
+  if (cardGalleryEl && Ref.queueBtn.disabled) {
     renderFilmCardInLibrary(filmsQueue);
   }
   queueBtn.removeEventListener('click', addQueue);
@@ -140,9 +142,9 @@ async function addQueue(evt) {
 
 async function deleteQueue() {
   let queueIds = [];
-  let movieDeletedQueueMsg = `Movie has been deleted from WATCHED`;
+  let movieDeletedQueueMsg = `Movie has been removed from QUEUE`;
   queueBtn = document.querySelector('.btn__queue-js');
-  queueBtn.textContent = 'delete from queue';
+  queueBtn.textContent = 'remove from queue';
   let queueMovies = JSON.parse(localStorage.getItem('filmsQueue'));
   queueMovies.map(movie => queueIds.push(movie.id));
   if (queueIds.includes(Number(queueBtn.dataset.id))) {
@@ -150,7 +152,7 @@ async function deleteQueue() {
     localStorage.setItem('filmsQueue', JSON.stringify(queueMovies));
     queueBtn.textContent = 'add to queue';
     notificationWarning(movieDeletedQueueMsg);
-    if (Ref.queueBtn.disabled === true) {
+    if (cardGalleryEl && Ref.queueBtn.disabled) {
       renderFilmCardInLibrary(queueMovies);
     }
     queueBtn.removeEventListener('click', deleteQueue);

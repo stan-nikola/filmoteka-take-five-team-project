@@ -1,5 +1,5 @@
 import renderFilmCardInLibrary from '../libraryFilmCard';
-import refs from '../modalFilmCardRefs';
+// import refs from '../modalFilmCardRefs';
 
 export const Ref = {
   watchedBtn: document.querySelector('.header__watched__btn__js'),
