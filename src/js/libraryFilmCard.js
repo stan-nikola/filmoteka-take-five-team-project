@@ -1,7 +1,7 @@
 import noPosterCUT from '../images/no-poster/no-poster_CUT.jpg';
 
 export default function renderFilmCardInLibrary(movies) {
-  const cardGalleryEl = document.querySelector('.movie-cards-gallery');
+  const cardGalleryEl = document.querySelector('.movie-cards-gallery-library');
   const setOfCards = movies.map(movie => {
     const movieTitle = movie.title.toUpperCase();
     const moviePosterStartPath = 'https://image.tmdb.org/t/p/w500';
