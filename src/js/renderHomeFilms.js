@@ -3,7 +3,9 @@ import { createMovieCard } from './movieCardRender';
 import { notificationError } from './notifications';
 import { Paginator, paginationElementList } from './pagination';
 
+
 export async function renderMovies() {
+
   try {
     const dataMovies = await fetchHomeTrendingMovies();
     const dataGenres = await fetchGenres();
