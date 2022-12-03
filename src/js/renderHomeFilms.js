@@ -3,9 +3,7 @@ import { createMovieCard } from './movieCardRender';
 import { notificationError } from './notifications';
 import { Paginator, paginationElementList } from './pagination';
 
-
 export async function renderMovies() {
-
   try {
     const dataMovies = await fetchHomeTrendingMovies();
     const dataGenres = await fetchGenres();
@@ -16,12 +14,9 @@ export async function renderMovies() {
 
     createMovieCard(movieInfo);
 
-    const trendPagination = new Paginator(
-      1,
-      dataMovies.total_pages,
-      paginationElementList
-    );
+    const trendPagination = new Paginator(1, dataMovies.total_pages);
     trendPagination.render();
+    
   } catch (error) {
     notificationError(error.message);
   }
