@@ -1,7 +1,7 @@
 import { fetchHomeTrendingMovies, fetchGenres } from './apiService';
 import { createMovieCard } from './movieCardRender';
-import { pagination } from './pagination';
 import { notificationError } from './notifications';
+import { Paginator, paginationElementList } from './pagination';
 
 export async function renderMovies() {
   try {
@@ -14,9 +14,12 @@ export async function renderMovies() {
 
     createMovieCard(movieInfo);
 
-    let pageCount = 5;
-
-    pagination(pageCount, movieInfo);
+    const trendPagination = new Paginator(
+      1,
+      dataMovies.total_pages,
+      paginationElementList
+    );
+    trendPagination.render();
   } catch (error) {
     notificationError(error.message);
   }
