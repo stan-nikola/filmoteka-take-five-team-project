@@ -52,10 +52,24 @@
 .pagination___btn--next {
   width: 40px;
   height: 40px;
-  left: 20px;
-  top: 2103px;
+
 
   background: #F7F7F7;
   border-radius: 5px;
   border: none;
+}
+
+.dots{
+
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 16px;
+
+
+  display: flex;
+  align-items: center;
+
+  color: #000000;
 }

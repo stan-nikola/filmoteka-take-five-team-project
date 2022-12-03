@@ -17,7 +17,7 @@ import { clickCurrentFilm } from './js/addLocalStorage.js';
 // Slider starter
 appendMovies();
 
-renderMovies2();
+renderMovies();
 clickCurrentFilm();
 
 // Modal listeners------------------------

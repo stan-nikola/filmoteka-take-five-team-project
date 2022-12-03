@@ -1,6 +1,6 @@
 import { fetchHomeTrendingMovies, fetchGenres } from './apiService';
 import { createMovieCard } from './movieCardRender';
-import { pagination } from './pagination';
+import { Paginator, paginationElementList} from './pagination';
 
 export async function renderMovies() {
   const dataMovies = await fetchHomeTrendingMovies();
@@ -12,9 +12,9 @@ export async function renderMovies() {
 
   createMovieCard(movieInfo);
 
-  const pageCount = 8; // временная переменная - после настройки отрисовки заменить на dataMovies.total_pages
+  const trendPagination = new Paginator(1, dataMovies.total_pages, paginationElementList);
+  trendPagination.render()
 
-  pagination(pageCount, movieInfo);
   
 }
 
