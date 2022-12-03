@@ -43,12 +43,14 @@ console.log( iconNets );
 console.log( team );
 
 const footerRefs = {
+body: document.querySelector("body"),
 footerModalBtn: document.querySelector( '.js-modal' ),
 footerModalBackdrop: document.querySelector( ".footer__backdrop" ),
 teamList: document.querySelector( ".team__list" ),
 footerModalCloseBtn: document.querySelector( '.modal-close__btn' ),
 }
 
+console.log( footerRefs.body );
 
 footerRefs.footerModalBtn.addEventListener( "click", showModalHandler );
 
@@ -62,6 +64,9 @@ function showModalHandler( event )
     const teamMarkup = team.map( ( item ) => ` <li class="team__list-item">
 
             <div class="teammate__card">
+
+
+            <div class="icons-position">
                         <div class="img__thumb">
                             <img src=${item.img} alt="" class="teammate__picture">
 
@@ -99,7 +104,7 @@ function showModalHandler( event )
 
                 </div>
 
-
+            </div>
 
 
 
@@ -124,6 +129,8 @@ function showModalHandler( event )
     
     footerRefs.teamList.innerHTML = teamMarkup;
 
+    footerRefs.body.style.overflow = "hidden";
+
     footerRefs.footerModalCloseBtn.addEventListener( 'click', closeFooterModalHandler );
     window.addEventListener( 'keydown', onKeyCloseFooterModal );
     footerRefs.footerModalBackdrop.addEventListener( 'click', onBackdropClickClose );
@@ -133,7 +140,8 @@ function showModalHandler( event )
 function closeFooterModalHandler()
 {
     footerRefs.footerModalBackdrop.classList.add('hidden');
-    window.removeEventListener('keydown', onKeyCloseFooterModal);
+    footerRefs.body.style.overflow = "auto";
+    window.removeEventListener( 'keydown', onKeyCloseFooterModal );
     footerRefs.footerModalBackdrop.removeEventListener('click', onBackdropClickClose);
  }
 
