@@ -130,6 +130,7 @@ function closeModal() {
 }
 
 function closeTrailerModal() {
+  getElem('.modal-trailer__container-content').innerHTML = '';
   getElem('body').classList.remove('modal-open');
   getElem('.backdrop_trailer').classList.add('is-hidden');
   window.removeEventListener('keydown', onKeyCloseModal);

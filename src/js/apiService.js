@@ -22,7 +22,7 @@ export class FetchMoviesApi {
       );
       const data = response.json();
       loadStop();
-      
+
       return data;
     } catch (error) {
       notificationError(`Error!!!  ${error}`);
@@ -48,7 +48,6 @@ export async function fetchHomeTrendingMovies() {
     return data;
   } catch (error) {
     notificationError(`Error!!!  ${error}`);
-    
   }
 }
 
@@ -81,3 +80,5 @@ export function fetchMovies(inputtedName) {
     `${URL_FOR_FETCH_BY_NAME}?api_key=${API_KEY}&query=${inputtedName}`
   ).then(response => response.json());
 }
+
+export let getElem = selector => document.querySelector(selector);
