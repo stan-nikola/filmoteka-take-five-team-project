@@ -120,7 +120,7 @@ export const team = [
     name: 'Alex Schlieden',
     role: 'Front-end developer',
     responsibilities:
-      'Верстка хедера страницы My Library, реализация подгрузки фильма на главную страницу, реализация модального окна трейлера фильма',
+      'My Library: create header und styles, dynamic data fetching movies into the homepage, create movie trailer modal',
     img1x: '',
     img2x: '',
     img3x: '',
