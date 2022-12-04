@@ -7,6 +7,8 @@ import placeholderImg from '../images/no-poster/no-poster_CUT.jpg';
 import { loadStart, loadStop } from './loadingSpinner';
 import { handleTrailerMovie } from './renderMovieTrailerModal';
 
+let getElem = selector => document.querySelector(selector);
+
 let filmId;
 
 async function renderModalFilmCard(evt) {
@@ -106,6 +108,7 @@ async function renderModalFilmCard(evt) {
 function onBackdropClick(ev) {
   if (ev.currentTarget === ev.target) {
     closeModal();
+    closeTrailerModal();
   }
 }
 
@@ -114,6 +117,7 @@ function onKeyCloseModal(evt) {
   evt.preventDefault();
   if (evt.code === ESC_KEY_CODE) {
     closeModal();
+    closeTrailerModal();
   }
 }
 
@@ -125,4 +129,17 @@ function closeModal() {
   refs.btnClose.classList.remove('animate__animated', 'animate__zoomIn');
 }
 
-export { renderModalFilmCard, closeModal, onKeyCloseModal, onBackdropClick };
+function closeTrailerModal() {
+  getElem('body').classList.remove('modal-open');
+  getElem('.backdrop_trailer').classList.add('is-hidden');
+  window.removeEventListener('keydown', onKeyCloseModal);
+  getElem('.backdrop_trailer').removeEventListener('click', onBackdropClick);
+}
+
+export {
+  renderModalFilmCard,
+  closeModal,
+  onKeyCloseModal,
+  onBackdropClick,
+  closeTrailerModal,
+};

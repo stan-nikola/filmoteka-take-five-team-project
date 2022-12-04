@@ -7,11 +7,17 @@ import { onUpBtnClick } from './js/scrollPage';
 import { addThemeLocalStorage, useDarkTheme, refsTheme } from './js/colorTheme';
 // Imports from modalFilmCard section-----
 import refs from './js/modalFilmCardRefs';
-import { renderModalFilmCard, closeModal } from './js/modalFilmCardRender';
+import {
+  renderModalFilmCard,
+  closeModal,
+  closeTrailerModal,
+} from './js/modalFilmCardRender';
 // ---------------------------------------
 
 import { renderMovies } from './js/renderHomeFilms';
 import { renderMovies2 } from './js/pagination';
+
+let getElem = selector => document.querySelector(selector);
 
 window.onload = useDarkTheme;
 addThemeLocalStorage();
@@ -25,5 +31,6 @@ refsTheme.checkbox.addEventListener('click', useDarkTheme);
 // Modal listeners------------------------
 refs.movieContainer.addEventListener('click', renderModalFilmCard);
 refs.btnClose.addEventListener('click', closeModal);
+getElem('.close-trailer-btn-js').addEventListener('click', closeTrailerModal);
 
 onUpBtnClick();

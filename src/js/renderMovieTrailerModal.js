@@ -1,10 +1,9 @@
 import { fetchTrailer } from './apiService';
 import { notificationWarning } from './notifications';
+import { onKeyCloseModal, onBackdropClick } from './modalFilmCardRender';
 let getElem = selector => document.querySelector(selector);
 export async function renderTrailerModal(event) {
   let trailerId = event.target.dataset.movieid;
-
-  // const trailerBtn = document.querySelector('.btn__trailer__modal__js');
 
   const dataTrailer = await fetchTrailer(trailerId);
   const trailerObject = dataTrailer.results.find(
@@ -12,16 +11,14 @@ export async function renderTrailerModal(event) {
       option.name === 'Official Trailer' ||
       option.name === 'Official Trailer [Subtitled]'
   );
-  const trailerContainer = document.querySelector(
-    '.modal-card__trailer__video__js'
-  );
   if (trailerObject) {
     const trailerMarkup = `
-    <div>
-        <iframe width=100 % " height="250" src='https://www.youtube.com/embed/${trailerObject.key}'frameborder = "0" allow = "accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen ></iframe >
-    </div>
+        <iframe width=560" height="315" src='https://www.youtube.com/embed/${trailerObject.key}'frameborder = "0" allow = "accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen ></iframe >
       `;
-    trailerContainer.insertAdjacentHTML('afterbegin', trailerMarkup);
+    getElem('.modal-trailer__container-content').innerHTML = trailerMarkup;
+    getElem('.backdrop_trailer').classList.remove('is-hidden');
+    window.addEventListener('keydown', onKeyCloseModal);
+    getElem('.backdrop_trailer').addEventListener('click', onBackdropClick);
     getElem('.btn__trailer__modal__js').disabled = true;
     return;
   } else {
@@ -30,6 +27,8 @@ export async function renderTrailerModal(event) {
 }
 
 export function handleTrailerMovie() {
-  const trailerBtn = document.querySelector('.btn__trailer__modal__js');
-  trailerBtn.addEventListener('click', renderTrailerModal);
+  getElem('.btn__trailer__modal__js').addEventListener(
+    'click',
+    renderTrailerModal
+  );
 }
