@@ -1,16 +1,16 @@
 import { team } from '../data/team.js';
-// import staskarmanov from '../images/team/stanislav-karmanov.jpeg';
-// import dariapluto from '../images/team/daria-pluto.png';
-// import maksimshvets from '../images/team/maksim-shviets.jpeg';
-// import sergeyj from '../images/team/sergey-j.png';
-// import anton from '../images/team/anton-provorov.jpg';
-// import ira from '../images/team/ira-rybka.jpeg';
-// import valentyn from '../images/team/valentyn.jpeg';
-// import slava from '../images/team/slava.jpeg';
-// import oleh from '../images/team/oleh.png';
-// import alex from '../images/team/alex-schlieden.jpeg';
-// import orest from '../images/team/orest.jpeg';
-// import natalie from '../images/team/natalie.png';
+import staskarmanov from '../images/team/stanislav-karmanov.jpeg';
+import dariapluto from '../images/team/daria-pluto.png';
+import maksimshvets from '../images/team/maksim-shviets.jpeg';
+import sergeyj from '../images/team/sergey-j.png';
+import anton from '../images/team/anton-provorov.jpg';
+import ira from '../images/team/ira-rybka.jpeg';
+import valentyn from '../images/team/valentyn.jpeg';
+import slava from '../images/team/slava.jpeg';
+import oleh from '../images/team/oleh.png';
+import alex from '../images/team/alex-schlieden.jpeg';
+import orest from '../images/team/orest.jpeg';
+import natalie from '../images/team/natalie.png';
 import iconNets from '../images/icons/icons-social-nets.svg';
 
 const footerRefs = {
