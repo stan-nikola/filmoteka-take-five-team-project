@@ -105,15 +105,15 @@ export const team = [
   },
 
   {
-    name: 'Олег Галицкий',
+    name: 'Олег Галицький',
     role: 'Front-end developer',
     responsibilities: 'Верстка и подключение модалки с трейлером фильма',
     img1x: '',
     img2x: '',
     img3x: '',
     img: 'https://stan-nikola.github.io/filmoteka-take-five-team-project/oleh.cf6c7e04.png',
-    linkedin: '',
-    git: '',
+    linkedin: 'https://www.linkedin.com/in/oleh-halytskyi-a3b947181/',
+    git: 'https://github.com/Oleh-Halytskyi',
   },
 
   {
