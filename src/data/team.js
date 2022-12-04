@@ -1,19 +1,21 @@
 export const team = [
   {
-    name: 'Станислав Карманов',
+    name: 'Stanislav Karmanov',
     role: 'Team Lead',
     resposibilities:
-      'Архитектура проекта, определение единых практик разработки, сode review, наставничество команды, распределение скоупа проекта между разработчиками, спинер загрузки',
+      'Project architecture, common best practices, code review, mentoring, scope assignment, load spinner, notifications, etc.',
     img1x: '',
     img2x: '',
     img3x: '',
     img: 'https://stan-nikola.github.io/filmoteka-take-five-team-project/stanislav-karmanov.20d76c18.jpeg',
-    linkedin: "",
-    git: "",
+
+    linkedin: 'https://www.linkedin.com/in/stanislav-karmanov-b58197241/',
+    git: 'https://github.com/stan-nikola',
+
   },
 
   {
-    name: 'Дарья Плуто',
+    name: 'Дарья Панчук',
     role: 'Scrum master',
     resposibilities:
       'Регулювала термін виконання проєкту. Здійснювала щоденний Stand Up для планування роботи команди. Слідкувала за наявністю завдань у всіх учасників команди та термінами їх реалізації у Trello. Допомагала вдосконалювати стилі проєкту. Реалізувала реєстрацію за допомогою бези Firebase.',
@@ -33,8 +35,10 @@ export const team = [
     img2x: '',
     img3x: '',
     img: 'https://stan-nikola.github.io/filmoteka-take-five-team-project/maksim-shviets.d9dc0fb1.jpeg',
+
     linkedin: "",
     git: "",
+
   },
 
   {
@@ -71,8 +75,9 @@ export const team = [
     img2x: '',
     img3x: '',
     img: 'https://stan-nikola.github.io/filmoteka-take-five-team-project/ira-rybka.bf6773cc.jpeg',
-    linkedin: "",
-    git: "",
+    linkedin: '',
+    git: '',
+
   },
 
   {
@@ -83,8 +88,10 @@ export const team = [
     img2x: '',
     img3x: '',
     img: 'https://stan-nikola.github.io/filmoteka-take-five-team-project/valentyn.2327cc9d.jpeg',
+
     linkedin: "",
     git: "",
+
   },
 
   {
@@ -96,6 +103,7 @@ export const team = [
     img2x: '',
     img3x: '',
     img: 'https://stan-nikola.github.io/filmoteka-take-five-team-project/slava.15fbdc02.jpeg',
+
     linkedin: "",
     git: "",
   },
@@ -110,6 +118,7 @@ export const team = [
     img: 'https://stan-nikola.github.io/filmoteka-take-five-team-project/oleh.cf6c7e04.png',
     linkedin: "",
     git: "",
+
   },
 
   {
@@ -125,7 +134,6 @@ export const team = [
     git: "",
   },
 
- 
   {
     name: 'Орест Мазгаль',
     role: 'Front-end developer',
@@ -136,6 +144,7 @@ export const team = [
     img: 'https://stan-nikola.github.io/filmoteka-take-five-team-project/orest.9ef72526.jpeg',
     linkedin: "",
     git: "",
+
   },
 
   {
@@ -149,5 +158,6 @@ export const team = [
     img: 'https://stan-nikola.github.io/filmoteka-take-five-team-project/natalie.a36f784c.png',
     linkedin: "https://www.linkedin.com/in/natalie-tkachenko-/",
     git: "https://github.com/NatalieTkachenko",
+
   },
 ];

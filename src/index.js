@@ -9,7 +9,7 @@ import { addThemeLocalStorage, useDarkTheme, refsTheme } from './js/colorTheme';
 import refs from './js/modalFilmCardRefs';
 import { renderModalFilmCard, closeModal } from './js/modalFilmCardRender';
 // ---------------------------------------
-import { renderMovies2 } from './js/pagination';
+
 import { renderMovies } from './js/renderHomeFilms';
 import { renderMovies2 } from './js/pagination';
 

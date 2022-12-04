@@ -10,9 +10,13 @@ import { handleTrailerMovie } from './renderMovieTrailerModal';
 let filmId;
 
 async function renderModalFilmCard(evt) {
+  if (evt.target.parentNode.nodeName !== 'LI') {
+    return;
+  }
   loadStart();
   refs.body.classList.add('modal-open');
   refs.modalCard.innerHTML = '';
+
   filmId = evt.target.parentNode.dataset.id;
 
   try {

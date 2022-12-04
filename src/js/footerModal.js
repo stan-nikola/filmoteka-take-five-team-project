@@ -1,46 +1,45 @@
 import { team } from '../data/team.js';
 
 import staskarmanov from '../images/team/stanislav-karmanov.jpeg';
-console.log( staskarmanov );
+// console.log(staskarmanov);
 
 import dariapluto from '../images/team/daria-pluto.png';
-console.log( dariapluto );
+// console.log(dariapluto);
 
 import maksimshvets from '../images/team/maksim-shviets.jpeg';
-console.log( maksimshvets )
+// console.log(maksimshvets);
 
-import sergeyj from '../images/team/sergey-j.png'
-console.log( sergeyj );
+import sergeyj from '../images/team/sergey-j.png';
+// console.log(sergeyj);
 
 import anton from '../images/team/anton-provorov.jpg';
-console.log( anton );
+// console.log(anton);
 
-import ira from '../images/team/ira-rybka.jpeg'
-console.log( ira );
+import ira from '../images/team/ira-rybka.jpeg';
+// console.log(ira);
 
 import valentyn from '../images/team/valentyn.jpeg';
-console.log( valentyn );
+// console.log(valentyn);
 
 import slava from '../images/team/slava.jpeg';
-console.log( slava );
+// console.log(slava);
 
 import oleh from '../images/team/oleh.png';
-console.log( oleh );
+// console.log(oleh);
 
-import alex from '../images/team/alex-schlieden.jpeg'
-console.log( alex );
+import alex from '../images/team/alex-schlieden.jpeg';
+// console.log(alex);
 
 import orest from '../images/team/orest.jpeg';
-console.log( orest );
+// console.log(orest);
 
 import natalie from '../images/team/natalie.png';
-console.log( natalie );
+// console.log(natalie);
 
-import iconNets from '../images/icons/icons-social-nets.svg'
-console.log( iconNets );
+import iconNets from '../images/icons/icons-social-nets.svg';
+// console.log(iconNets);
 
-
-console.log( team );
+// console.log(team);
 
 const footerRefs = {
 body: document.querySelector("body"),
@@ -147,17 +146,17 @@ function closeFooterModalHandler()
 
 
 
+
 function onKeyCloseFooterModal(evt) {
-  const ESC_KEY_CODE = 'Escape'
+  const ESC_KEY_CODE = 'Escape';
   evt.preventDefault();
   if (evt.code === ESC_KEY_CODE) {
-    closeFooterModalHandler()
+    closeFooterModalHandler();
   }
 }
 
-
-function onBackdropClickClose (ev) {
-  if(ev.currentTarget === ev.target) {
+function onBackdropClickClose(ev) {
+  if (ev.currentTarget === ev.target) {
     closeFooterModalHandler();
   }
 }
