@@ -28,13 +28,13 @@ export const team = [
   {
     name: 'Максим Швец',
     role: 'Front-end developer',
-    responsibilities: 'Логика кнопок MyLibrary',
+    responsibilities: 'Логика кнопок MyLibrary і кнопок модального вікна, звязаного з обраним фільмом. Стилізація темної теми і кнопки переходу на темну тему.',
     img1x: '',
     img2x: '',
     img3x: '',
     img: 'https://stan-nikola.github.io/filmoteka-take-five-team-project/maksim-shviets.d9dc0fb1.jpeg',
     linkedin: '',
-    git: '',
+    git: 'https://github.com/MaksymShvets27',
   },
 
   {
