@@ -117,7 +117,7 @@ export const team = [
   },
 
   {
-    name: 'Алекс Шлиден',
+    name: 'Alex Schlieden',
     role: 'Front-end developer',
     responsibilities:
       'Верстка хедера страницы My Library, реализация подгрузки фильма на главную страницу, реализация модального окна трейлера фильма',
