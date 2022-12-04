@@ -77,3 +77,13 @@
   left: 8.5%;
   top: 5px;
 }
+.dark {
+  color: var(--second-text-color);
+  fill: var(--second-text-color);
+  border-color: var(--second-text-color);
+  background-color: var(--dark-theme-background-color);
+}
+.dark--current {
+  background-color: var(--accent-color);
+  color: var(--second-text-color);
+}

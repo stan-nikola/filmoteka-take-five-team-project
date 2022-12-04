@@ -1,11 +1,10 @@
 import { loadStart, loadStop } from './loadingSpinner';
 import { API_KEY, BASE_URL, URL_FOR_FETCH_BY_NAME } from './apiService';
 import { onUpBtnClick } from './scrollPage';
-
 import { fetchGenres } from './apiService';
 import { dataMerge } from './renderHomeFilms';
 import { createMovieCard } from './movieCardRender';
-
+import { useDarkPagination } from './colorTheme';
 let getEl = selector => document.querySelector(`${selector}`);
 const paginationElementList = getEl('#pagination_list_js'); //СЮДА ОТРИСОВЫВАЕМ СЧЁТЧИК СТРАНИЦ
 
@@ -21,11 +20,10 @@ export async function pagination(pageCount, dataRowArr) {
   // отрисовка елементов пагинатора
   paginationElementList.innerHTML = '';
   paginationContainer.innerHTML = '';
-  
+
   for (let i = 0; i < pageCount; i += 1) {
     paginationElementList.appendChild(createPaginationEl(i + 1));
   }
-  
   paginationContainer.appendChild(paginationElementList);
 
   paginationContainer.insertAdjacentHTML(
@@ -36,6 +34,7 @@ export async function pagination(pageCount, dataRowArr) {
     'beforeend',
     `<button type = "button" class = "pagination___btn--next"> > </button>`
   );
+
   // конец отрисовки єлементов пагинатора
 
   //логика работы с кнопками
@@ -65,7 +64,6 @@ export async function pagination(pageCount, dataRowArr) {
       currentPage = currentPage + 1;
 
       paginatorTrendingFetch(currentPage);
-
       onUpBtnClick();
     }
   });
@@ -90,12 +88,15 @@ export async function pagination(pageCount, dataRowArr) {
       currentPage = page;
 
       paginatorTrendingFetch(currentPage); // сюда прописать рендер по фетчу с нужной страницы (переиспользуется в кнопках )
+      useDarkPagination();
 
       onUpBtnClick(); // поднималка
     });
 
     return paginationEl;
   }
+  useDarkPagination();
+
   console.log('Сработала функция пагинации');
 }
 //функция запроса по НОМЕРУ СТРАНИЦЫ

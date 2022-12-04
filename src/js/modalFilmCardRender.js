@@ -2,6 +2,7 @@ import refs from './modalFilmCardRefs';
 import { API_KEY, BASE_URL, MOVIE_POSTER } from './apiService';
 
 import { handleLocalStorage } from './localStorage/addLocalStorage';
+import { useDarkThemeModal } from './colorTheme';
 
 import placeholderImg from '../images/no-poster/no-poster_CUT.jpg';
 import { loadStart, loadStop } from './loadingSpinner';
@@ -89,13 +90,14 @@ async function renderModalFilmCard(evt) {
         `;
     refs.modalCard.insertAdjacentHTML('afterbegin', cardMarkup);
     refs.backdrop.classList.remove('is-hidden');
+    useDarkThemeModal();
     handleLocalStorage();
     handleTrailerMovie();
     window.addEventListener('keydown', onKeyCloseModal);
     refs.backdrop.addEventListener('click', onBackdropClick);
 
     loadStop();
-  } catch {}
+  } catch { }
 }
 
 function onBackdropClick(ev) {
