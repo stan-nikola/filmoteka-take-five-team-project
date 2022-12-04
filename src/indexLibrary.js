@@ -1,5 +1,5 @@
 // Imports from modalFilmCard section-----
-import refs from './js/modalFilmCardRefs';
+// import refs from './js/modalFilmCardRefs';
 import {
   renderModalFilmCard,
   closeModal,
