@@ -1,17 +1,23 @@
 // Imports from modalFilmCard section-----
 import refs from './js/modalFilmCardRefs';
-import { renderModalFilmCard, closeModal } from './js/modalFilmCardRender';
+import {
+  renderModalFilmCard,
+  closeModal,
+  closeTrailerModal,
+} from './js/modalFilmCardRender';
 import { getLocalStorage } from './js/localStorage/getLocalStorage';
-import { addThemeLocalStorage, useDarkTheme, refsTheme } from './js/colorTheme';
+import { addThemeLocalStorage, useDarkTheme } from './js/colorTheme';
 import { onUpBtnClick } from './js/scrollPage';
+import { getElem } from './js/refs';
 window.onload = useDarkTheme;
 
 addThemeLocalStorage();
 getLocalStorage();
 
-refsTheme.checkbox.addEventListener('click', useDarkTheme);
+getElem('.switch__input').addEventListener('click', useDarkTheme);
 // Modal listeners------------------------
-refs.movieContainer.addEventListener('click', renderModalFilmCard);
-refs.btnClose.addEventListener('click', closeModal);
+getElem('.movie-cards-gallery').addEventListener('click', renderModalFilmCard);
+getElem('.close-btn-js').addEventListener('click', closeModal);
+getElem('.close-trailer-btn-js').addEventListener('click', closeTrailerModal);
 
 onUpBtnClick();
