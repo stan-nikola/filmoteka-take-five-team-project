@@ -43,13 +43,15 @@
   // margin-bottom: 20px;
   cursor: pointer;
   margin: 0 auto;
+  
+
 
 
   &:not(:last-child) {
       margin-bottom: 20px;
   }
 
-  transition: scale var(--animation);
+  transition: scale var(--animation),box-shadow var(--animation) ;
   
   @media screen and (min-width: 768px) {
     width: 336px;
@@ -67,12 +69,11 @@
   }
 
    
-  &:hover {
+  &:hover,&:focus {
     scale: 1.01;
+  box-shadow: 49px -38px 51px -24px rgba(255, 107, 8, 0.63);;
   }
-  &:focus {
-    scale: 1.01;
-  }
+  
 }
 
 // .image-wrapper {
@@ -99,6 +100,7 @@
   height: 402px;
   // outline: 2px solid black;
   border-radius: 5px;
+  
 
   @media screen and (min-width: 768px) {
     width: 336px;
