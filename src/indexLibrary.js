@@ -4,6 +4,15 @@ import { renderModalFilmCard, closeModal } from './js/modalFilmCardRender';
 import { getLocalStorage } from './js/localStorage/getLocalStorage';
 import { onUpBtnClick } from './js/scrollPage';
 import * as colorTheme from './js/colorTheme';
+import {
+  showLogInModal,
+  onCloseRegisterForm,
+  onEscCloseModal,
+  onBackdropCloseModal,
+  onRegister,
+  onLogIn,
+} from './js/modalForm';
+
 getLocalStorage();
 
 // Modal listeners------------------------
