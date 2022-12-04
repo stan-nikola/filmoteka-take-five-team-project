@@ -124,7 +124,7 @@ export const team = [
     img1x: '',
     img2x: '',
     img3x: '',
-    img: 'https://stan-nikola.github.io/filmoteka-take-five-team-project/alex-schlieden.f53eea57.jpeg?1669854154598',
+    img: 'https://stan-nikola.github.io/filmoteka-take-five-team-project/alex-schlieden.f53eea57.jpeg',
     linkedin: 'https://www.xing.com/profile/Alexander_Schlieden',
     git: 'https://github.com/a-schlieden',
   },
