@@ -1,4 +1,4 @@
-import refs from './modalFilmCardRefs';
+// import refs from './modalFilmCardRefs';
 import { API_KEY, BASE_URL, MOVIE_POSTER } from './apiService';
 
 import { handleLocalStorage } from './localStorage/addLocalStorage';
@@ -6,8 +6,7 @@ import { handleLocalStorage } from './localStorage/addLocalStorage';
 import placeholderImg from '../images/no-poster/no-poster_CUT.jpg';
 import { loadStart, loadStop } from './loadingSpinner';
 import { handleTrailerMovie } from './renderMovieTrailerModal';
-
-let getElem = selector => document.querySelector(selector);
+import { getElem } from './refs';
 
 let filmId;
 
@@ -16,8 +15,8 @@ async function renderModalFilmCard(evt) {
     return;
   }
   loadStart();
-  refs.body.classList.add('modal-open');
-  refs.modalCard.innerHTML = '';
+  getElem('body').classList.add('modal-open');
+  getElem('.modal-card__container-content').innerHTML = '';
 
   filmId = evt.target.parentNode.dataset.id;
 
@@ -88,20 +87,21 @@ async function renderModalFilmCard(evt) {
           <img class="youtube-img" src="https://upload.wikimedia.org/wikipedia/commons/0/09/YouTube_full-color_icon_%282017%29.svg" alt="YouTube">
          </button> 
         </div>
-        <div class="modal-card__container-video">
-       
-            <div class="modal-card__trailer__video__js">
-             </div>
-        </div>
         `;
-    refs.modalCard.insertAdjacentHTML('afterbegin', cardMarkup);
-    refs.backdrop.classList.remove('is-hidden');
+    getElem('.modal-card__container-content').insertAdjacentHTML(
+      'afterbegin',
+      cardMarkup
+    );
+    getElem('.backdrop').classList.remove('is-hidden');
     handleLocalStorage();
     handleTrailerMovie();
     window.addEventListener('keydown', onKeyCloseModal);
-    refs.backdrop.addEventListener('click', onBackdropClick);
+    getElem('.backdrop').addEventListener('click', onBackdropClick);
 
-    refs.btnClose.classList.add('animate__animated', 'animate__zoomIn');
+    getElem('.close-btn-js').classList.add(
+      'animate__animated',
+      'animate__zoomIn'
+    );
 
     loadStop();
   } catch {}
@@ -124,11 +124,14 @@ function onKeyCloseModal(evt) {
 }
 
 function closeModal() {
-  refs.body.classList.remove('modal-open');
-  refs.backdrop.classList.add('is-hidden');
+  getElem('body').classList.remove('modal-open');
+  getElem('.backdrop').classList.add('is-hidden');
   window.removeEventListener('keydown', onKeyCloseModal);
-  refs.backdrop.removeEventListener('click', onBackdropClick);
-  refs.btnClose.classList.remove('animate__animated', 'animate__zoomIn');
+  getElem('.backdrop').removeEventListener('click', onBackdropClick);
+  getElem('.close-btn-js').classList.remove(
+    'animate__animated',
+    'animate__zoomIn'
+  );
 }
 
 function closeTrailerModal() {

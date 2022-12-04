@@ -1,4 +1,5 @@
-import { fetchTrailer, getElem } from './apiService';
+import { fetchTrailer } from './apiService';
+import { getElem } from './refs';
 import { notificationWarning } from './notifications';
 import { onKeyCloseModal, onBackdropClick } from './modalFilmCardRender';
 
