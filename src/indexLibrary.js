@@ -1,10 +1,13 @@
 // Imports from modalFilmCard section-----
+
 // import refs from './js/modalFilmCardRefs';
 import {
   renderModalFilmCard,
   closeModal,
   closeTrailerModal,
 } from './js/modalFilmCardRender';
+import * as footer from './js/footerModal';
+
 import { getLocalStorage } from './js/localStorage/getLocalStorage';
 
 import { onUpBtnClick } from './js/scrollPage';
