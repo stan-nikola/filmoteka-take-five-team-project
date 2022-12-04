@@ -10,12 +10,8 @@ import slava from '../images/team/slava.jpg';
 import oleh from '../images/team/oleh.jpg';
 import alex from '../images/team/alex-schlieden.jpg';
 import orest from '../images/team/orest.jpg';
-
 import natalie from '../images/team/natalie.jpg';
-console.log(natalie);
 import iconNets from '../images/icons/icons-social-nets.svg';
-
-
 
 const footerRefs = {
   body: document.querySelector('body'),

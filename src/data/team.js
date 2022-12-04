@@ -150,7 +150,7 @@ export const team = [
     img1x: '',
     img2x: '',
     img3x: '',
-    img: 'https://stan-nikola.github.io/filmoteka-take-five-team-project/natalie.a36f784c.jpeg',
+    img: 'https://stan-nikola.github.io/filmoteka-take-five-team-project/natalie.8b339d47.jpg',
     linkedin: 'https://www.linkedin.com/in/natalie-tkachenko-/',
     git: 'https://github.com/NatalieTkachenko',
   },
