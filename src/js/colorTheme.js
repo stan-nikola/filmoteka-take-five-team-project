@@ -13,7 +13,6 @@ refsTheme.checkbox.addEventListener('click', themeChange);
 let savedColorTheme = localStorage.getItem('colorTheme');
 
 if (savedColorTheme === null) {
-  console.log(savedColorTheme);
   savedColorTheme = 'light-theme';
 }
 if (savedColorTheme === 'dark-theme') {
