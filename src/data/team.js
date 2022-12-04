@@ -51,15 +51,16 @@ export const team = [
   },
 
   {
-    name: 'Антон Проворов',
+    name: 'Anton Provorov',
     role: 'Front-end developer',
-    resposibilities: 'Верстка хедера страниц, переключение между страницами',
+    resposibilities:
+      'Layout and styles of home header. Dynamic data fetching into the movie modal window. Local storage logic.',
     img1x: '',
     img2x: '',
     img3x: '',
     img: 'https://stan-nikola.github.io/filmoteka-take-five-team-project/anton-provorov.08e493dc.jpg',
-    linkedin: '',
-    git: '',
+    linkedin: 'https://www.linkedin.com/in/anton-provorov-21006723b/',
+    git: 'https://github.com/yours-mate',
   },
 
   {
