@@ -3,7 +3,7 @@ export const team = [
     name: 'Stanislav Karmanov',
     role: 'Team Lead',
     resposibilities:
-      'Project architecture, common best practices, code review, mentoring, scope distribution, load spinner, notifications, etc.',
+      'Project architecture, common best practices, code review, mentoring, scope assignment, load spinner, notifications, etc.',
     img1x: '',
     img2x: '',
     img3x: '',
