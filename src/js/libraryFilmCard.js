@@ -19,6 +19,7 @@ export default function renderFilmCardInLibrary(movies) {
     if (movie.poster_path) {
       moviePoster = moviePosterStartPath + movie.poster_path;
     }
+
     return `
        <li class="card-container" data-id="${movie.id}">
         <img class="image-poster" src="${moviePoster}" alt="${movie.title}"  />
@@ -32,6 +33,9 @@ export default function renderFilmCardInLibrary(movies) {
         </p>
       </li>`;
   });
+  setTimeout(() => {
+    loadStop();
+  }, 300);
 
   cardGalleryEl.innerHTML = setOfCards.join('');
 }
