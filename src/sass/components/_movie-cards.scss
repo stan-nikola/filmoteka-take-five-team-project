@@ -19,7 +19,9 @@
   min-height: 1000px;
 
   // flex-basis: calc((100% - 60px) / 3);
-
+&.dark-theme{
+  color:var(--second-text-color);
+}
   @media screen and (min-width: 768px) {
     display: flex;
     flex-wrap: wrap;

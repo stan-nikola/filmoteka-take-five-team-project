@@ -36,7 +36,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: #000;
+  background-color: var(--light-theme-background-color);
   border-radius: 30px;
   transition: background-color 150ms linear;
 
@@ -50,7 +50,7 @@
   content: '';
   position: absolute;
   cursor: pointer;
-  left: 0;
+left: 30px;
   bottom: 0;
   background-color: white;
   width: 30px;
@@ -64,11 +64,11 @@
 }
 
 .switch__input:checked+.switch__slider {
-  background-color: #fff;
+  background-color: var(--dark-theme-background-color);
 }
 
 .switch__input:checked+.switch__slider::before {
-left: 30px;
+left: 0;
 }
 
 .moon__icon,

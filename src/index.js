@@ -19,13 +19,11 @@ import { renderMovies2 } from './js/pagination';
 
 // let getElem = selector => document.querySelector(selector);
 
-window.onload = useDarkTheme;
-addThemeLocalStorage();
 // Slider starter
 appendMovies();
 
 renderMovies();
-refsTheme.checkbox.addEventListener('click', useDarkTheme);
+
 // clickCurrentFilm();
 
 // Modal listeners------------------------

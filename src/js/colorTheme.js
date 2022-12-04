@@ -1,32 +1,43 @@
 const refsTheme = {
   checkbox: document.querySelector('.switch__input'),
   body: document.querySelector('body'),
-  modal: document.querySelector('.modal-card__container-content'),
+  modalCard: document.querySelector('.modal-card'),
+  swiper: document.querySelector('.swiper-container'),
+  movieCardContainer: document.querySelector('.movie-cards-gallery'),
+  paginationList: document.querySelector('.pagination__list'),
 };
-export { refsTheme };
-export function addThemeLocalStorage() {
-  refsTheme.checkbox.addEventListener("click", () => {
-    if (localStorage.getItem("theme") === "dark") {
-      localStorage.removeItem("theme");
-    } else {
-      localStorage.setItem("theme", "dark")
-    }
-  })
+
+refsTheme.checkbox.addEventListener('click', themeChange);
+
+let savedColorTheme = localStorage.getItem('colorTheme');
+
+if (savedColorTheme === null) {
+  console.log(savedColorTheme);
+  savedColorTheme = 'light-theme';
+}
+if (savedColorTheme === 'dark-theme') {
+  refsTheme.checkbox.checked = true;
+}
+themeToggle(savedColorTheme);
+
+function themeChange(evt) {
+  if (evt.target.checked) {
+    localStorage.setItem('colorTheme', 'dark-theme');
+  } else {
+    localStorage.setItem('colorTheme', 'light-theme');
+  }
+  savedColorTheme = localStorage.getItem('colorTheme');
+
+  themeToggle(savedColorTheme);
 }
 
-export function useDarkTheme() {
-  if (localStorage.getItem("theme") === "dark") {
-    refsTheme.checkbox.setAttribute("checked", '');
-    refsTheme.body.style.backgroundColor = "#111111";
-    refsTheme.body.style.color = "white";
-    refsTheme.modal.style.backgroundColor = "#111111";
-    refsTheme.modal.style.color = "white";
-  }
-  if (localStorage.getItem("theme") !== "dark") {
-    refsTheme.body.style.backgroundColor = "white";
-    refsTheme.body.style.color = "black";
-    refsTheme.modal.style.backgroundColor = "white";
-    refsTheme.modal.style.color = "black";
-  }
-}
+function themeToggle(theme) {
+  refsTheme.body.className = theme;
+  refsTheme.modalCard.className = `modal-card ${theme}`;
 
+  if (refsTheme.swiper) {
+    refsTheme.swiper.className = `container swiper-container ${theme}`;
+  }
+  refsTheme.movieCardContainer.className = `movie-cards-gallery js-scrollOnSubmit ${theme}`;
+  refsTheme.paginationList.className = `pagination__list ${theme}`;
+}
