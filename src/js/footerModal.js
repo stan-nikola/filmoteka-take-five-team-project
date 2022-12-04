@@ -9,6 +9,7 @@ import valentyn from '../images/team/valentyn.jpeg';
 import slava from '../images/team/slava.jpeg';
 import oleh from '../images/team/oleh.png';
 import alex from '../images/team/alex-schlieden.jpeg';
+console.log(alex);
 import orest from '../images/team/orest.jpeg';
 import natalie from '../images/team/natalie.png';
 import iconNets from '../images/icons/icons-social-nets.svg';
