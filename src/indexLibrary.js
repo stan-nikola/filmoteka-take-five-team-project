@@ -4,6 +4,7 @@ import { renderModalFilmCard, closeModal } from './js/modalFilmCardRender';
 import { getLocalStorage } from './js/localStorage/getLocalStorage';
 import { addThemeLocalStorage, useDarkTheme, refsTheme } from './js/colorTheme';
 import { onUpBtnClick } from './js/scrollPage';
+import { showLogInModal, onEscCloseModal, onBackdropCloseModal, onRegister, onLogIn } from './js/modalForm';
 window.onload = useDarkTheme;
 
 addThemeLocalStorage();
