@@ -41,5 +41,8 @@ function themeToggle(theme) {
   }
   refsTheme.movieCardContainer.className = `movie-cards-gallery js-scrollOnSubmit ${theme}`;
   refsTheme.paginationList.className = `pagination__list ${theme}`;
-  refsTheme.footerModal.className = `footer__modal ${theme}`;
+
+  if (refsTheme.footerModal) {
+    refsTheme.footerModal.className = `footer__modal ${theme}`;
+  }
 }
