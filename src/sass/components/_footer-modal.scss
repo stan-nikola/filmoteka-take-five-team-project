@@ -229,15 +229,16 @@ opacity: 1;
 
     // ------------------------------Соцсети
 
-    .icons-position{
-    position: relative;
+    // .icons-position{
+    // position: relative;
     
-    }
+    // }
 
     .social__nets {
     position: absolute;
-    bottom: 0;
-    left: 70px;
+    top: 0;
+    left: 10px;
+    
    
 
         max-width: 100%;
@@ -259,9 +260,9 @@ opacity: 1;
 
 
     .team__nets-list {
-
+        
         display: flex;
-        justify-content: space-around;
+        justify-content: left;
         align-items: center;
         gap: 10px;
 
@@ -354,7 +355,7 @@ flex-basis: calc((100% - 30px) / 2);
 }
 
  .social__nets {
-    left: 110px;
+    left: 10px;
 }
 
 
@@ -420,7 +421,7 @@ height: 20px;
 
 
  .social__nets {
-    left: 40px;
+    left: 10px;
 }
 
 
