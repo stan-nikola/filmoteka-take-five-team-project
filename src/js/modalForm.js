@@ -1,6 +1,6 @@
 import { initializeApp } from "firebase/app";
 import { getDatabase, set, ref, update } from "firebase/database";
-import { getAuth, onAuthStateChanged, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
 
 const firebaseConfig = {
   apiKey: "AIzaSyBO11oR33t-VMPXIdPhVdKy-YV2hVS0eQA",
@@ -22,7 +22,15 @@ getEl('.register-btn').addEventListener('click', showLogInModal);
 
 
 function showLogInModal(e) {
-    getEl('.backdrop').classList.remove('is-hidden');
+    getEl('.modal-form__backdrop').classList.remove('hidden');
+}
+
+getEl('.modal-form__close-button').addEventListener('click', onCloseRegisterForm);
+
+function onCloseRegisterForm(e) {
+    e.preventDefault();
+    getEl('.modal-form__backdrop').classList.add('hidden');
+    getEl('.modal-form__close-button').removeEventListener('click', onCloseRegisterForm);
 }
 
 window.addEventListener('keydown', onEscCloseModal);
@@ -31,17 +39,17 @@ function onEscCloseModal(e) {
     const ESC_KEY_CODE = 'Escape';
     e.preventDefault();
     if (e.code === ESC_KEY_CODE) {
-        getEl('.backdrop').classList.add('is-hidden');
+        getEl('.modal-form__backdrop').classList.add('hidden');
         window.removeEventListener('keydown', onEscCloseModal);
     }
 }
 
-getEl('.backdrop').addEventListener('click', onBackdropCloseModal);
+getEl('.modal-form__backdrop').addEventListener('click', onBackdropCloseModal);
 
 function onBackdropCloseModal(e) {
     if (e.currentTarget === e.target) {
-        getEl('.backdrop').classList.add('is-hidden');
-        getEl('.backdrop').removeEventListener('click', onBackdropCloseModal);
+        getEl('.modal-form__backdrop').classList.add('hidden');
+        getEl('.modal-form__backdrop').removeEventListener('click', onBackdropCloseModal);
     }
 }
 
@@ -105,4 +113,4 @@ function onLogIn(e) {
     }
 }
 
-export { showLogInModal, onEscCloseModal, onBackdropCloseModal, onRegister, onLogIn}
+export { showLogInModal, onCloseRegisterForm, onEscCloseModal, onBackdropCloseModal, onRegister, onLogIn}
