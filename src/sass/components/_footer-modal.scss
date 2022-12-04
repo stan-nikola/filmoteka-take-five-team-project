@@ -25,6 +25,9 @@
 
     }
 
+ 
+
+
     .footer__modal {
         position: relative;
         
@@ -226,17 +229,22 @@ opacity: 1;
 
     // ------------------------------Соцсети
 
+    .icons-position{
+    position: relative;
+    
+    }
+
     .social__nets {
     position: absolute;
-    top: 0;
-    left: 10px;
+    bottom: 0;
+    left: 70px;
    
 
         max-width: 100%;
         height: auto;
         opacity: 0;
 
-        transition: opacity var(--animation);
+        transition: opacity var(--animation-icons);
 
     }
 
@@ -275,12 +283,7 @@ opacity: 1;
 
         border-radius: 50%;
 
-
-
-        // background-color: var(--second-text-color);
-
-
-        transition-property: background-color var(--animation);
+        transition-property: background-color var(--animation-icons);
     }
 
     .team__net-icon {
@@ -350,6 +353,11 @@ flex-basis: calc((100% - 30px) / 2);
     max-height: 425px;
 }
 
+ .social__nets {
+    left: 110px;
+}
+
+
 
 .teammate__info {
         width: 100%;
@@ -409,6 +417,12 @@ height: 20px;
         height: 220px;
 
     }
+
+
+ .social__nets {
+    left: 40px;
+}
+
 
 
 .name,
