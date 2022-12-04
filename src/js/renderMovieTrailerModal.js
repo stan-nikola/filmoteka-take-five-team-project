@@ -15,7 +15,7 @@ export async function renderTrailerModal(event) {
     );
     if (trailerObject) {
       const trailerMarkup = `
-        <iframe  class="trailer__iframe" width=560" height="315" src='https://www.youtube.com/embed/${trailerObject.key}'frameborder = "0" allow = "accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen ></iframe >
+        <iframe  class="trailer__iframe" src='https://www.youtube.com/embed/${trailerObject.key}'frameborder = "0" allow = "accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen ></iframe >
       `;
       getElem('.modal-trailer__container-content').innerHTML = trailerMarkup;
       getElem('.backdrop_trailer').classList.remove('is-hidden');

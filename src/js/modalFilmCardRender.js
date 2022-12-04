@@ -83,11 +83,13 @@ async function renderModalFilmCard(evt) {
           <button class="btn btn__queue btn__queue-js" data-id=${filmId} type="button">
             add to queue
           </button>
+          <button class="btn btn__trailer btn__trailer__modal__js" data-movieid=${filmId} type="button">
+          Watch Trailer
+          <img class="youtube-img" src="https://upload.wikimedia.org/wikipedia/commons/0/09/YouTube_full-color_icon_%282017%29.svg" alt="YouTube">
+         </button> 
         </div>
         <div class="modal-card__container-video">
-          <button class="btn__trailer__modal__js" data-movieid=${filmId} type="button">
-           Watch Trailer
-          </button> 
+       
             <div class="modal-card__trailer__video__js">
              </div>
         </div>

@@ -26,9 +26,21 @@
     &:focus &__icon {
       fill: var(--accent-btn-color);
     }
-    &:hover &__icon-trailer,
-    &:focus &__icon-trailer {
-      fill: rgb(144, 8, 8);
+    &-trailer__icon {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      fill: var(--accent-btn-color);
+      transform: translate(-50%, -50%);
+      transition: fill var(--animation);
+      // outline: black 1px solid;
     }
+    &:hover &-trailer__icon,
+    &:focus &-trailer__icon {
+      fill: var(--fill-hover-trailer-close-btn);
+    
 
   }
+ 
+  }
+

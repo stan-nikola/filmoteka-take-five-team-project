@@ -53,3 +53,18 @@
     height: 521px; //размер видео 441px
   }
 }
+
+.trailer__iframe {
+  @media screen and (min-width: 320px) {
+    width: 239px;
+    height: 138px
+  }
+  @media screen and (min-width: 768px) {
+    width: 680px;
+    height: 260px;
+  }
+  @media screen and (min-width: 1280px) {
+  width: 784px;
+  height: 441px
+}
+}
