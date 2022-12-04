@@ -142,10 +142,10 @@ export const team = [
   },
 
   {
-    name: 'Ткаченко Наталья',
+    name: 'Natalie Tkachenko',
     role: 'Front-end developer',
     responsibilities:
-      'Верстка футера, верстка и подключение модального окна футера',
+      'Footer markup and styles, Modal Window markup, styles and logic.',
     img1x: '',
     img2x: '',
     img3x: '',

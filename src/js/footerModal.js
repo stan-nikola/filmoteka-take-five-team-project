@@ -45,7 +45,7 @@ function showModalHandler(event) {
             <a href=${item.git} class="team__net-icon-link">
               <div class="team__net-icon-thumb">
                 <svg class="team__net-icon" width="30px" height="30px">
-                  <use href="https://stan-nikola.github.io/filmoteka-take-five-team-project/icons-social-nets.473c5594.svg?1670009233147#icon-git-opt"></use>
+                  <use href="https://stan-nikola.github.io/filmoteka-take-five-team-project/icons-social-nets.aba2537c.svg#icon-git-opt"></use>
                 </svg>
               </div>
             </a>
@@ -54,7 +54,7 @@ function showModalHandler(event) {
             <a href=${item.linkedin} class="team__net-icon-link">
               <div class="team__net-icon-thumb">
                 <svg class="team__net-icon" width="30px" height="30px">
-                  <use href="https://stan-nikola.github.io/filmoteka-take-five-team-project/icons-social-nets.473c5594.svg?1670009233147#icon-linkedin-opt">
+                  <use href="https://stan-nikola.github.io/filmoteka-take-five-team-project/icons-social-nets.aba2537c.svg#icon-linkedin-opt">
                   </use>
                 </svg>
               </div>
@@ -63,12 +63,13 @@ function showModalHandler(event) {
         </ul>
       </div>
     </div>
+    
     <div class="teammate__info">
-      <div class="info__thumb">
-        <p class="name">${item.name}</p>
-        <p class="role">${item.role}</p>
-      </div>
-      <p class="responsibilities">${item.responsibilities}</p>
+        <div class="info__thumb">
+            <p class="name">${item.name}</p>
+            <p class="role">${item.role}</p>
+        </div>
+        <p class="responsibilities">${item.responsibilities}</p>
     </div>
   </div>
 </li>`
