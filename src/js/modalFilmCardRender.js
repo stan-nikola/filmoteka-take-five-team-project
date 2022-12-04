@@ -8,12 +8,18 @@ import placeholderImg from '../images/no-poster/no-poster_CUT.jpg';
 import { loadStart, loadStop } from './loadingSpinner';
 import { handleTrailerMovie } from './renderMovieTrailerModal';
 
+let getElem = selector => document.querySelector(selector);
+
 let filmId;
 
 async function renderModalFilmCard(evt) {
+  if (evt.target.parentNode.nodeName !== 'LI') {
+    return;
+  }
   loadStart();
   refs.body.classList.add('modal-open');
   refs.modalCard.innerHTML = '';
+
   filmId = evt.target.parentNode.dataset.id;
 
   try {
@@ -83,7 +89,6 @@ async function renderModalFilmCard(evt) {
           <button class="btn__trailer__modal__js" data-movieid=${filmId} type="button">
            Watch Trailer
           </button> 
-          <p class="info__no__trailer__modal__js" style="display: none;">Sorry No Trailer</p> 
             <div class="modal-card__trailer__video__js">
              </div>
         </div>
@@ -96,6 +101,8 @@ async function renderModalFilmCard(evt) {
     window.addEventListener('keydown', onKeyCloseModal);
     refs.backdrop.addEventListener('click', onBackdropClick);
 
+    refs.btnClose.classList.add('animate__animated', 'animate__zoomIn');
+
     loadStop();
   } catch { }
 }
@@ -103,6 +110,7 @@ async function renderModalFilmCard(evt) {
 function onBackdropClick(ev) {
   if (ev.currentTarget === ev.target) {
     closeModal();
+    closeTrailerModal();
   }
 }
 
@@ -111,6 +119,7 @@ function onKeyCloseModal(evt) {
   evt.preventDefault();
   if (evt.code === ESC_KEY_CODE) {
     closeModal();
+    closeTrailerModal();
   }
 }
 
@@ -119,6 +128,20 @@ function closeModal() {
   refs.backdrop.classList.add('is-hidden');
   window.removeEventListener('keydown', onKeyCloseModal);
   refs.backdrop.removeEventListener('click', onBackdropClick);
+  refs.btnClose.classList.remove('animate__animated', 'animate__zoomIn');
 }
 
-export { renderModalFilmCard, closeModal, onKeyCloseModal, onBackdropClick };
+function closeTrailerModal() {
+  getElem('body').classList.remove('modal-open');
+  getElem('.backdrop_trailer').classList.add('is-hidden');
+  window.removeEventListener('keydown', onKeyCloseModal);
+  getElem('.backdrop_trailer').removeEventListener('click', onBackdropClick);
+}
+
+export {
+  renderModalFilmCard,
+  closeModal,
+  onKeyCloseModal,
+  onBackdropClick,
+  closeTrailerModal,
+};

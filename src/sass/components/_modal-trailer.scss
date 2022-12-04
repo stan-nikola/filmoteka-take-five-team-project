@@ -1,0 +1,55 @@
+.backdrop_trailer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  visibility: visible;
+  z-index: 1101;
+
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+  background-color: var(--backdrop-background-trailer);
+  transition: opacity var(--animation), visibility var(--animation);
+  opacity: 1;
+
+  &.is-hidden {
+    opacity: 0;
+    pointer-events: none;
+    visibility: hidden;
+  }
+}
+
+.trailer__iframe {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.modal_trailer {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1101;
+
+  background-color: var(--dark-background-trailer);
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
+    0px 2px 1px rgba(0, 0, 0, 0.2);
+
+  @media screen and (min-width: 320px) {
+    width: 319px; // размер видео 239px
+    height: 138px; //размер видео 138px
+  }
+
+  @media screen and (min-width: 768px) {
+    min-width: 760px;
+    height: 320px;
+    // overflow-y: scroll;
+  }
+
+  @media screen and (min-width: 1280px) {
+    width: 864px; //размер видео 784px
+    height: 521px; //размер видео 441px
+  }
+}

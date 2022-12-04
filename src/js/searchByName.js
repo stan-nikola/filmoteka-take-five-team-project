@@ -3,8 +3,9 @@ import { dataMerge } from './renderHomeFilms';
 import { loadStart, loadStop } from './loadingSpinner';
 // import noPosterCUT from '../images/no-poster/no-poster_CUT.jpg';
 import { createMovieCard } from './movieCardRender';
-
+import { notificationError } from './notifications';
 import { scrollOnSubmit } from './scrollPage';
+import { Paginator } from './pagination';
 
 let userRequest = '';
 
@@ -21,6 +22,7 @@ async function onSubmit(event) {
   event.preventDefault();
 
   userRequest = event.currentTarget.searchQuery.value.trim();
+  console.log("🚀 ~ file: searchByName.js:24 ~ onSubmit ~ userRequest", userRequest)
 
   if (userRequest === '') {
     event.currentTarget.searchQuery.value = '';
@@ -34,6 +36,9 @@ async function onSubmit(event) {
   try {
     loadStart();
     const response = await fetchMovies(userRequest);
+    
+    const searchPagination = new Paginator(1, response .total_pages, userRequest);
+    searchPagination.render();
     const arrayOfMovies = response.results;
 
     if (arrayOfMovies.length === 0) {
@@ -58,7 +63,7 @@ async function onSubmit(event) {
     scrollOnSubmit();
     loadStop();
   } catch (error) {
-    console.log(error.message);
+    notificationError(error.message);
   }
 }
 

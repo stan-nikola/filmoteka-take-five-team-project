@@ -1,6 +1,7 @@
 import renderFilmCardInLibrary from '../libraryFilmCard';
+// import refs from '../modalFilmCardRefs';
 
-const Ref = {
+export const Ref = {
   watchedBtn: document.querySelector('.header__watched__btn__js'),
   queueBtn: document.querySelector('.header__queue__btn__js'),
   library: document.querySelector('.library__gallery__js'),

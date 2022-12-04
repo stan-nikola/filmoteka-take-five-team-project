@@ -1,26 +1,27 @@
 .header.container {
   position: relative;
 }
-.switch__theme {
-  display: inline-block;
-  height: 30px;
-  width: 60px;
-  position: absolute;
-  bottom: 15%;
-  left: 10%;
-  border-radius: 34px;
-  z-index: 2;
-}
+
+.switch__theme,
 .switch__theme__library {
   display: inline-block;
   height: 30px;
   width: 60px;
   position: absolute;
-  top: 40%;
-  left: 5%;
+  bottom: 10%;
+  right: 5%;
   border-radius: 34px;
+  box-shadow: white 0px 0px 0px 3px;
   z-index: 2;
+
+  transition: box-shadow 250ms linear;
+
+  &:hover,
+  &:focus {
+    box-shadow: red 0px 0px 0px 3px;
+  }
 }
+
 
 .switch__input {
   opacity: 0;
@@ -35,8 +36,14 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: #ccc;
+  background-color: #000;
   border-radius: 30px;
+  transition: background-color 150ms linear;
+
+  &:hover::before,
+  &:focus:before {
+    background-color: var(--accent-color);
+  }
 }
 
 .switch__slider::before {
@@ -49,17 +56,19 @@
   width: 30px;
   height: 30px;
   border-radius: 50%;
-  border: 1px solid #111;
+  border: 2px solid #111;
   transition: 1s step-start;
   z-index: 7;
+  transition:left 100ms linear, background-color 100ms linear;
+
 }
 
-.switch__input:checked + .switch__slider {
-  background-color: #111;
+.switch__input:checked+.switch__slider {
+  background-color: #fff;
 }
-.switch__input:checked + .switch__slider::before {
-  right: 0;
-  left: auto;
+
+.switch__input:checked+.switch__slider::before {
+left: 30px;
 }
 
 .moon__icon,
@@ -67,13 +76,15 @@
   position: absolute;
   z-index: 6;
 }
+
 .moon__icon {
-  fill: black;
+  fill: rgb(16, 61, 243);
   right: 0;
   bottom: 1px;
 }
+
 .sun__icon {
-  fill: rgb(163, 163, 50);
+  fill: #ffb500;
   left: 8.5%;
   top: 5px;
 }
