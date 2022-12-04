@@ -30,7 +30,6 @@ getEl('.modal-form__close-button').addEventListener('click', onCloseRegisterForm
 function onCloseRegisterForm(e) {
     e.preventDefault();
     getEl('.modal-form__backdrop').classList.add('hidden');
-    getEl('.modal-form__close-button').removeEventListener('click', onCloseRegisterForm);
 }
 
 window.addEventListener('keydown', onEscCloseModal);
