@@ -15,7 +15,6 @@ import * as colorTheme from './js/colorTheme';
 import {
   showLogInModal,
   onCloseRegisterForm,
-  onEscCloseModal,
   onBackdropCloseModal,
   onRegister,
   onLogIn,

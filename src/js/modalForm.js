@@ -32,23 +32,11 @@ function onCloseRegisterForm(e) {
     getEl('.modal-form__backdrop').classList.add('hidden');
 }
 
-window.addEventListener('keydown', onEscCloseModal);
-
-function onEscCloseModal(e) {
-    const ESC_KEY_CODE = 'Escape';
-    e.preventDefault();
-    if (e.code === ESC_KEY_CODE) {
-        getEl('.modal-form__backdrop').classList.add('hidden');
-        window.removeEventListener('keydown', onEscCloseModal);
-    }
-}
-
 getEl('.modal-form__backdrop').addEventListener('click', onBackdropCloseModal);
 
 function onBackdropCloseModal(e) {
     if (e.currentTarget === e.target) {
         getEl('.modal-form__backdrop').classList.add('hidden');
-        getEl('.modal-form__backdrop').removeEventListener('click', onBackdropCloseModal);
     }
 }
 
@@ -112,4 +100,4 @@ function onLogIn(e) {
     }
 }
 
-export { showLogInModal, onCloseRegisterForm, onEscCloseModal, onBackdropCloseModal, onRegister, onLogIn}
+export { showLogInModal, onCloseRegisterForm, onBackdropCloseModal, onRegister, onLogIn}
