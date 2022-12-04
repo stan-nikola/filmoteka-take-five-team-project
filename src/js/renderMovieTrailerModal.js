@@ -1,37 +1,37 @@
 import { fetchTrailer } from './apiService';
-
 import { notificationWarning } from './notifications';
+import { onKeyCloseModal, onBackdropClick } from './modalFilmCardRender';
+let getElem = selector => document.querySelector(selector);
 
 export async function renderTrailerModal(event) {
-  let trailerId = event.target.dataset.movieid;
-
-  const trailerBtn = document.querySelector('.btn__trailer__modal__js');
-
-  const dataTrailer = await fetchTrailer(trailerId);
-  const trailerObject = dataTrailer.results.find(
-    option =>
-      option.name === 'Official Trailer' ||
-      option.name === 'Official Trailer [Subtitled]'
-  );
-  const trailercontainer = document.querySelector(
-    '.modal-card__trailer__video__js'
-  );
-  if (trailerObject) {
-    console.log('TRAILER IFRAME IS CREATET');
-    const trailerMarkup = `
-    <div>
-        <iframe width=100 % " height="250" src='https://www.youtube.com/embed/${trailerObject.key}'frameborder = "0" allow = "accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen ></iframe >
-    </div>
+  try {
+    let trailerId = event.target.dataset.movieid;
+    const dataTrailer = await fetchTrailer(trailerId);
+    const trailerObject = dataTrailer.results.find(
+      option =>
+        option.name === 'Official Trailer' ||
+        option.name === 'Official Trailer [Subtitled]'
+    );
+    if (trailerObject) {
+      const trailerMarkup = `
+        <iframe  class="trailer__iframe" width=560" height="315" src='https://www.youtube.com/embed/${trailerObject.key}'frameborder = "0" allow = "accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen ></iframe >
       `;
-    trailercontainer.insertAdjacentHTML('afterbegin', trailerMarkup);
-    trailerBtn.disabled = true;
-    return;
-  } else {
-    notificationWarning('Sorry, trailer not available');
+      getElem('.modal-trailer__container-content').innerHTML = trailerMarkup;
+      getElem('.backdrop_trailer').classList.remove('is-hidden');
+      window.addEventListener('keydown', onKeyCloseModal);
+      getElem('.backdrop_trailer').addEventListener('click', onBackdropClick);
+      return;
+    } else {
+      notificationWarning('Sorry, trailer not available');
+    }
+  } catch (error) {
+    notificationError(error.message);
   }
 }
 
 export function handleTrailerMovie() {
-  const trailerBtn = document.querySelector('.btn__trailer__modal__js');
-  trailerBtn.addEventListener('click', renderTrailerModal);
+  getElem('.btn__trailer__modal__js').addEventListener(
+    'click',
+    renderTrailerModal
+  );
 }

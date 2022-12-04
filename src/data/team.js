@@ -8,7 +8,6 @@ export const team = [
     img2x: '',
     img3x: '',
     img: 'https://stan-nikola.github.io/filmoteka-take-five-team-project/stanislav-karmanov.20d76c18.jpeg',
-
     linkedin: 'https://www.linkedin.com/in/stanislav-karmanov-b58197241/',
     git: 'https://github.com/stan-nikola',
   },
@@ -34,7 +33,6 @@ export const team = [
     img2x: '',
     img3x: '',
     img: 'https://stan-nikola.github.io/filmoteka-take-five-team-project/maksim-shviets.d9dc0fb1.jpeg',
-
     linkedin: '',
     git: '',
   },
@@ -119,14 +117,14 @@ export const team = [
   {
     name: 'Алекс Шлиден',
     role: 'Front-end developer',
-    responsibilities:
-      'Верстка хедера страницы My Library, реализация подгрузки фильма на главную страницу',
+    resposibilities:
+      'Верстка хедера страницы My Library, реализация подгрузки фильма на главную страницу, реализация модального окна трейлера фильма',
     img1x: '',
     img2x: '',
     img3x: '',
-    img: 'https://stan-nikola.github.io/filmoteka-take-five-team-project/alex-schlieden.4e5af8cb.jpeg',
-    linkedin: '',
-    git: '',
+    img: 'http://localhost:1234/alex-schlieden.f53eea57.jpeg?1669854154598',
+    linkedin: 'https://www.xing.com/profile/Alexander_Schlieden',
+    git: 'https://github.com/a-schlieden',
   },
 
   {
