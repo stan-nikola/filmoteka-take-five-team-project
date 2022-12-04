@@ -1,8 +1,6 @@
-import { fetchTrailer } from './apiService';
+import { fetchTrailer, getElem } from './apiService';
 import { notificationWarning } from './notifications';
 import { onKeyCloseModal, onBackdropClick } from './modalFilmCardRender';
-
-let getElem = selector => document.querySelector(selector);
 
 export async function renderTrailerModal(event) {
   try {

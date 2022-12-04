@@ -3,7 +3,7 @@ import * as footer from './js/footerModal';
 import searchByName from './js/searchByName';
 import onSubmit from './js/searchByName';
 import { onUpBtnClick } from './js/scrollPage';
-
+import { getElem } from './js/apiService';
 import { addThemeLocalStorage, useDarkTheme, refsTheme } from './js/colorTheme';
 // Imports from modalFilmCard section-----
 import refs from './js/modalFilmCardRefs';
@@ -17,7 +17,7 @@ import {
 import { renderMovies } from './js/renderHomeFilms';
 import { renderMovies2 } from './js/pagination';
 
-let getElem = selector => document.querySelector(selector);
+// let getElem = selector => document.querySelector(selector);
 
 window.onload = useDarkTheme;
 addThemeLocalStorage();
@@ -29,8 +29,11 @@ refsTheme.checkbox.addEventListener('click', useDarkTheme);
 // clickCurrentFilm();
 
 // Modal listeners------------------------
-refs.movieContainer.addEventListener('click', renderModalFilmCard);
-refs.btnClose.addEventListener('click', closeModal);
+// refs.movieContainer.addEventListener('click', renderModalFilmCard);
+// refs.btnClose.addEventListener('click', closeModal);
+
+getElem('.movie-cards-gallery').addEventListener('click', renderModalFilmCard);
+getElem('.close-btn-js').addEventListener('click', closeModal);
 getElem('.close-trailer-btn-js').addEventListener('click', closeTrailerModal);
 
 onUpBtnClick();
