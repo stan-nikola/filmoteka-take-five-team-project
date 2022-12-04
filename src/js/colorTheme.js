@@ -5,6 +5,7 @@ const refsTheme = {
   swiper: document.querySelector('.swiper-container'),
   movieCardContainer: document.querySelector('.movie-cards-gallery'),
   paginationList: document.querySelector('.pagination__list'),
+  footerModal: document.querySelector('.footer__modal'),
 };
 
 refsTheme.checkbox.addEventListener('click', themeChange);
@@ -40,4 +41,5 @@ function themeToggle(theme) {
   }
   refsTheme.movieCardContainer.className = `movie-cards-gallery js-scrollOnSubmit ${theme}`;
   refsTheme.paginationList.className = `pagination__list ${theme}`;
+  refsTheme.footerModal.className = `footer__modal ${theme}`;
 }
