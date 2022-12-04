@@ -26,21 +26,23 @@
     &:focus &__icon {
       fill: var(--accent-btn-color);
     }
-    &-trailer__icon {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      fill: var(--accent-btn-color);
-      transform: translate(-50%, -50%);
-      transition: fill var(--animation);
-      // outline: black 1px solid;
-    }
+   
     &:hover &-trailer__icon,
     &:focus &-trailer__icon {
-      fill: var(--fill-hover-trailer-close-btn);
+      fill: var(--accent-color);
     
 
   }
  
   }
 
+ .close-button-trailer__icon {
+  
+   position: absolute;
+   top: 50%;
+   left: 50%;
+  
+   transform: translate(-50%, -50%);
+   transition: fill var(--animation);
+   // outline: black 1px solid;
+ }
