@@ -13,6 +13,8 @@ import orest from '../images/team/orest.jpeg';
 import natalie from '../images/team/natalie.png';
 import iconNets from '../images/icons/icons-social-nets.svg';
 
+console.log(iconNets);
+
 const footerRefs = {
   body: document.querySelector('body'),
   footerModalBtn: document.querySelector('.js-modal'),

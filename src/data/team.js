@@ -54,7 +54,7 @@ export const team = [
     name: 'Anton Provorov',
     role: 'Front-end developer',
 
-    resposibilities:
+    responsibilities:
       'Layout and styles of home header. Dynamic data fetching into the movie modal window. Local storage logic.',
     img1x: '',
     img2x: '',
