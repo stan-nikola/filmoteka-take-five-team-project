@@ -70,10 +70,9 @@ export class Paginator {
         this.render();
         if (this.inputtedName) {
           paginatorSearchFetch(`${this.inputtedName}`, `${this.current}`);
-          console.log('ehhhhaaaaa');
+        } else {
+          paginatorTrendingFetch(`${this.current}`);
         }
-        paginatorTrendingFetch(`${this.current}`);
-
         onUpBtnClick();
       }
     });
@@ -87,11 +86,12 @@ export class Paginator {
         this.current += 1;
         paginationElementList.innerHTML = '';
         this.render();
+
         if (this.inputtedName) {
           paginatorSearchFetch(`${this.inputtedName}`, `${this.current}`);
-          console.log('ehhhhaaaaa');
+        } else {
+          paginatorTrendingFetch(`${this.current}`);
         }
-        paginatorTrendingFetch(`${this.current}`);
 
         onUpBtnClick();
       }
@@ -116,11 +116,12 @@ export class Paginator {
       this.current = Number(paginationEl.innerText);
       paginationElementList.innerHTML = '';
       this.render();
+
       if (this.inputtedName) {
         paginatorSearchFetch(`${this.inputtedName}`, `${this.current}`);
-        console.log('ehhhhaaaaa');
+      } else {
+        paginatorTrendingFetch(`${this.current}`);
       }
-      paginatorTrendingFetch(`${this.current}`);
 
       onUpBtnClick();
     });
@@ -178,14 +179,6 @@ async function paginatorSearchFetch(inputtedName, currentPage) {
 
   const paginationDataMovies = await paginationTrendingMovies(currentPage);
   const paginationDataGenres = await fetchGenres();
-  console.log(
-    '🚀 ~ file: pagination.js:171 ~ paginationTrendingMovies ~ inputtedName',
-    inputtedName
-  );
-  console.log(
-    '🚀 ~ file: pagination.js:171 ~ paginationTrendingMovies ~ currentPage',
-    currentPage
-  );
   const paginationGenresList = paginationDataGenres.genres;
   const paginationMoviesList = paginationDataMovies.results;
   const paginationMovieInfo = dataMerge(
