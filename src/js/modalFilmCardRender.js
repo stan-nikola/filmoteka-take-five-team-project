@@ -15,8 +15,6 @@ async function renderModalFilmCard(evt) {
     return;
   }
   loadStart();
-  // refs.body.classList.add('modal-open');
-  // refs.modalCard.innerHTML = '';
   getElem('body').classList.add('modal-open');
   getElem('.modal-card__container-content').innerHTML = '';
 
@@ -89,14 +87,7 @@ async function renderModalFilmCard(evt) {
           <img class="youtube-img" src="https://upload.wikimedia.org/wikipedia/commons/0/09/YouTube_full-color_icon_%282017%29.svg" alt="YouTube">
          </button> 
         </div>
-        <div class="modal-card__container-video">
-       
-            <div class="modal-card__trailer__video__js">
-             </div>
-        </div>
         `;
-    // refs.modalCard.insertAdjacentHTML('afterbegin', cardMarkup);
-    // refs.backdrop.classList.remove('is-hidden');
     getElem('.modal-card__container-content').insertAdjacentHTML(
       'afterbegin',
       cardMarkup
