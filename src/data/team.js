@@ -8,8 +8,8 @@ export const team = [
     img2x: '',
     img3x: '',
     img: 'http://localhost:1234/stanislav-karmanov.50e0e6e2.jpeg?1669853090371',
-    linkedin: "",
-    git: "",
+    linkedin: '',
+    git: '',
   },
 
   {
@@ -33,8 +33,8 @@ export const team = [
     img2x: '',
     img3x: '',
     img: 'http://localhost:1234/maksim-shviets.1d2c9f7b.jpeg?1669853616274',
-    linkedin: "",
-    git: "",
+    linkedin: '',
+    git: '',
   },
 
   {
@@ -46,8 +46,8 @@ export const team = [
     img2x: '',
     img3x: '',
     img: 'http://localhost:1234/sergey-j.579ce641.png?1669853751446',
-    linkedin: "",
-    git: "https://github.com/Alex-S17/",
+    linkedin: '',
+    git: 'https://github.com/Alex-S17/',
   },
 
   {
@@ -58,8 +58,8 @@ export const team = [
     img2x: '',
     img3x: '',
     img: 'http://localhost:1234/anton-provorov.d11c1c66.jpg?1669853907213',
-    linkedin: "",
-    git: "",
+    linkedin: '',
+    git: '',
   },
 
   {
@@ -71,8 +71,8 @@ export const team = [
     img2x: '',
     img3x: '',
     img: 'http://localhost:1234/ira-rybka.fc8a063e.jpeg?1669991052364',
-    linkedin: "",
-    git: "",
+    linkedin: '',
+    git: '',
   },
 
   {
@@ -83,8 +83,8 @@ export const team = [
     img2x: '',
     img3x: '',
     img: 'http://localhost:1234/valentyn.88ddd265.jpeg?1669991633635',
-    linkedin: "",
-    git: "",
+    linkedin: '',
+    git: '',
   },
 
   {
@@ -96,8 +96,8 @@ export const team = [
     img2x: '',
     img3x: '',
     img: 'http://localhost:1234/slava.3c4a968f.jpeg?1669991747015',
-    linkedin: "",
-    git: "",
+    linkedin: '',
+    git: '',
   },
 
   {
@@ -108,24 +108,23 @@ export const team = [
     img2x: '',
     img3x: '',
     img: 'http://localhost:1234/oleh.8d1d0042.png?1669992075259',
-    linkedin: "",
-    git: "",
+    linkedin: '',
+    git: '',
   },
 
   {
     name: 'Алекс Шлиден',
     role: 'Front-end developer',
     resposibilities:
-      'Верстка хедера страницы My Library, реализация подгрузки фильма на главную страницу',
+      'Верстка хедера страницы My Library, реализация подгрузки фильма на главную страницу, реализация модального окна трейлера фильма',
     img1x: '',
     img2x: '',
     img3x: '',
     img: 'http://localhost:1234/alex-schlieden.f53eea57.jpeg?1669854154598',
-    linkedin: "",
-    git: "",
+    linkedin: 'https://www.xing.com/profile/Alexander_Schlieden',
+    git: 'https://github.com/a-schlieden',
   },
 
- 
   {
     name: 'Орест Мазгаль',
     role: 'Front-end developer',
@@ -134,8 +133,8 @@ export const team = [
     img2x: '',
     img3x: '',
     img: 'http://localhost:1234/orest.df00b294.jpeg?1669992166460',
-    linkedin: "",
-    git: "",
+    linkedin: '',
+    git: '',
   },
 
   {
@@ -147,7 +146,7 @@ export const team = [
     img2x: '',
     img3x: '',
     img: 'http://localhost:1234/natalie.047d5014.png?1669990788102',
-    linkedin: "https://www.linkedin.com/in/natalie-tkachenko-/",
-    git: "https://github.com/NatalieTkachenko",
+    linkedin: 'https://www.linkedin.com/in/natalie-tkachenko-/',
+    git: 'https://github.com/NatalieTkachenko',
   },
 ];
