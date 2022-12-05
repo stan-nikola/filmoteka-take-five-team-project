@@ -18,8 +18,8 @@
   display: flex;
   list-style: none;
   &.dark-theme{
-    background-color:var(--dark-theme-modal-card);
-    border-radius: 3px;
+    color: var(--footer-background);
+ 
   }
 }
 
@@ -34,7 +34,7 @@
 
   font-size: 12px;
   line-height: 1.33;
-  color: var(--main-text-color);
+
   cursor: pointer;
   transition: scale 250ms linear, color 250ms linear;
   &:hover,&:focus{
@@ -83,17 +83,13 @@ transition:background-color 250ms linear,color 250ms linear,box-shadow 250ms lin
 
 .dots{
 
-  font-family: 'Roboto';
-  font-style: normal;
-  font-weight: 500;
-  font-size: 12px;
-  line-height: 16px;
+  
+
+
 
 
   display: flex;
   align-items: center;
-
-  color: #000000;
 }
 
 
