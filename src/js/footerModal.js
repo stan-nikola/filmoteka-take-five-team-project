@@ -1,19 +1,17 @@
 import { team } from '../data/team.js';
-import staskarmanov from '../images/team/stanislav-karmanov.jpeg';
-import dariapluto from '../images/team/daria-pluto.png';
-import maksimshvets from '../images/team/maksim-shviets.jpeg';
-import sergeyj from '../images/team/sergey-j.png';
+import staskarmanov from '../images/team/stanislav-karmanov.jpg';
+import dariapluto from '../images/team/daria-pluto.jpg';
+import maksimshvets from '../images/team/maksim-shviets.jpg';
+import sergeyj from '../images/team/sergey-j.jpg';
 import anton from '../images/team/anton-provorov.jpg';
-import ira from '../images/team/ira-rybka.jpeg';
-import valentyn from '../images/team/valentyn.jpeg';
-import slava from '../images/team/slava.jpeg';
-import oleh from '../images/team/oleh.png';
-import alex from '../images/team/alex-schlieden.jpeg';
-import orest from '../images/team/orest.jpeg';
-import natalie from '../images/team/natalie.png';
+import ira from '../images/team/ira-rybka.jpg';
+import valentyn from '../images/team/valentyn.jpg';
+import slava from '../images/team/slava.jpg';
+import oleh from '../images/team/oleh.jpg';
+import alex from '../images/team/alex-schlieden.jpg';
+import orest from '../images/team/orest.jpg';
+import natalie from '../images/team/natalie.jpg';
 import iconNets from '../images/icons/icons-social-nets.svg';
-
-console.log(iconNets);
 
 const footerRefs = {
   body: document.querySelector('body'),
@@ -22,8 +20,6 @@ const footerRefs = {
   teamList: document.querySelector('.team__list'),
   footerModalCloseBtn: document.querySelector('.modal-close__btn'),
 };
-
-console.log(footerRefs.body);
 
 footerRefs.footerModalBtn.addEventListener('click', showModalHandler);
 
@@ -75,8 +71,6 @@ function showModalHandler(event) {
 </li>`
     )
     .join('');
-
-  console.log(teamMarkup);
 
   footerRefs.teamList.innerHTML = teamMarkup;
 

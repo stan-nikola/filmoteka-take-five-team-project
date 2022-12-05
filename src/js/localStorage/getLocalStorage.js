@@ -5,9 +5,8 @@ import { Paginator } from '../pagination';
 export const Ref = {
   watchedBtn: document.querySelector('.header__watched__btn__js'),
   queueBtn: document.querySelector('.header__queue__btn__js'),
-  library: document.querySelector('.library__gallery__js'),
+  library: document.querySelector('.movie-cards-gallery'),
   pagination: document.querySelector('div.container'),
-  warningSign: document.querySelector('.library__warning-sign'),
 };
 
 export async function getLocalStorage() {
@@ -25,7 +24,9 @@ export async function getLocalStorage() {
     const libraryFilms = new Paginator(1, totalPages);
     libraryFilms.render();
   } else {
+
     Ref.warningSign.textContent = 'Watched Gallery is empty';
+
   }
 
   Ref.watchedBtn.addEventListener('click', handleWatchedBtn);
@@ -38,6 +39,7 @@ function handleWatchedBtn() {
   Ref.watchedBtn.disabled = true;
   Ref.queueBtn.disabled = false;
   if (localStorage.getItem('filmsWatched') !== null) {
+
     Ref.warningSign.textContent = '';
     const watchedFilms = JSON.parse(localStorage.getItem('filmsWatched'));
     const libraryInitialPage = [...watchedFilms];
@@ -53,6 +55,7 @@ function handleWatchedBtn() {
   } else {
     Ref.warningSign.textContent = 'Watched Gallery is empty';
     Ref.library.textContent = '';
+
   }
 }
 
@@ -63,6 +66,7 @@ function handleQueueBtn() {
   Ref.queueBtn.disabled = true;
   Ref.watchedBtn.disabled = false;
   if (localStorage.getItem('filmsQueue') !== null) {
+
     Ref.warningSign.textContent = '';
     const queueFilms = JSON.parse(localStorage.getItem('filmsQueue'));
     const libraryInitialPage = [...queueFilms];
@@ -75,9 +79,12 @@ function handleQueueBtn() {
     }
     const libraryFilms = new Paginator(1, totalPages);
     libraryFilms.render();
+
     renderFilmCardInLibrary(JSON.parse(localStorage.getItem('filmsQueue')));
   } else {
+
     Ref.warningSign.textContent = 'Queue Gallery is empty';
     Ref.library.textContent = '';
+
   }
 }

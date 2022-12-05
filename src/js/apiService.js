@@ -81,4 +81,4 @@ export function fetchMovies(inputtedName) {
   ).then(response => response.json());
 }
 
-export let getElem = selector => document.querySelector(selector);
+

@@ -1,16 +1,16 @@
 import toastr from 'toastr';
 
 toastr.options = {
-  closeButton: false,
+  closeButton: true,
   debug: false,
   newestOnTop: false,
   progressBar: true,
-  positionClass: 'toast-top-right',
+  positionClass: 'toast-top-center',
   preventDuplicates: true,
   onclick: null,
   showDuration: '300',
   hideDuration: '800',
-  timeOut: '5000',
+  timeOut: '3000',
   extendedTimeOut: '1000',
   showEasing: 'swing',
   hideEasing: 'linear',

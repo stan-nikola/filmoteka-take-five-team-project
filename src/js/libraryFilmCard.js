@@ -3,7 +3,7 @@ import { loadStart, loadStop } from './loadingSpinner';
 
 export async function renderFilmCardInLibrary(movies) {
   loadStart();
-  const cardGalleryEl = document.querySelector('.movie-cards-gallery-library');
+  const cardGalleryEl = document.querySelector('.movie-cards-gallery');
   const setOfCards = movies.map(movie => {
     const movieTitle = movie.title.toUpperCase();
     const moviePosterStartPath = 'https://image.tmdb.org/t/p/w500';

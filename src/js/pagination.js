@@ -31,7 +31,7 @@ export class Paginator {
 
     paginationElementList.insertAdjacentHTML(
       'afterbegin',
-      `<button type = "button" class = "pagination___btn--prev"> < </button>`
+      `<button type = "button" class = "pagination___btn--prev"> ➜ </button>`
     );
 
     const links = [1, this.all];
@@ -58,10 +58,16 @@ export class Paginator {
 
     paginationElementList.insertAdjacentHTML(
       'beforeend',
-      `<button type = "button" class = "pagination___btn--next"> > </button>`
+      `<button type = "button" class = "pagination___btn--next"> ➜ </button>`
     );
     const prevBtn = getEl('.pagination___btn--prev');
+    if (this.current === 1) {
+      prevBtn.classList.add('hidden');
+    }
     const nextBtn = getEl('.pagination___btn--next');
+    if (this.current === this.all) {
+      nextBtn.classList.add('hidden');
+    }
 
     prevBtn.addEventListener('click', async () => {
       const focusElement = getEl('.pagination__el--current');

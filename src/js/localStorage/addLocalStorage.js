@@ -27,9 +27,11 @@ async function handleWatched() {
     if (watchedIds.includes(Number(watchedBtn.dataset.id))) {
       watchedBtn.textContent = 'Remove from Watched';
       watchedBtn.addEventListener('click', deleteWatched);
+
       return;
     }
     watchedBtn.addEventListener('click', addWatched);
+
     return;
   }
   watchedBtn.addEventListener('click', addWatched);
@@ -101,8 +103,14 @@ async function deleteWatched() {
     if (cardGalleryEl && Ref.watchedBtn.disabled) {
       renderFilmCardInLibrary(watchedMovies);
     }
+
     watchedBtn.removeEventListener('click', deleteWatched);
+
     watchedBtn.addEventListener('click', addWatched);
+  }
+  if (localStorage.getItem('filmsWatched') === '[]') {
+    localStorage.removeItem('filmsWatched');
+    Ref.library.textContent = 'Watched Gallery is empty';
   }
 }
 
@@ -157,5 +165,9 @@ async function deleteQueue() {
     }
     queueBtn.removeEventListener('click', deleteQueue);
     queueBtn.addEventListener('click', addQueue);
+  }
+  if (localStorage.getItem('filmsQueue') === '[]') {
+    localStorage.removeItem('filmsQueue');
+    Ref.library.textContent = 'Queue Gallery is empty';
   }
 }

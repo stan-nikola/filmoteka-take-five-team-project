@@ -7,6 +7,9 @@
   @media screen and (min-width: 768px) {
       padding-top: 60px;
   }
+  &.dark-theme{
+    color:var(--second-text-color) ;
+  }
 }
 
 .swiper-title {

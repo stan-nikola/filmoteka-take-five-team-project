@@ -3,10 +3,10 @@ import * as footer from './js/footerModal';
 import searchByName from './js/searchByName';
 import onSubmit from './js/searchByName';
 import { onUpBtnClick } from './js/scrollPage';
-import { getElem } from './js/apiService';
-import { addThemeLocalStorage, useDarkTheme, refsTheme } from './js/colorTheme';
+import { getElem } from './js/refs';
+import { addThemeLocalStorage, useDarkTheme } from './js/colorTheme';
 // Imports from modalFilmCard section-----
-import refs from './js/modalFilmCardRefs';
+// import refs from './js/modalFilmCardRefs';
 import {
   renderModalFilmCard,
   closeModal,
@@ -19,19 +19,14 @@ import { renderMovies2 } from './js/pagination';
 
 // let getElem = selector => document.querySelector(selector);
 
-window.onload = useDarkTheme;
-addThemeLocalStorage();
 // Slider starter
 appendMovies();
 
 renderMovies();
-refsTheme.checkbox.addEventListener('click', useDarkTheme);
+getElem('.switch__input').addEventListener('click', useDarkTheme);
 // clickCurrentFilm();
 
 // Modal listeners------------------------
-// refs.movieContainer.addEventListener('click', renderModalFilmCard);
-// refs.btnClose.addEventListener('click', closeModal);
-
 getElem('.movie-cards-gallery').addEventListener('click', renderModalFilmCard);
 getElem('.close-btn-js').addEventListener('click', closeModal);
 getElem('.close-trailer-btn-js').addEventListener('click', closeTrailerModal);

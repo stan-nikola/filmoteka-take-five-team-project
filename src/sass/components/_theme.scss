@@ -8,13 +8,22 @@
   height: 30px;
   width: 60px;
   position: absolute;
-  bottom: 10%;
+ 
   right: 5%;
   border-radius: 34px;
   box-shadow: white 0px 0px 0px 3px;
   z-index: 2;
 
   transition: box-shadow 250ms linear;
+  @media screen and (max-width: 767px) {
+    left: 50%;
+    transform: translate(-50%);
+      bottom: 2.5%;
+
+    }
+  @media screen and (min-width: 768px) {
+    bottom: 10%;
+  }
 
   &:hover,
   &:focus {
@@ -36,7 +45,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: #000;
+  background-color: var(--light-theme-background-color);
   border-radius: 30px;
   transition: background-color 150ms linear;
 
@@ -50,7 +59,7 @@
   content: '';
   position: absolute;
   cursor: pointer;
-  left: 0;
+left: 30px;
   bottom: 0;
   background-color: white;
   width: 30px;
@@ -64,11 +73,11 @@
 }
 
 .switch__input:checked+.switch__slider {
-  background-color: #fff;
+  background-color: var(--dark-theme-background-color);
 }
 
 .switch__input:checked+.switch__slider::before {
-left: 30px;
+left: 0;
 }
 
 .moon__icon,
