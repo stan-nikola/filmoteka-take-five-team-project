@@ -40,7 +40,7 @@ function handleWatchedBtn() {
     const watchedFilms = JSON.parse(localStorage.getItem('filmsWatched'));
     const libraryInitialPage = [...watchedFilms];
     renderFilmCardInLibrary(libraryInitialPage.splice(0, 21));
-    console.log(watchedFilms);
+
     if (watchedFilms.length % 21 === 0) {
       totalPages = watchedFilms.length / 21;
     } else {
@@ -64,7 +64,7 @@ function handleQueueBtn() {
     const queueFilms = JSON.parse(localStorage.getItem('filmsQueue'));
     const libraryInitialPage = [...queueFilms];
     renderFilmCardInLibrary(libraryInitialPage.splice(0, 21));
-    console.log(queueFilms);
+
     if (queueFilms.length % 21 === 0) {
       totalPages = queueFilms.length / 21;
     } else {
