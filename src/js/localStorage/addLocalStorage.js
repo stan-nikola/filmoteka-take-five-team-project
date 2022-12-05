@@ -1,5 +1,5 @@
 import { BASE_URL, API_KEY } from '../apiService';
-import renderFilmCardInLibrary from '../libraryFilmCard';
+import { renderFilmCardInLibrary } from '../libraryFilmCard';
 import { Ref } from './getLocalStorage';
 
 import { notificationSuccess, notificationWarning } from './../notifications';
