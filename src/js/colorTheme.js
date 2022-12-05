@@ -6,6 +6,7 @@ const refsTheme = {
   movieCardContainer: document.querySelector('.movie-cards-gallery'),
   paginationList: document.querySelector('.pagination__list'),
   footerModal: document.querySelector('.footer__modal'),
+  registrationModal: document.querySelector('.modal-form'),
 };
 
 refsTheme.checkbox.addEventListener('click', themeChange);
@@ -43,5 +44,9 @@ function themeToggle(theme) {
 
   if (refsTheme.footerModal) {
     refsTheme.footerModal.className = `footer__modal ${theme}`;
+  }
+
+  if (refsTheme.registrationModal) {
+    refsTheme.registrationModal.className = `modal-form ${theme}`;
   }
 }
