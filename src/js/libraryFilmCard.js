@@ -1,7 +1,7 @@
 import noPosterCUT from '../images/no-poster/no-poster_CUT.jpg';
 import { loadStart, loadStop } from './loadingSpinner';
 
-export default function renderFilmCardInLibrary(movies) {
+export async function renderFilmCardInLibrary(movies) {
   loadStart();
   const cardGalleryEl = document.querySelector('.movie-cards-gallery-library');
   const setOfCards = movies.map(movie => {

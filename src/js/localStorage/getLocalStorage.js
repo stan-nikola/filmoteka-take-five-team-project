@@ -1,4 +1,5 @@
-import renderFilmCardInLibrary from '../libraryFilmCard';
+import { renderFilmCardInLibrary } from '../libraryFilmCard';
+import { Paginator } from '../pagination';
 // import refs from '../modalFilmCardRefs';
 
 export const Ref = {
@@ -9,13 +10,22 @@ export const Ref = {
   warningSign: document.querySelector('.library__warning-sign'),
 };
 
-export function getLocalStorage() {
+export async function getLocalStorage() {
+  let totalPages;
   Ref.watchedBtn.disabled = true;
   if (localStorage.getItem('filmsWatched') !== null) {
-    renderFilmCardInLibrary(JSON.parse(localStorage.getItem('filmsWatched')));
+    const watchedFilms = JSON.parse(localStorage.getItem('filmsWatched'));
+    const libraryInitialPage = [...watchedFilms];
+    renderFilmCardInLibrary(libraryInitialPage.splice(0, 21));
+    if (watchedFilms.length % 21 === 0) {
+      totalPages = watchedFilms.length / 21;
+    } else {
+      totalPages = Math.floor(watchedFilms.length / 21) + 1;
+    }
+    const libraryFilms = new Paginator(1, totalPages);
+    libraryFilms.render();
   } else {
     Ref.warningSign.textContent = 'Watched Gallery is empty';
-    Ref.pagination.classList.add('is-hidden');
   }
 
   Ref.watchedBtn.addEventListener('click', handleWatchedBtn);
@@ -29,27 +39,45 @@ function handleWatchedBtn() {
   Ref.queueBtn.disabled = false;
   if (localStorage.getItem('filmsWatched') !== null) {
     Ref.warningSign.textContent = '';
-    renderFilmCardInLibrary(JSON.parse(localStorage.getItem('filmsWatched')));
-    Ref.pagination.classList.remove('is-hidden');
+    const watchedFilms = JSON.parse(localStorage.getItem('filmsWatched'));
+    const libraryInitialPage = [...watchedFilms];
+    renderFilmCardInLibrary(libraryInitialPage.splice(0, 21));
+    console.log(watchedFilms);
+    if (watchedFilms.length % 21 === 0) {
+      totalPages = watchedFilms.length / 21;
+    } else {
+      totalPages = Math.floor(watchedFilms.length / 21) + 1;
+    }
+    const libraryFilms = new Paginator(1, totalPages);
+    libraryFilms.render();
   } else {
     Ref.warningSign.textContent = 'Watched Gallery is empty';
     Ref.library.textContent = '';
-    Ref.pagination.classList.add('is-hidden');
   }
 }
 
 function handleQueueBtn() {
+  let totalPages;
   Ref.queueBtn.classList.toggle('header__libary__btn__active');
   Ref.watchedBtn.classList.toggle('header__libary__btn__active');
   Ref.queueBtn.disabled = true;
   Ref.watchedBtn.disabled = false;
   if (localStorage.getItem('filmsQueue') !== null) {
     Ref.warningSign.textContent = '';
+    const queueFilms = JSON.parse(localStorage.getItem('filmsQueue'));
+    const libraryInitialPage = [...queueFilms];
+    renderFilmCardInLibrary(libraryInitialPage.splice(0, 21));
+    console.log(queueFilms);
+    if (queueFilms.length % 21 === 0) {
+      totalPages = queueFilms.length / 21;
+    } else {
+      totalPages = Math.floor(queueFilms.length / 21) + 1;
+    }
+    const libraryFilms = new Paginator(1, totalPages);
+    libraryFilms.render();
     renderFilmCardInLibrary(JSON.parse(localStorage.getItem('filmsQueue')));
-    Ref.pagination.classList.remove('is-hidden');
   } else {
     Ref.warningSign.textContent = 'Queue Gallery is empty';
     Ref.library.textContent = '';
-    Ref.pagination.classList.add('is-hidden');
   }
 }

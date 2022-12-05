@@ -4,6 +4,10 @@ import { onUpBtnClick } from './scrollPage';
 import { fetchGenres } from './apiService';
 import { dataMerge } from './renderHomeFilms';
 import { createMovieCard } from './movieCardRender';
+import { renderFilmCardInLibrary } from './libraryFilmCard';
+import { Ref } from './localStorage/getLocalStorage';
+
+const cardGalleryEl = document.querySelector('.movie-cards-gallery-library');
 
 let getEl = selector => document.querySelector(`${selector}`);
 const paginationElementList = getEl('#pagination_list_js'); //СЮДА ОТРИСОВЫВАЕМ СЧЁТЧИК СТРАНИЦ
@@ -68,7 +72,11 @@ export class Paginator {
         this.current -= 1;
         paginationElementList.innerHTML = '';
         this.render();
-        if (this.inputtedName) {
+        if (cardGalleryEl && Ref.watchedBtn.disabled) {
+          paginatorLocalStorageGet(`${this.current}`, 'filmsWatched');
+        } else if (cardGalleryEl && Ref.queueBtn.disabled) {
+          paginatorLocalStorageGet(`${this.current}`, 'filmsQueue');
+        } else if (this.inputtedName) {
           paginatorSearchFetch(`${this.inputtedName}`, `${this.current}`);
         } else {
           paginatorTrendingFetch(`${this.current}`);
@@ -86,8 +94,11 @@ export class Paginator {
         this.current += 1;
         paginationElementList.innerHTML = '';
         this.render();
-
-        if (this.inputtedName) {
+        if (cardGalleryEl && Ref.watchedBtn.disabled) {
+          paginatorLocalStorageGet(`${this.current}`, 'filmsWatched');
+        } else if (cardGalleryEl && Ref.queueBtn.disabled) {
+          paginatorLocalStorageGet(`${this.current}`, 'filmsQueue');
+        } else if (this.inputtedName) {
           paginatorSearchFetch(`${this.inputtedName}`, `${this.current}`);
         } else {
           paginatorTrendingFetch(`${this.current}`);
@@ -117,7 +128,16 @@ export class Paginator {
       paginationElementList.innerHTML = '';
       this.render();
 
-      if (this.inputtedName) {
+      if (cardGalleryEl && Ref.watchedBtn.disabled) {
+        let keyWatchedFilms = 'filmsWatched';
+        let keyQueueFilms = 'filmsQueue';
+        paginatorLocalStorageGet(`${this.current}`, keyWatchedFilms);
+        console.log(
+          paginatorLocalStorageGet(`${this.current}`, keyWatchedFilms)
+        );
+      } else if (cardGalleryEl && Ref.queueBtn.disabled) {
+        paginatorLocalStorageGet(`${this.current}`, keyQueueFilms);
+      } else if (this.inputtedName) {
         paginatorSearchFetch(`${this.inputtedName}`, `${this.current}`);
       } else {
         paginatorTrendingFetch(`${this.current}`);
@@ -135,6 +155,19 @@ export class Paginator {
   }
 }
 //функция запроса по НОМЕРУ СТРАНИЦЫ
+async function paginatorLocalStorageGet(page, localStorageKey) {
+  try {
+    let perPage = 21;
+    let libraryFilms = JSON.parse(localStorage.getItem(localStorageKey));
+    let cloneLibraryFilms = [...libraryFilms];
+    const actualMovies = cloneLibraryFilms.splice(
+      page * perPage - perPage,
+      perPage
+    );
+    renderFilmCardInLibrary(actualMovies);
+  } catch {}
+}
+
 async function paginatorTrendingFetch(currentPage) {
   async function paginationTrendingMovies() {
     try {
