@@ -135,20 +135,14 @@ export class Paginator {
       this.render();
 
       if (cardGalleryEl && Ref.watchedBtn.disabled) {
-        let keyWatchedFilms = 'filmsWatched';
-        let keyQueueFilms = 'filmsQueue';
-        paginatorLocalStorageGet(`${this.current}`, keyWatchedFilms);
-        console.log(
-          paginatorLocalStorageGet(`${this.current}`, keyWatchedFilms)
-        );
+        paginatorLocalStorageGet(`${this.current}`, 'filmsWatched');
       } else if (cardGalleryEl && Ref.queueBtn.disabled) {
-        paginatorLocalStorageGet(`${this.current}`, keyQueueFilms);
+        paginatorLocalStorageGet(`${this.current}`, 'filmsQueue');
       } else if (this.inputtedName) {
         paginatorSearchFetch(`${this.inputtedName}`, `${this.current}`);
       } else {
         paginatorTrendingFetch(`${this.current}`);
       }
-
       onUpBtnClick();
     });
   }
@@ -163,7 +157,7 @@ export class Paginator {
 //функция запроса по НОМЕРУ СТРАНИЦЫ
 async function paginatorLocalStorageGet(page, localStorageKey) {
   try {
-    let perPage = 21;
+    const perPage = 21;
     let libraryFilms = JSON.parse(localStorage.getItem(localStorageKey));
     let cloneLibraryFilms = [...libraryFilms];
     const actualMovies = cloneLibraryFilms.splice(

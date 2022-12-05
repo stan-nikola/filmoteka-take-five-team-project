@@ -21,8 +21,8 @@
     // padding: 12px 10px 12px 10px;
     font-size: 12px;
   }
-  &:hover,
-  &:focus {
+  &:hover:enabled,
+  &:focus:enabled {
     background-color: var(--accent-btn-color);
     color: var(--second-text-color);
     border: 1px solid var(--accent-btn-color);

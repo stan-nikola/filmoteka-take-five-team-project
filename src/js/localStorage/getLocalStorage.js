@@ -1,11 +1,10 @@
 import { renderFilmCardInLibrary } from '../libraryFilmCard';
 import { Paginator } from '../pagination';
-// import refs from '../modalFilmCardRefs';
 
 export const Ref = {
   watchedBtn: document.querySelector('.header__watched__btn__js'),
   queueBtn: document.querySelector('.header__queue__btn__js'),
-  library: document.querySelector('.movie-cards-gallery'),
+  library: document.querySelector('.movie-cards-gallery-library'),
   pagination: document.querySelector('div.container'),
 };
 
@@ -24,9 +23,7 @@ export async function getLocalStorage() {
     const libraryFilms = new Paginator(1, totalPages);
     libraryFilms.render();
   } else {
-
-    Ref.warningSign.textContent = 'Watched Gallery is empty';
-
+    Ref.library.textContent = 'Watched Gallery is empty';
   }
 
   Ref.watchedBtn.addEventListener('click', handleWatchedBtn);
@@ -39,8 +36,7 @@ function handleWatchedBtn() {
   Ref.watchedBtn.disabled = true;
   Ref.queueBtn.disabled = false;
   if (localStorage.getItem('filmsWatched') !== null) {
-
-    Ref.warningSign.textContent = '';
+    Ref.library.textContent = '';
     const watchedFilms = JSON.parse(localStorage.getItem('filmsWatched'));
     const libraryInitialPage = [...watchedFilms];
     renderFilmCardInLibrary(libraryInitialPage.splice(0, 21));
@@ -53,9 +49,7 @@ function handleWatchedBtn() {
     const libraryFilms = new Paginator(1, totalPages);
     libraryFilms.render();
   } else {
-    Ref.warningSign.textContent = 'Watched Gallery is empty';
-    Ref.library.textContent = '';
-
+    Ref.library.textContent = 'Watched Gallery is empty';
   }
 }
 
@@ -66,8 +60,7 @@ function handleQueueBtn() {
   Ref.queueBtn.disabled = true;
   Ref.watchedBtn.disabled = false;
   if (localStorage.getItem('filmsQueue') !== null) {
-
-    Ref.warningSign.textContent = '';
+    Ref.library.textContent = '';
     const queueFilms = JSON.parse(localStorage.getItem('filmsQueue'));
     const libraryInitialPage = [...queueFilms];
     renderFilmCardInLibrary(libraryInitialPage.splice(0, 21));
@@ -82,9 +75,6 @@ function handleQueueBtn() {
 
     renderFilmCardInLibrary(JSON.parse(localStorage.getItem('filmsQueue')));
   } else {
-
-    Ref.warningSign.textContent = 'Queue Gallery is empty';
-    Ref.library.textContent = '';
-
+    Ref.library.textContent = 'Queue Gallery is empty';
   }
 }

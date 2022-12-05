@@ -56,7 +56,7 @@ export const team = [
     role: 'Front-end developer',
 
     responsibilities:
-      'Layout and styles of home header. Dynamic data fetching into the movie modal window. Local storage logic.',
+      'Layout and styles of home header. Dynamic data fetching into the movie modal window. Local storage logic. Adding library pagination.',
     img1x: '',
     img2x: '',
     img3x: '',
