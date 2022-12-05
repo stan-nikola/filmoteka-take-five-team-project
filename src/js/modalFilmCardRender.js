@@ -104,7 +104,7 @@ async function renderModalFilmCard(evt) {
     );
 
     loadStop();
-  } catch {}
+  } catch { }
 }
 
 function onBackdropClick(ev) {

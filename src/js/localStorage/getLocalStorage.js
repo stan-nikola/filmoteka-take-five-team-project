@@ -4,9 +4,8 @@ import renderFilmCardInLibrary from '../libraryFilmCard';
 export const Ref = {
   watchedBtn: document.querySelector('.header__watched__btn__js'),
   queueBtn: document.querySelector('.header__queue__btn__js'),
-  library: document.querySelector('.library__gallery__js'),
-  pagination: document.querySelector('div.container'),
-  warningSign: document.querySelector('.library__warning-sign'),
+  library: document.querySelector('.movie-cards-gallery'),
+  pagination: document.querySelector('div.container')
 };
 
 export function getLocalStorage() {
@@ -14,8 +13,9 @@ export function getLocalStorage() {
   if (localStorage.getItem('filmsWatched') !== null) {
     renderFilmCardInLibrary(JSON.parse(localStorage.getItem('filmsWatched')));
   } else {
-    Ref.warningSign.textContent = 'Watched Gallery is empty';
+    Ref.library.textContent = 'Watched Gallery is empty';
     Ref.pagination.classList.add('is-hidden');
+    Ref.library.setAttribute("style", "display: flex;justify-content:center;min-height:auto;");
   }
 
   Ref.watchedBtn.addEventListener('click', handleWatchedBtn);
@@ -28,13 +28,12 @@ function handleWatchedBtn() {
   Ref.watchedBtn.disabled = true;
   Ref.queueBtn.disabled = false;
   if (localStorage.getItem('filmsWatched') !== null) {
-    Ref.warningSign.textContent = '';
     renderFilmCardInLibrary(JSON.parse(localStorage.getItem('filmsWatched')));
     Ref.pagination.classList.remove('is-hidden');
   } else {
-    Ref.warningSign.textContent = 'Watched Gallery is empty';
-    Ref.library.textContent = '';
+    Ref.library.textContent = 'Watched Gallery is empty';
     Ref.pagination.classList.add('is-hidden');
+    Ref.library.setAttribute("style", "display: flex;justify-content:center;min-height:auto;");
   }
 }
 
@@ -44,12 +43,11 @@ function handleQueueBtn() {
   Ref.queueBtn.disabled = true;
   Ref.watchedBtn.disabled = false;
   if (localStorage.getItem('filmsQueue') !== null) {
-    Ref.warningSign.textContent = '';
     renderFilmCardInLibrary(JSON.parse(localStorage.getItem('filmsQueue')));
     Ref.pagination.classList.remove('is-hidden');
   } else {
-    Ref.warningSign.textContent = 'Queue Gallery is empty';
-    Ref.library.textContent = '';
+    Ref.library.textContent = 'Queue Gallery is empty';
     Ref.pagination.classList.add('is-hidden');
+    Ref.library.setAttribute("style", "display: flex;justify-content:center;min-height:auto;");
   }
 }
