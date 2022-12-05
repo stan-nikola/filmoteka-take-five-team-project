@@ -13,10 +13,10 @@ export const team = [
   },
 
   {
-    name: 'Дарья Панчук',
+    name: 'Daria Panchuk',
     role: 'Scrum master',
     responsibilities:
-      'Регулювала термін виконання проєкту. Здійснювала щоденний Stand Up для планування роботи команди. Слідкувала за наявністю завдань у всіх учасників команди та термінами їх реалізації у Trello. Допомагала вдосконалювати стилі проєкту. Реалізувала реєстрацію за допомогою бези Firebase.',
+      'Control the deadlines in Trello, daily stand up, improve the styles of the project, implemented registration using the Firebase Authentication and Realtime Database.',
     img1x: '',
     img2x: '',
     img3x: '',
