@@ -79,16 +79,17 @@ export const team = [
   },
 
   {
-    name: 'Валентин Мусиенко',
+    name: 'Valentyn Musiienko',
     role: 'Front-end developer',
-    responsibilities: 'Верстка и логика пагинации',
+    responsibilities:
+      '⇜ Markup ... Logic ... Styles ⇝ of pagination. Adapted requests and responses for correct rendering during pagination',
     img1x: '',
     img2x: '',
     img3x: '',
     img: 'https://stan-nikola.github.io/filmoteka-take-five-team-project/valentyn.b7ef4ceb.jpg',
 
-    linkedin: '',
-    git: '',
+    linkedin: 'https://www.linkedin.com/in/valentyn-musiienko-543b6822b/',
+    git: 'https://github.com/val-mus?tab=repositories',
   },
 
   {
