@@ -39,7 +39,6 @@
   transition: scale 250ms linear, color 250ms linear;
   &:hover,&:focus{
     color:var(--accent-color);
-    scale:1.05;
   }
 }
 
