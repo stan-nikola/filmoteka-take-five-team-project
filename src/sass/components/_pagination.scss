@@ -85,7 +85,8 @@
   color: #000000;
 }
 
-.arrows{
-  font-size: 40px;
-  font-weight: bold;
+
+
+.pagination___btn--prev{
+  transform: matrix(-1, 0, 0, 1, 0, 0);
 }
