@@ -108,10 +108,9 @@ async function deleteWatched() {
 
     watchedBtn.addEventListener('click', addWatched);
   }
-  if (((localStorage.getItem('filmsWatched'))) === "[]") {
+  if (localStorage.getItem('filmsWatched') === '[]') {
     localStorage.removeItem('filmsWatched');
     Ref.library.textContent = 'Watched Gallery is empty';
-    Ref.library.setAttribute("style", "display: flex;justify-content:center;min-height:auto;");
   }
 }
 
@@ -167,9 +166,8 @@ async function deleteQueue() {
     queueBtn.removeEventListener('click', deleteQueue);
     queueBtn.addEventListener('click', addQueue);
   }
-  if (((localStorage.getItem('filmsQueue'))) === "[]") {
+  if (localStorage.getItem('filmsQueue') === '[]') {
     localStorage.removeItem('filmsQueue');
     Ref.library.textContent = 'Queue Gallery is empty';
-    Ref.library.setAttribute("style", "display: flex;justify-content:center;min-height:auto;");
   }
 }

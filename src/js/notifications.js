@@ -1,11 +1,11 @@
 import toastr from 'toastr';
 
 toastr.options = {
-  closeButton: false,
+  closeButton: true,
   debug: false,
   newestOnTop: false,
   progressBar: true,
-  positionClass: 'toast-top-right',
+  positionClass: 'toast-top-center',
   preventDuplicates: true,
   onclick: null,
   showDuration: '300',

@@ -16,7 +16,9 @@
   margin-right: auto;
   margin-left: auto;
   padding: 20px 20px 40px 20px;
-  min-height: 1000px;
+  min-height: 100vh;
+  justify-content: center;
+  text-align: center;
 
   // flex-basis: calc((100% - 60px) / 3);
 &.dark-theme{
@@ -39,7 +41,7 @@
 
 .card-container {
   width: 280px;
-  min-height: 443px;
+  max-height: 443px;
   // margin-bottom: 20px;
   cursor: pointer;
   margin: 0 auto;
@@ -55,7 +57,7 @@
   
   @media screen and (min-width: 768px) {
     width: 336px;
-    min-height: 495px;
+    max-height: 495px;
     // margin-bottom: 0;
     
     &:not(:last-child) {
@@ -65,7 +67,7 @@
 
   @media screen and (min-width: 1280px) {
     width: 394px;
-    min-height: 634px;
+    max-height: 634px;
   }
 
    

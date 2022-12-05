@@ -5,7 +5,7 @@ export const Ref = {
   watchedBtn: document.querySelector('.header__watched__btn__js'),
   queueBtn: document.querySelector('.header__queue__btn__js'),
   library: document.querySelector('.movie-cards-gallery'),
-  pagination: document.querySelector('div.container')
+  pagination: document.querySelector('div.container'),
 };
 
 export function getLocalStorage() {
@@ -15,7 +15,6 @@ export function getLocalStorage() {
   } else {
     Ref.library.textContent = 'Watched Gallery is empty';
     Ref.pagination.classList.add('is-hidden');
-    Ref.library.setAttribute("style", "display: flex;justify-content:center;min-height:auto;");
   }
 
   Ref.watchedBtn.addEventListener('click', handleWatchedBtn);
@@ -33,7 +32,6 @@ function handleWatchedBtn() {
   } else {
     Ref.library.textContent = 'Watched Gallery is empty';
     Ref.pagination.classList.add('is-hidden');
-    Ref.library.setAttribute("style", "display: flex;justify-content:center;min-height:auto;");
   }
 }
 
@@ -48,6 +46,5 @@ function handleQueueBtn() {
   } else {
     Ref.library.textContent = 'Queue Gallery is empty';
     Ref.pagination.classList.add('is-hidden');
-    Ref.library.setAttribute("style", "display: flex;justify-content:center;min-height:auto;");
   }
 }
