@@ -36,6 +36,11 @@
   line-height: 1.33;
   color: var(--main-text-color);
   cursor: pointer;
+  transition: scale 250ms linear, color 250ms linear;
+  &:hover,&:focus{
+    color:var(--accent-color);
+    scale:1.05;
+  }
 }
 
 .pagination__el--current {
@@ -43,6 +48,11 @@
   background-color: var(--accent-color);
   border-radius: 5px;
   color: var(--second-text-color);
+  &:hover,
+    &:focus {
+      color: var(--second-text-color);
+    }
+
 }
 
 .hidden {
@@ -58,15 +68,17 @@
   background: var(--footer-background);
   border-radius: 5px;
   border: none;
-
+transition:background-color 250ms linear,color 250ms linear,box-shadow 250ms linear  ;
 
   &:hover,
   &:focus {
+      scale: 1.05;
     background-color: var(--accent-btn-color);
     color: var(--second-text-color);
     border: 1px solid var(--accent-btn-color);
     box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px,
       rgba(0, 0, 0, 0.23) 0px 6px 6px;
+
   }
 }
 
