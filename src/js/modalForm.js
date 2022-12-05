@@ -1,6 +1,6 @@
 import { initializeApp } from "firebase/app";
 import { getDatabase, set, ref, update } from "firebase/database";
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut } from "firebase/auth";
 
 const firebaseConfig = {
   apiKey: "AIzaSyBO11oR33t-VMPXIdPhVdKy-YV2hVS0eQA",
@@ -17,6 +17,22 @@ const database = getDatabase(app);
 const auth = getAuth();
 
 let getEl = selector => document.querySelector(selector);
+
+onAuthStateChanged(auth, (user) => {
+    if (user) {
+        // User is signed in, see docs for a list of available properties
+        // https://firebase.google.com/docs/reference/js/firebase.User
+        const uid = user.uid;
+        getEl('.modal-form__area').style.visibility = "hidden";
+        getEl('.modal-form__greeting').style.visibility = "visible";
+    // ...
+    } else {
+        // User is signed out
+        // ...
+        getEl('.modal-form__greeting').style.visibility = "hidden";
+        getEl('.modal-form__area').style.visibility = "visible";
+    }
+});
 
 getEl('.register-btn').addEventListener('click', showLogInModal);
 
@@ -93,6 +109,7 @@ function onLogIn(e) {
             }
             })
             .catch((error) => {
+                console.log(error);
                 const errorCode = error.code;
                 const errorMessage = error.message;
                 window.alert("Oops");
@@ -100,4 +117,19 @@ function onLogIn(e) {
     }
 }
 
-export { showLogInModal, onCloseRegisterForm, onBackdropCloseModal, onRegister, onLogIn}
+    getEl('#logOut').addEventListener('click', onSignOut);
+
+    function onSignOut(e) {
+        e.preventDefault();
+        signOut(auth).then(() => {
+            // Sign-out successful.
+            window.alert("Log out successful!");
+        }).catch((error) => {
+            console.log(error);
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            window.alert("Oops");
+        });
+        }
+
+export { showLogInModal, onCloseRegisterForm, onBackdropCloseModal, onRegister, onLogIn, onSignOut}

@@ -18,6 +18,7 @@ import {
   onBackdropCloseModal,
   onRegister,
   onLogIn,
+  onSignOut,
 } from './js/modalForm';
 
 import { onUpBtnClick } from './js/scrollPage';
